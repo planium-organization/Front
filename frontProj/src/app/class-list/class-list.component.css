@@ -1,0 +1,21 @@
+.Menu {
+  width: 200px;
+}
+
+.Menu
+{
+  float: right;
+}
+.Menu a {
+  background-color: #FAF6FE;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.Menu a:hover {
+  background-color: #7C42BD;
+  color:white;
+}
+
