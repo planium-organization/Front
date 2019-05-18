@@ -19,3 +19,58 @@
   color:white;
 }
 
+ul {
+  background-color: #FAF6FE;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+ul li {
+  display: block;
+  position: relative;
+  width: 200px;
+}
+
+li ul {
+  display: none;
+  margin: 0;
+}
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  background: gray;
+  color: #000;
+  border-top: 2px solid #666;
+  white-space: nowrap;
+}
+
+ul li a:hover {
+  background: #949494;
+}
+
+li:hover ul {
+  display: block;
+  position: absolute;
+}
+
+li:hover li {
+  float: left;
+  font-size: 11px;
+}
+
+li:hover a {
+  background: #A0A0A0;
+}
+
+li:hover li a:hover {
+  background: #C2C2C2;
+}
+
+ul li ul {
+  position: absolute;
+  right: 100%;
+  top: 0;
+}
