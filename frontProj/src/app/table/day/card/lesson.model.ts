@@ -1,3 +1,4 @@
+
 export class LessonModel {
     public Color: string;
     public Name: string;
