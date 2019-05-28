@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentModel } from './student.model';
 
 @Component({
   selector: 'app-student-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
+
+  Students : StudentModel[];
 
   constructor() { }
 

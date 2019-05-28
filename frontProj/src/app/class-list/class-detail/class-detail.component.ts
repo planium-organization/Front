@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassModel } from '../class.model';
 
 @Component({
   selector: 'app-class-detail',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./class-detail.component.css']
 })
 export class ClassDetailComponent implements OnInit {
+
+  ClassItem : ClassModel;
 
   constructor() { }
 
