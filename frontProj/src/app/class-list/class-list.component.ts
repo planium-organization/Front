@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassModel } from './class.model';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-class-list',
@@ -9,9 +10,10 @@ import { ClassModel } from './class.model';
 export class ClassListComponent implements OnInit {
 
   Classes: ClassModel[];
-  constructor() { }
+  constructor(private dataService : DataService ) { }
 
   ngOnInit() {
+    this.Classes = this.dataService.GetClasses();
   }
 
 }
