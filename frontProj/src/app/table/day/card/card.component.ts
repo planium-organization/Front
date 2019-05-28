@@ -8,7 +8,7 @@ import { CardModel } from './card.model';
 })
 export class CardComponent implements OnInit {
 
-  Card : CardModel;
+  Card: CardModel;
 
   constructor() { }
 

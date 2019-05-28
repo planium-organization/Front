@@ -12,6 +12,7 @@
   display: block;
   padding: 12px;
   text-decoration: none;
+
 }
 
 .Menu a:hover {
@@ -25,6 +26,7 @@ ul {
   display: block;
   padding: 12px;
   text-decoration: none;
+  padding:50% 0;
 }
 
 ul li {

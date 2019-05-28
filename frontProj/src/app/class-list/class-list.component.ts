@@ -8,7 +8,7 @@ import { ClassModel } from './class.model';
 })
 export class ClassListComponent implements OnInit {
 
-  Classes : ClassModel[];
+  Classes: ClassModel[];
   constructor() { }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { DayModel } from './day.model';
 })
 export class DayComponent implements OnInit {
 
-  DayColumn : DayModel;
+  DayColumn: DayModel;
 
   constructor() { }
 
