@@ -11,6 +11,7 @@ import { TableComponent } from './table/table.component';
 import { DayComponent } from './table/day/day.component';
 import { TextInputComponent } from './post-page/text-input/text-input.component';
 import { DialogueBoxComponent } from './post-page/dialogue-box/dialogue-box.component';
+import { CardComponent } from './table/day/card/card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DialogueBoxComponent } from './post-page/dialogue-box/dialogue-box.comp
     TableComponent,
     DayComponent,
     TextInputComponent,
-    DialogueBoxComponent
+    DialogueBoxComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule

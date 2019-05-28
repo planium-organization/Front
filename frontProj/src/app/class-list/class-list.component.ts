@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassModel } from './class.model';
 
 @Component({
   selector: 'app-class-list',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassListComponent implements OnInit {
 
+  Classes : ClassModel[];
   constructor() { }
 
   ngOnInit() {

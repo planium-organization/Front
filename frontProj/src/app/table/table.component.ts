@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DayModel } from './day/day.model';
 
 @Component({
   selector: 'app-table',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+
+  DayColumns : DayModel[];
 
   constructor() { }
 
