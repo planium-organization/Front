@@ -18,9 +18,9 @@ body {
 
 .sidebar a {
   text-decoration: none;
+  /* padding: 14px 16px; testing */
 /* Removes the underline from links. */
-  /* color: #0B0036;
-Text color of the menu items */
+
 }
 .sidebar ul {
   line-height: 40px;
@@ -39,6 +39,7 @@ Text color of the menu items */
 .sidebar ul li.listItemA:hover
 {
   background-color: #7C42BD;
+  color: white;
 }
 .sidebar ul li.listItemA a:hover
 {
