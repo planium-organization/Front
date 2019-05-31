@@ -5,7 +5,7 @@ body {
 
 .sidebar {
   float: right;
-  background: #F4ECFC;
+  background-color: #F4ECFC;
 /* Sidebar Background */
   width: 200px;
 /* Width of side bar */
@@ -22,10 +22,6 @@ body {
   color: #0B0036;
 /* Text color of the menu items */
 }
-.listItemA :hover
-{
-   background-color: yellow;
-}
 .sidebar ul {
   line-height: 40px;
   overflow: hidden;
@@ -33,11 +29,15 @@ body {
   padding-left: 0;
 }
 
-.sidebar ul li {
+.sidebar ul li.listItemA {
   /* list-style-type: none; */
-  background: #F4ECFC;
+  background-color: #F4ECFC;
 /* Background colour of the menu items. */
 
+}
+.sidebar ul li.listItemA:hover
+{
+  background-color: purple;
 }
 
 .listItemA {
