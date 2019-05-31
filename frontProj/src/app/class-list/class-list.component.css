@@ -19,8 +19,8 @@ body {
 .sidebar a {
   text-decoration: none;
 /* Removes the underline from links. */
-  color: #0B0036;
-/* Text color of the menu items */
+  /* color: #0B0036;
+Text color of the menu items */
 }
 .sidebar ul {
   line-height: 40px;
@@ -28,16 +28,21 @@ body {
   margin-left: 0;
   padding-left: 0;
 }
-
+.sidebar ul li.listItemA a
+{
+  color: #0B0036;
+}
 .sidebar ul li.listItemA {
-  /* list-style-type: none; */
   background-color: #F4ECFC;
 /* Background colour of the menu items. */
-
 }
 .sidebar ul li.listItemA:hover
 {
-  background-color: purple;
+  background-color: #7C42BD;
+}
+.sidebar ul li.listItemA a:hover
+{
+  color: white;
 }
 
 .listItemA {
