@@ -10,10 +10,9 @@ import { DataService } from '../data.service';
 export class ClassListComponent implements OnInit {
 
   Classes: ClassModel[];
-  constructor(private dataService : DataService ) { }
+  constructor( ) { }
 
   ngOnInit() {
-    this.Classes = this.dataService.GetClasses();
   }
 
 }
