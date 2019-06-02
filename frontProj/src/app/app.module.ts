@@ -12,6 +12,7 @@ import { DayComponent } from './table/day/day.component';
 import { TextInputComponent } from './post-page/text-input/text-input.component';
 import { DialogueBoxComponent } from './post-page/dialogue-box/dialogue-box.component';
 import { CardComponent } from './table/day/card/card.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { CardComponent } from './table/day/card/card.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

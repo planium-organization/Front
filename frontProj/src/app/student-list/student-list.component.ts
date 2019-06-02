@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentModel } from './student.model';
+import { DataService } from '../data.service';
+import { ClassModel } from '../class-list/class.model';
 
 @Component({
   selector: 'app-student-list',
@@ -8,11 +10,18 @@ import { StudentModel } from './student.model';
 })
 export class StudentListComponent implements OnInit {
 
-  Students : StudentModel[];
+  Students : StudentModel[]; 
 
-  constructor() { }
+  constructor( private data : DataService) {}
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.data.classSelected.subscribe
+    (
+      (classItem : ClassModel) => 
+      {
+        this.Students = this.data.GetStudents(classItem.ID);
+      }
+    );
   }
-
 }

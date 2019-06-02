@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DayModel } from './day.model';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-day',
@@ -8,11 +9,20 @@ import { DayModel } from './day.model';
 })
 export class DayComponent implements OnInit {
 
-  DayColumn: DayModel;
+  @Input() DayColumn: DayModel;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
+  onClick()//comments
+  {
+    this.dataService.daySelected.emit(this.DayColumn);
+  }
+
+  onAddCard()
+  {
+    
+  }
 }
