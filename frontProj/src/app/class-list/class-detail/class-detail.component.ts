@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ClassModel } from '../class.model';
+import { DataService } from 'src/app/data.service';
 // class item
 @Component({
   selector: 'app-class-detail',
@@ -7,12 +8,16 @@ import { ClassModel } from '../class.model';
   styleUrls: ['./class-detail.component.css']
 })
 export class ClassDetailComponent implements OnInit {
+  @Input() ClassItem: ClassModel;
 
-  ClassItem: ClassModel;
 
-  constructor() { }
+  constructor(private dataService : DataService) { }
 
   ngOnInit() {
   }
 
+  onSelectedAnalisys()//show student list
+  {
+	this.dataService.classSelected.emit(this.ClassItem);
+  }
 }

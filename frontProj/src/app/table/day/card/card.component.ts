@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CardModel } from './card.model';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-card',
@@ -8,11 +9,15 @@ import { CardModel } from './card.model';
 })
 export class CardComponent implements OnInit {
 
-  Card: CardModel;
+  @Input() Card: CardModel;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
+  onSelect()//Show detail
+  {
+    this.dataService.cardSelected.emit(this.Card);
+  }
 }
