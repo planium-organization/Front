@@ -14,7 +14,7 @@ export class DataService {
     studentSelected = new EventEmitter<StudentModel>();
     cardSelected = new EventEmitter<CardModel>();
     daySelected = new EventEmitter<DayModel>();
-    
+
     private Students1: StudentModel[] =
     [
         new StudentModel('1', 'student1', 'mathmatics', 'helli'),
@@ -23,7 +23,7 @@ export class DataService {
         new StudentModel('4', 'student4', 'mathmatics', 'helli'),
         new StudentModel('5', 'student5', 'mathmatics', 'helli'),
     ];
-    
+
     private students2: StudentModel[] =
     [
         new StudentModel('6', 'student1', 'Experimental', 'farzanegan'),
@@ -34,7 +34,8 @@ export class DataService {
         new StudentModel('11', 'student6', 'Experimental', 'farzanegan'),
         new StudentModel('12', 'student7', 'Experimental', 'farzanegan'),
     ];
-    
+    // tslint:disable-next-line:no-trailing-whitespace
+
     private Classes: ClassModel[] =
     [
         new ClassModel('Class1', '1'),
@@ -107,13 +108,13 @@ export class DataService {
         return this.Classes.slice();
     }
 
-    GetStudents(id: string) 
+    GetStudents(id: string)
     {
-        if (id == '1') 
+        if (id == '1')
         {
             return this.Students1.slice();
         }
-        else 
+        else
         {
             return this.students2.slice();
         }

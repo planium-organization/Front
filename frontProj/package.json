@@ -22,6 +22,7 @@
     "@types/color": "^3.0.0",
     "bootstrap": "^3.4.1",
     "core-js": "^2.6.9",
+    "jquery": "^3.4.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "typescript-dotnet-umd": "^4.11.2",
