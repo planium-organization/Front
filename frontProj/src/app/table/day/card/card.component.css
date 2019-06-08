@@ -6,22 +6,34 @@
   background :#FAF7FC;
   border: 1px solid #EEE2FA;
   border-radius : 10px;
-  text-align:center;
-  font-size:20px;
-  /* padding:50% 0; */
   position: relative;
 
 }
 
+#name
+{
+  position: relative;
+  text-align:center;
+  font-size:15px;
+  top:30px;
+}
+#time
+{
+  position: relative;
+  text-align:center;
+  font-size:15px;
+  top:50px;
+}
 .shape
 {
   position: absolute;
-  height:100%;
+  height:85%;
   width: 3px;
   background-color: blue;
   padding-top: 0px;
-  padding-left: 5px;
-  top: 2px;
-  left: 3px;
+  top: 10px;
   border-radius: 2px;
+  right: auto;
+  left: 8px;
+  padding-left: 10px;
 }
