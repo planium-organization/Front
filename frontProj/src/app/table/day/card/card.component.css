@@ -27,6 +27,7 @@
 .shape
 {
   position: absolute;
+  display: block;
   height:85%;
   width: 3px;
   background-color: blue;
