@@ -5,16 +5,9 @@
 </head>
 <body>
     <div class="sidebar">
-        <ul>
-            <li class="listItemA"><a href="#">Student1</a></li>
+        <ul class = "student-list">
+            <li *ngFor = "let Student of Students" class="listItemA"><a href="#">{{Student.Name}}</a></li>
 
-            <li class="listItemA"><a href="#">Student2</a></li>
-
-            <li class="listItemA"><a href="#">Student3</a></li>
-
-            <li class="listItemA"><a href="#">Student4</a></li>
-
-            <li class="listItemA"><a href="#">Student5</a></li>
         </ul>
     </div>
 </body>

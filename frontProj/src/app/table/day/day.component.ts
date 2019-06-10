@@ -23,6 +23,6 @@ export class DayComponent implements OnInit {
 
   onAddCard()
   {
-    
+
   }
 }
