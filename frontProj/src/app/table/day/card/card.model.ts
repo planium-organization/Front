@@ -4,12 +4,19 @@ export class CardModel {
     public duration: Duration;
     public lesson: LessonModel;
     public description: string;
-    public status: boolean;
+    public isDone: boolean;
+    public supervisorCreated: boolean;
 
-    constructor(duration: Duration, lesson: LessonModel, description: string, status: boolean) {
+    constructor(duration: Duration, 
+        lesson: LessonModel, 
+        description: string, 
+        isDone: boolean,
+        supervisorCreated : boolean = false) 
+    {
         this.description = description;
         this.duration = duration;
         this.lesson = lesson;
-        this.status = status;
+        this.isDone = isDone;
+        this.supervisorCreated = supervisorCreated;
     }
 }

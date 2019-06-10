@@ -17,36 +17,36 @@ export class DataService {
 
     private Students1: StudentModel[] =
     [
-        new StudentModel('1', 'student1', 'mathmatics', 'helli'),
-        new StudentModel('2', 'student2', 'mathmatics', 'helli'),
-        new StudentModel('3', 'student3', 'mathmatics', 'helli'),
-        new StudentModel('4', 'student4', 'mathmatics', 'helli'),
-        new StudentModel('5', 'student5', 'mathmatics', 'helli'),
+        new StudentModel('1', 'Oliver Roberts', 'mathmatics', 'helli'),
+        new StudentModel('2', 'Jack Roy', 'mathmatics', 'helli'),
+        new StudentModel('3', 'Harry Williams', 'mathmatics', 'helli'),
+        new StudentModel('4', 'Jacob Thomas', 'mathmatics', 'helli'),
+        new StudentModel('5', 'Charlie Lam', 'mathmatics', 'helli'),
     ];
 
     private students2: StudentModel[] =
     [
-        new StudentModel('6', 'student1', 'Experimental', 'farzanegan'),
-        new StudentModel('7', 'student2', 'Experimental', 'farzanegan'),
-        new StudentModel('8', 'student3', 'Experimental', 'farzanegan'),
-        new StudentModel('9', 'student4', 'Experimental', 'farzanegan'),
-        new StudentModel('10', 'student5', 'Experimental', 'farzanegan'),
-        new StudentModel('11', 'student6', 'Experimental', 'farzanegan'),
-        new StudentModel('12', 'student7', 'Experimental', 'farzanegan'),
+        new StudentModel('6', 'Emma Smith', 'Experimental', 'farzanegan'),
+        new StudentModel('7', 'Olivia Wilson', 'Experimental', 'farzanegan'),
+        new StudentModel('8', 'Emily Taylor', 'Experimental', 'farzanegan'),
+        new StudentModel('9', 'Linda Jones', 'Experimental', 'farzanegan'),
+        new StudentModel('10', 'Victoria Brown', 'Experimental', 'farzanegan'),
+        new StudentModel('11', 'Sophie Miller', 'Experimental', 'farzanegan'),
+        new StudentModel('12', 'Jessica Taylor', 'Experimental', 'farzanegan'),
     ];
     // tslint:disable-next-line:no-trailing-whitespace
 
     private Classes: ClassModel[] =
     [
-        new ClassModel('Class1', '1'),
-        new ClassModel('Class2', '2')
+        new ClassModel('4th grade math', '1'),
+        new ClassModel('1st grade', '2')
     ];
 
     private Sat = new DayModel(new Date(2019, 6, 1),
     [
-        new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
-        new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
+        new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true),
+        new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true),
+        new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true),
         new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false),
     ]);
 
@@ -54,7 +54,7 @@ export class DataService {
     [
         new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
         new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', true),
+        new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', true,true),
         new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
         new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true)
     ]);
@@ -64,7 +64,7 @@ export class DataService {
         new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
         new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
         new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', false),
+        new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', false,true),
         new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false),
     ]);
 
@@ -73,15 +73,15 @@ export class DataService {
         new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
         new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
         new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true),
-        new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false),
+        new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true),
     ]);
 
     private Wed = new DayModel(new Date(2019, 6, 5),
     [
         new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
         new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true),
-        new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false),
+        new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true,true),
+        new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false, true),
     ]);
 
     private Thu = new DayModel(new Date(2019, 6, 6),
@@ -94,10 +94,10 @@ export class DataService {
 
     private Fri = new DayModel(new Date(2019, 6, 7),
     [
-        new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
+        new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true),
         new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
         new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true)
+        new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true, true)
     ]);
 
     private Days = [this.Sat, this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri];
