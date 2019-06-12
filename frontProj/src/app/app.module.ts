@@ -13,6 +13,7 @@ import { TextInputComponent } from './post-page/text-input/text-input.component'
 import { DialogueBoxComponent } from './post-page/dialogue-box/dialogue-box.component';
 import { CardComponent } from './table/day/card/card.component';
 import { DataService } from './data.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DataService } from './data.service';
     CardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [
     DataService

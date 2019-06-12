@@ -6,11 +6,12 @@ import { DayModel } from './table/day/day.model';
 import { CardModel } from './table/day/card/card.model';
 import { Duration } from './Duration';
 import { LessonModel } from './table/day/card/lesson.model';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class DataService {
 
-    classSelected = new EventEmitter<ClassModel>();
+    classSelected = new EventEmitter<string>();
     studentSelected = new EventEmitter<StudentModel>();
     cardSelected = new EventEmitter<CardModel>();
     daySelected = new EventEmitter<DayModel>();
@@ -38,8 +39,8 @@ export class DataService {
 
     private Classes: ClassModel[] =
     [
-        new ClassModel('4th grade math', '1'),
-        new ClassModel('1st grade', '2')
+        new ClassModel('4th grade math', "1"),
+        new ClassModel('1st grade', "2")
     ];
 
     private Sat = new DayModel(new Date(2019, 6, 1),
@@ -108,15 +109,17 @@ export class DataService {
         return this.Classes.slice();
     }
 
-    GetStudents(id: string)
+    GetStudents(id: string): StudentModel[]
     {
         if (id == '1')
         {
+            console.log("condition works 1");
             return this.Students1.slice();
         }
         else
         {
-            return this.students2.slice();
+            console.log("condition works 2");
+            return this.students2;
         }
     }
 
