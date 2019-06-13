@@ -1,16 +1,8 @@
-table {
-  width: 750px;
-  height: 600px;
+ table {
 	border-collapse: collapse;
-  margin-right:10px;
-  margin-left:120px;
   position: relative;
-  top : -110px;
-
 	}
 
-
-/* Zebra striping */
 tr:nth-of-type(odd) {
 	background: #FEFCFF;
 	}
@@ -29,9 +21,6 @@ td, th {
 	font-size: 18px;
 	}
 
-/*
-Max width before this particular table gets nasty
-*/
 @media
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
@@ -40,12 +29,10 @@ only screen and (max-width: 760px),
 	  	width: 100%;
 	}
 
-	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr {
 		display: block;
 	}
 
-	/* Hide table headers (but not display: none;, for accessibility) */
 	thead tr {
 		position: absolute;
 		top: -9999px;
@@ -55,7 +42,7 @@ only screen and (max-width: 760px),
 	tr { border: 2px solid #EEE2FA; }
 
 	td {
-		/* Behave  like a "row" */
+
 		border: none;
 		border-bottom: 2px solid #EEE2FA;
 		position: relative;
@@ -63,15 +50,15 @@ only screen and (max-width: 760px),
 	}
 
 	td:before {
-		/* Now like a table header */
+
 		position: absolute;
-		/* Top/left values mimic padding */
+
 		top: 6px;
 		left: 6px;
 		width: 45%;
 		padding-right: 10px;
 		white-space: nowrap;
-		/* Label the data */
+
 		content: attr(data-column);
 
 		color: #000;
