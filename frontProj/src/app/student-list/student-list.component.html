@@ -6,8 +6,13 @@
 <body>
     <div class="sidebar">
         <ul class = "student-list">
-            <li *ngFor = "let Student of Students" class="listItemA"><a href="#">{{Student.Name}}</a></li>
+            <li *ngFor = "let Student of Students" class="listItemA">
+                <a [routerLink]="['/Classes', ClassId, Student.ID]">
+                <app-student-detail [Student] = "Student">
+                </app-student-detail>
+            </a>
         </ul>
     </div>
+    <router-outlet></router-outlet>
 </body>
 </html>

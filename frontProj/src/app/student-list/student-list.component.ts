@@ -12,13 +12,14 @@ import { ActivatedRoute } from '@angular/router';
 export class StudentListComponent implements OnInit {
   
   Students : StudentModel[]; 
-
+  ClassId : string;
   constructor( private data : DataService,private rout : ActivatedRoute) {}
 
   ngOnInit() 
   {
     this.rout.paramMap.subscribe(
-      params => this.Students = this.data.GetStudents(params.get('id'))
+      params => {
+        this.Students = this.data.GetStudents(this.ClassId = params.get('id'))}
     );
     
   }

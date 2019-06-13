@@ -6,7 +6,6 @@ import { DayModel } from './table/day/day.model';
 import { CardModel } from './table/day/card/card.model';
 import { Duration } from './Duration';
 import { LessonModel } from './table/day/card/lesson.model';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class DataService {
@@ -113,21 +112,22 @@ export class DataService {
     {
         if (id == '1')
         {
-            console.log("condition works 1");
             return this.Students1.slice();
         }
         else
         {
-            console.log("condition works 2");
-            return this.students2;
+            return this.students2.slice();
         }
     }
 
     initTable(id: string) {
         return this.Days.slice();
     }
-
+    private date: Date;
     getWeek(week : number){
+        const day =  this.date.getDay();
+        const d = Date.now() + ((7  * week - day)* 86400000);
+        this.date = new Date(d);
         return this.Days.slice();
     }
 
