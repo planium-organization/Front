@@ -1,18 +1,25 @@
 <html>
 
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href= "table.component.css" rel="StyleSheet" type="text/css">
 </head>
 <body>
+  <div id = "menu-outer">
     <div class="table-responsive">
         <table class = "table">
-          <a *ngFor = "let day of DayColumns">
-                <a>
-                    <app-day [DayColumn]="day">
-                    </app-day>
+          <ul id = "Horizontal-List">
+          <li>
+            <a href="#" *ngFor = "let day of DayColumns">
+               <a>
+                <app-day [DayColumn]="day">
+                </app-day>
                 </a>
             </a>
+          </li>
+          </ul>
         </table>
+    </div>
     </div>
     <router-outlet></router-outlet>
 </body>

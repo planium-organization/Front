@@ -1,5 +1,5 @@
 table {
-  width: 50px;
+  width: 100px;
 	border-collapse: collapse;
   position: relative;
 	}
@@ -10,7 +10,7 @@ tr:nth-of-type(odd) {
 
 th {
     background: #FEFCFF;
-    width:50px;
+    width:100px;
     color: #12005E;
     text-align: center;
   	font-weight: bold;
