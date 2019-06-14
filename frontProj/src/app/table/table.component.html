@@ -1,86 +1,19 @@
-<!-- <html>
-
-
-  <body>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Sat</th>
-          <th>Sun</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thr</th>
-          <th>Fri</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-column="Sat" style="padding-bottom: 500px"></td>
-          <td data-column="Sun"></td>
-          <td data-column="Mon"></td>
-          <td data-column="Tue"></td>
-          <td data-column="Wed"></td>
-          <td data-column="Thr"></td>
-          <td data-column="Fri"></td>
-        </tr>
-
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-      </tbody>
-    </table>
-  </body>
-
-</html> -->
-
-<!DOCTYPE html>
 <html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href= "table.component.css" rel="StyleSheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
 </head>
 <body>
-
-<div class="container">
-  <div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Sat</th>
-        <th>Sun</th>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thr</th>
-        <th>Fri</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-          <td data-column="Sat" style="padding-bottom: 500px"></td>
-          <td data-column="Sun"></td>
-          <td data-column="Mon"></td>
-          <td data-column="Tue"></td>
-          <td data-column="Wed"></td>
-          <td data-column="Thr"></td>
-          <td data-column="Fri"></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-</div>
-
+    <div class="table-responsive">
+        <table class = "table">
+          <a *ngFor = "let day of DayColumns">
+                <a>
+                    <app-day [DayColumn]="day">
+                    </app-day>
+                </a>
+            </a>
+        </table>
+    </div>
+    <router-outlet></router-outlet>
 </body>
 </html>
