@@ -9,9 +9,6 @@ import { LessonModel } from './table/day/card/lesson.model';
 
 @Injectable()
 export class DataService {
-
-    classSelected = new EventEmitter<string>();
-    studentSelected = new EventEmitter<StudentModel>();
     cardSelected = new EventEmitter<CardModel>();
     daySelected = new EventEmitter<DayModel>();
 
@@ -121,6 +118,7 @@ export class DataService {
     }
 
     initTable(id: string) {
+        console.log('init called');
         return this.Days.slice();
     }
     private date: Date;

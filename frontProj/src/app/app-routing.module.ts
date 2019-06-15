@@ -11,7 +11,7 @@ const routs : Routes = [
       children:[
         {path: '', component: StudentListComponent, pathMatch: 'prefix',
           children : [
-            {path: '', component: TableComponent, pathMatch: 'full'},
+            //{path: '', component: TableComponent, pathMatch: 'full'},
             {path: ':studentId/TimeTable', component: TableComponent},
           ]},
       ]},

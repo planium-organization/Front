@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DayModel } from './day/day.model';
 import { DataService } from '../data.service';
 import { StudentModel } from '../student-list/student.model';
+import { ActivatedRoute, Params, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -13,14 +14,21 @@ export class TableComponent implements OnInit {
   DayColumns: DayModel[];
   
   private reletiveWeekNumber : number = 0;
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private rout : ActivatedRoute) { }
 
   ngOnInit() {
-    this.data.studentSelected.subscribe(
-      (student : StudentModel) => {
-        this.DayColumns = this.data.initTable(student.ID);
+    this.rout.paramMap.subscribe(
+      (params: ParamMap) => {
+        if(params.has('studentId'))
+        {
+          this.data.initTable(params.get('studentId'));
+        }
+        else
+        {
+          this.data.initTable(params.get('studentId'));
+        }
       }
-    )
+    );
   }
 
   onNextClick()

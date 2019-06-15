@@ -16,8 +16,4 @@ export class StudentDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect()//show table
-  {
-    this.data.studentSelected.emit(this.Student);
-  }
 }
