@@ -16,6 +16,7 @@ import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { TableNavComponent } from './table-nav/table-nav.component';
+import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { TableNavComponent } from './table-nav/table-nav.component';
     CardComponent,
     AddCardFormComponent,
     TableNavComponent,
+    EditCardFormComponent,
   ],
   imports: [
     BrowserModule,
