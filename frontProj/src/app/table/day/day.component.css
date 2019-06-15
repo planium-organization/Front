@@ -2,6 +2,7 @@ table {
   width: 150px;
 	border-collapse: collapse;
   position: relative;
+  background: #FEFCFF;
 	}
 
 tr:nth-of-type(odd) {
@@ -19,10 +20,26 @@ th {
 td, th {
   width:200px;
 	padding: 10px;
-	border: 2px solid #EEE2FA;
+	/* border: 2px solid #EEE2FA; */
 	text-align: center;
 	font-size: 18px;
 	}
+  .btn
+  {
+   position: relative;
+   width:95px;
+   height:50px;
+   left:30px;
+   background-color:#12005E;
+   border: none;
+   color: white;
+   text-align: center;
+   font-size: 30px;
+  }
+
+  .btn:hover {
+   background-color:#7C42BD;
+  }
 
 @media
 only screen and (max-width: 760px),
