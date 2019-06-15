@@ -1,41 +1,40 @@
-.TopNav
-{
+.TopNav {
   width: 1119px;
-  height:50px;
-  background:#FAF7FC;
+  height: 50px;
+  background: #FAF7FC;
   position: relative;
 }
 
-#name
-{
+#name {
   position: relative;
-  text-align:center;
-  font-size:30px;
+  text-align: center;
+  color: #0B0036;
+  font-size: 30px;
 }
 
-.arrowR
-.arrowL
-{
-  position: relative;
-  display:block;
-   width:20px;
-   height:20px;
-   transition: 0.5s;
-   box-shadow: -2px 2px 0 rgba(18, 0, 94, 0.5);
-   cursor: pointer;
-
+.arrowR, .arrowL {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  margin-top: -10px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  transition: 0.5s;
+  box-shadow: -2px 2px 0 rgba(18, 0, 94, 0.5);
+  cursor: pointer;
 }
 
-.arrowL
-{
+.arrowL {
     transform: rotate(45deg);
-}
-.arrowR
-{
+  }
+
+  .arrowR {
+  left: auto;
+  right: 15px;
   transform: rotate(225deg);
 }
-.arrowL:hover
-.arrowR:hover
-{
+
+.arrowL:hover, .arrowR:hover {
   box-shadow: -2px 2px 0 rgba(18, 0, 94, 1);
 }
