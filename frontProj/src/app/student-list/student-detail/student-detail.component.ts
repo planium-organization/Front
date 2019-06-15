@@ -16,4 +16,5 @@ export class StudentDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSelect(){}
 }

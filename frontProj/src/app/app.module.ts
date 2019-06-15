@@ -15,6 +15,8 @@ import { CardComponent } from './table/day/card/card.component';
 import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
+import { httpService } from './http.service';
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,13 @@ import { AddCardFormComponent } from './add-card-form/add-card-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    DataService
+    DataService,
+    httpService,
+    HttpClient,
   ],
   bootstrap: [AppComponent]
 })

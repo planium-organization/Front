@@ -3,6 +3,7 @@ import { DayModel } from './day/day.model';
 import { DataService } from '../data.service';
 import { StudentModel } from '../student-list/student.model';
 import { ActivatedRoute, Params, ParamMap } from '@angular/router';
+import { httpService } from '../http.service';
 
 @Component({
   selector: 'app-table',
@@ -14,7 +15,7 @@ export class TableComponent implements OnInit {
   DayColumns: DayModel[];
 
   private reletiveWeekNumber : number = 0;
-  constructor(private data: DataService, private rout : ActivatedRoute) { }
+  constructor(private data: DataService, private rout : ActivatedRoute, private http : httpService) { }
 
   ngOnInit() {
     this.rout.paramMap.subscribe(
@@ -28,8 +29,9 @@ export class TableComponent implements OnInit {
           this.data.initTable(params.get('studentId'));
         }
       }
-    );
-  }
+      );
+      this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
+    }
 
   onNextClick()
   {

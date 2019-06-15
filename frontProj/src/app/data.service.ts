@@ -6,15 +6,20 @@ import { DayModel } from './table/day/day.model';
 import { CardModel } from './table/day/card/card.model';
 import { Duration } from './Duration';
 import { LessonModel } from './table/day/card/lesson.model';
+import { httpService } from './http.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
     cardSelected = new EventEmitter<CardModel>();
     daySelected = new EventEmitter<DayModel>();
 
+    constructor(private http : HttpClient)
+    {}
+
     private Students1: StudentModel[] =
     [
-        new StudentModel('1', 'Oliver Roberts', 'mathmatics', 'helli'),
+        new StudentModel('bbbb2222-1111-1111-1111-111111111111', 'Oliver Roberts', 'mathmatics', 'helli'),
         new StudentModel('2', 'Jack Roy', 'mathmatics', 'helli'),
         new StudentModel('3', 'Harry Williams', 'mathmatics', 'helli'),
         new StudentModel('4', 'Jacob Thomas', 'mathmatics', 'helli'),
@@ -118,7 +123,7 @@ export class DataService {
     }
 
     initTable(id: string) {
-        console.log('init called');
+        console.log('init called'+ id);
         return this.Days.slice();
     }
     private date: Date;
