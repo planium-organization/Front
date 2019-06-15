@@ -14,6 +14,7 @@ import { DialogueBoxComponent } from './post-page/dialogue-box/dialogue-box.comp
 import { CardComponent } from './table/day/card/card.component';
 import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
+import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     DayComponent,
     TextInputComponent,
     DialogueBoxComponent,
-    CardComponent
+    CardComponent,
+    AddCardFormComponent
   ],
   imports: [
     BrowserModule,
