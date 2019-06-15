@@ -1,26 +1,35 @@
-<html>
 
-<head>
+<html>
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href= "table.component.css" rel="StyleSheet" type="text/css">
-</head>
-<body>
-  <div id = "menu-outer">
-    <div class="table-responsive">
-        <table class = "table">
-          <ul id = "Horizontal-List">
-          <li>
-            <a href="#" *ngFor = "let day of DayColumns">
-               <a>
-                <app-day [DayColumn]="day">
-                </app-day>
-                </a>
-            </a>
-          </li>
-          </ul>
-        </table>
-    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container col-sm-12 col-sm-12 col-md-6 col-lg-6" style="padding-left: 0px; padding-right: 0px;">
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" *ngFor = "let day of DayColumns" style="
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        border-bottom-width: 0px;
+        border-left-width: 0px;
+        margin-right: 0px;
+        border-right-width: 0px;
+        border-top-width: 0px;
+         ">
+         <div class = "cont" style="padding-right: 0px; padding-left:0px;">
+                 <app-day [DayColumn]="day">
+                 </app-day>
+          </div>
+        </li>
+      </ul>
     </div>
     <router-outlet></router-outlet>
-</body>
+  </body>
 </html>
