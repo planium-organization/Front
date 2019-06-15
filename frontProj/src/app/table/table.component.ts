@@ -7,12 +7,12 @@ import { ActivatedRoute, Params, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+ // styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
 
   DayColumns: DayModel[];
-  
+
   private reletiveWeekNumber : number = 0;
   constructor(private data: DataService, private rout : ActivatedRoute) { }
 
