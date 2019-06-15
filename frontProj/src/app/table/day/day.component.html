@@ -27,7 +27,7 @@
 
     </ul>
     <body>
-        <button class="btn"><i class="fa fa-plus"></i></button>
+        <button class="btn" (click) = 'onAddCard()' [routerLink]="['/Classes', ClassId, studentId, DayColumn.date.getDate() , 'make-card']"><i class="fa fa-plus"></i></button>
     </body>
     </tbody>
   </table>

@@ -125,7 +125,7 @@ export class DataService {
     initTable(id: string) 
     {
         console.log('init called'+ id);
-        this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
+        //this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
         return this.Days.slice();
     }
     

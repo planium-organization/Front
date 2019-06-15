@@ -13,7 +13,8 @@ import { httpService } from '../http.service';
 export class TableComponent implements OnInit {
 
   DayColumns: DayModel[];
-
+  studentId: string;
+  ClassId: string;
   private reletiveWeekNumber : number = 0;
   constructor(private data: DataService, private rout : ActivatedRoute, private http : httpService) { }
 
@@ -22,15 +23,15 @@ export class TableComponent implements OnInit {
       (params: ParamMap) => {
         if(params.has('studentId'))
         {
-          this.DayColumns = this.data.initTable(params.get('studentId'));
+          this.ClassId = params.get('id');
+          this.DayColumns = this.data.initTable(this.studentId = params.get('studentId'));
         }
-        else
-        {
-          this.DayColumns = this.data.initTable(params.get('studentId'));
-        }
+        // else
+        // {
+        //   this.DayColumns = this.data.initTable(this.studentId = params.get('studentId'));
+        // }
       }
       );
-      //this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
     }
 
   onNextClick()

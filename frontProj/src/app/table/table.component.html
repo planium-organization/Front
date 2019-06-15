@@ -24,15 +24,14 @@
         border-top-width: 0px;
          ">
          <div class = "cont" style="padding-right: 0px; padding-left:0px;">
-                 <app-day [DayColumn]="day">
+                 <app-day [DayColumn]="day" [studentId] = "studentId" [ClassId] = "ClassId">
                  </app-day>
           </div>
           <body>
-          <button class="btn"><i class="fa fa-plus"></i></button>
+          <button class="btn" ><i class="fa fa-plus"></i></button>
           </body>
         </li>
       </ul>
     </div>
-    <router-outlet></router-outlet>
   </body>
 </html>

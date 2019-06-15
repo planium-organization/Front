@@ -10,7 +10,9 @@ import { DataService } from 'src/app/data.service';
 export class DayComponent implements OnInit {
 
   @Input() DayColumn: DayModel;
-
+  @Input() studentId: string;
+  @Input() ClassId: string;
+  
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -23,6 +25,6 @@ export class DayComponent implements OnInit {
 
   onAddCard()
   {
-
+    
   }
 }
