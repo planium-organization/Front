@@ -1,9 +1,5 @@
-#menu-outer {
-	height: 84px;
-	background:repeat-x;
-}
 
-.table {
+.table-responsive {
 	display: table;   /* Allow the centering to work */
 	margin: 0 auto;
 }
