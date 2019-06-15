@@ -2,6 +2,7 @@ table {
   width: 150px;
 	border-collapse: collapse;
   position: relative;
+  background: #FEFCFF;
 	}
 
 tr:nth-of-type(odd) {
@@ -19,7 +20,7 @@ th {
 td, th {
   width:200px;
 	padding: 10px;
-	border: 2px solid #EEE2FA;
+	/* border: 2px solid #EEE2FA; */
 	text-align: center;
 	font-size: 18px;
 	}
