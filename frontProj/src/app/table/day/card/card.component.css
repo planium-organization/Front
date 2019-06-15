@@ -2,7 +2,7 @@
 .card
 {
   width : 100px;
-  height : 150px;
+  /* height: 150px; */
   background :#FFFFFF;
   border: 1px solid #EEE2FA;
   border-radius : 10px;
