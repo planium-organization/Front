@@ -19,6 +19,7 @@ import { httpService } from './http.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { TableNavComponent } from './table-nav/table-nav.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
+import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { EditCardFormComponent } from './edit-card-form/edit-card-form.component
     AddCardFormComponent,
     TableNavComponent,
     EditCardFormComponent,
+    AddCommentFormComponent,
   ],
   imports: [
     BrowserModule,
