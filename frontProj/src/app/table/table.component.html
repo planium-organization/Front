@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div class="container col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="container col-sm-12 col-sm-12 col-md-6 col-lg-6" style="padding-left: 0px; padding-right: 0px;">
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item" *ngFor = "let day of DayColumns" style="
         padding-top: 0px;
@@ -22,9 +22,11 @@
         margin-right: 0px;
         border-right-width: 0px;
         border-top-width: 0px;
-    ">
+         ">
+         <div class = "cont" style="padding-right: 0px; padding-left:0px;">
                  <app-day [DayColumn]="day">
                  </app-day>
+          </div>
         </li>
       </ul>
     </div>
