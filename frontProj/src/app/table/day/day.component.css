@@ -24,6 +24,22 @@ td, th {
 	text-align: center;
 	font-size: 18px;
 	}
+  .btn
+  {
+   position: relative;
+   width:95px;
+   height:50px;
+   left:30px;
+   background-color:#12005E;
+   border: none;
+   color: white;
+   text-align: center;
+   font-size: 30px;
+  }
+
+  .btn:hover {
+   background-color:#7C42BD;
+  }
 
 @media
 only screen and (max-width: 760px),
