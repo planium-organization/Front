@@ -15,12 +15,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-          <td data-column="Days" *ngFor= "let card of DayColumn.cards" >
+      <ul *ngFor= "let card of DayColumn.cards">
+         <tr>
+          <td data-column="Days" >
             <app-card [Card]="card">
             </app-card>
           </td>
-      </tr>
+         </tr>
+    </ul>
     </tbody>
   </table>
   </div>
