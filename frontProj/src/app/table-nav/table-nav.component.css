@@ -1,0 +1,41 @@
+.TopNav
+{
+  width: 1119px;
+  height:50px;
+  background:#FAF7FC;
+  position: relative;
+}
+
+#name
+{
+  position: relative;
+  text-align:center;
+  font-size:30px;
+}
+
+.arrowR
+.arrowL
+{
+  position: relative;
+  display:block;
+   width:20px;
+   height:20px;
+   transition: 0.5s;
+   box-shadow: -2px 2px 0 rgba(18, 0, 94, 0.5);
+   cursor: pointer;
+
+}
+
+.arrowL
+{
+    transform: rotate(45deg);
+}
+.arrowR
+{
+  transform: rotate(225deg);
+}
+.arrowL:hover
+.arrowR:hover
+{
+  box-shadow: -2px 2px 0 rgba(18, 0, 94, 1);
+}

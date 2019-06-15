@@ -1,7 +1,7 @@
 
 <html>
   <head>
-    <link href="card.component.css" rel="StyleSheet" type="text/css">
+    <link href ="card.component.css" rel="StyleSheet" type="text/css">
   </head>
 
 
@@ -10,10 +10,14 @@
     <div class = "card">
       <div class="content">
        <p id = "name">
-         History
+         {{Card.lesson.Name}}
        </p>
        <p id = "time">
-         1:30 hrs
+         {{Card.duration.Hours}}
+         <span>
+           :
+         {{Card.duration.Minutes}}
+         </span>
        </p>
       </div>
       <div class = "shape">

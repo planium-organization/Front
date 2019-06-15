@@ -16,7 +16,10 @@
     </thead>
     <tbody>
       <tr>
-          <td data-column="Days"></td>
+          <td data-column="Days" *ngFor= "let card of DayColumn.cards" >
+            <app-card [Card]="card">
+            </app-card>
+          </td>
       </tr>
     </tbody>
   </table>
