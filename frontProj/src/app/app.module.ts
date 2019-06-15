@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { httpService } from './http.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { TableNavComponent } from './table-nav/table-nav.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
     TextInputComponent,
     DialogueBoxComponent,
     CardComponent,
-    AddCardFormComponent
+    AddCardFormComponent,
+    TableNavComponent
   ],
   imports: [
     BrowserModule,

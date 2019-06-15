@@ -13,8 +13,9 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
     cardSelected = new EventEmitter<CardModel>();
     daySelected = new EventEmitter<DayModel>();
-
-    constructor(private http : HttpClient)
+    private date: Date;
+    
+    constructor(private http : httpService)
     {}
 
     private Students1: StudentModel[] =
@@ -36,7 +37,6 @@ export class DataService {
         new StudentModel('11', 'Sophie Miller', 'Experimental', 'farzanegan'),
         new StudentModel('12', 'Jessica Taylor', 'Experimental', 'farzanegan'),
     ];
-    // tslint:disable-next-line:no-trailing-whitespace
 
     private Classes: ClassModel[] =
     [
@@ -106,7 +106,8 @@ export class DataService {
 
 
 
-    GetClasses() {
+    GetClasses() 
+    {
         return this.Classes.slice();
     }
 
@@ -122,11 +123,13 @@ export class DataService {
         }
     }
 
-    initTable(id: string) {
+    initTable(id: string) 
+    {
         console.log('init called'+ id);
+        //this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
         return this.Days.slice();
     }
-    private date: Date;
+    
     getWeek(week : number){
         const day =  this.date.getDay();
         const d = Date.now() + ((7  * week - day)* 86400000);

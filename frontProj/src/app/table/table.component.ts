@@ -22,15 +22,15 @@ export class TableComponent implements OnInit {
       (params: ParamMap) => {
         if(params.has('studentId'))
         {
-          this.data.initTable(params.get('studentId'));
+          this.DayColumns = this.data.initTable(params.get('studentId'));
         }
         else
         {
-          this.data.initTable(params.get('studentId'));
+          this.DayColumns = this.data.initTable(params.get('studentId'));
         }
       }
       );
-      this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
+      //this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
     }
 
   onNextClick()
