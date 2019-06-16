@@ -25,7 +25,8 @@ export class DayComponent implements OnInit {
 
   onAddCard()
   {
-    this.dataService.addCardSelected.emit({classId: this.ClassId, studentId: this.studentId, date: this.DayColumn.date});
+    console.log('onaddcard');
+    
   }
 
   dateToString()

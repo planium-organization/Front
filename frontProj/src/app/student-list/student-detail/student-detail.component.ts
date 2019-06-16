@@ -19,6 +19,7 @@ export class StudentDetailComponent implements OnInit {
   onSelect()
   {
     console.log(this.classId);
-    this.data.studentSelected.emit({classId: this.classId, studentId: this.Student.ID});
+    this.data.StudentId = this.Student.ID;
+    this.data.ClassId = this.classId;
   }
 }

@@ -17,10 +17,13 @@ export class DataService {
     cardEditted = new EventEmitter<CardModel>();
     cardSelected = new EventEmitter<{classId: string, studentId: string, card: CardModel}>();
 
+    ClassId : string;
+    StudentId: string;
+    date: Date;
+    
 
     daySelected = new EventEmitter<Date>();
 
-    private date: Date;
     
     constructor(private http : httpService)
     {}

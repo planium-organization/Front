@@ -18,28 +18,26 @@ export class TableComponent implements OnInit {
   private reletiveWeekNumber : number = 0;
   constructor(private data: DataService, private rout : ActivatedRoute, private http : httpService) { }
 
-  ngOnInit() {
-
+  ngOnInit() 
+  {
+    this.studentId = this.data.StudentId;
+    this.ClassId = this.data.ClassId;
     this.rout.paramMap.subscribe(
       param=> {
         if(param.has('studentId'))
         {
           this.studentId = param.get('studentId');
+          this.data.StudentId = this.studentId;
         }
         if(param.has('id'))
         {
           this.ClassId = param.get('id');
+          this.data.ClassId = this.ClassId;
         }
         this.DayColumns = this.data.initTable(this.studentId);
     }
     )
-    this.data.studentSelected.subscribe(
-      (IDs: {classId: string ,studentId: string}) => {
-        this.ClassId = IDs.classId;
-        this.studentId = IDs.studentId;
-        this.DayColumns = this.data.initTable(this.studentId);
-      }
-    );
+    
     }
 
   onNextClick()

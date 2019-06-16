@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 })
 export class AddCardFormComponent implements OnInit {
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private router: Router, private rout: ActivatedRoute) { }
 
   date: Date;
   classId : string;
@@ -17,17 +17,18 @@ export class AddCardFormComponent implements OnInit {
   
 
   ngOnInit() {
-    this.data.addCardSelected.subscribe(
-      (object: {classId: string, studentId: string, date: Date}) => {
-        this.classId = object.classId;
-        this.studentid = object.studentId;
-        this.date = object.date;
-      }
-    )
+    console.log('oninit1');
+    this.classId = this.data.ClassId;
+    this.studentid = this.data.StudentId;
 
   }
 
+  onCancel()
+  {
+    
+  }
   onSubmit()
   {
+    
   }
 }
