@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-edit-card-form',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCardFormComponent implements OnInit {
 
+  constructor(private data: DataService) { }
   Date : Date;
-  constructor() { }
+  courses = this.data.courses;
 
   ngOnInit() {
   }

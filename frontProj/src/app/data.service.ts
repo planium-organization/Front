@@ -54,6 +54,13 @@ export class DataService {
         new ClassModel('1st grade', "2")
     ];
 
+    courses : LessonModel[] = [
+        new LessonModel('#6291E1', 'Math'),
+        new LessonModel('#EB578B', 'physics'),
+        new LessonModel('#FA863D', 'literature'),
+        new LessonModel('#5DC878', 'Bialogy'),
+    ];
+
     private Sat = new DayModel(new Date(2019, 6, 1),
     [
         new CardModel('1',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
