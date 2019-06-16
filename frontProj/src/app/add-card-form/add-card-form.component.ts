@@ -31,4 +31,10 @@ export class AddCardFormComponent implements OnInit {
   {
     
   }
+
+  dateToString()
+  {
+    const date : string = this.date.getFullYear() + '-' + this.date.getMonth() + '-' + this.date.getDate();
+    return date;
+  }
 }

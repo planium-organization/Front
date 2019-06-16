@@ -26,7 +26,7 @@ export class DayComponent implements OnInit {
   onAddCard()
   {
     console.log('onaddcard');
-    
+    this.dataService.date = this.DayColumn.date;
   }
 
   dateToString()

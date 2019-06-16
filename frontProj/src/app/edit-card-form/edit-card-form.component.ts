@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCardFormComponent implements OnInit {
 
+  Date : Date;
   constructor() { }
 
   ngOnInit() {
@@ -20,5 +21,11 @@ export class EditCardFormComponent implements OnInit {
   onSubmit()
   {
     
+  }
+
+  dateToString()
+  {
+    const date : string = this.Date.getFullYear() + '-' + this.Date.getMonth() + '-' + this.Date.getDate();
+    return date;
   }
 }
