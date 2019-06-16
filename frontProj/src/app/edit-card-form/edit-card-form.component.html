@@ -1,21 +1,60 @@
 <<html>
     <head>
-      <link href= "edit-card-form.component.css" rel="StyleSheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href= "edit-card-form.component.css" rel="StyleSheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
 
     <body>
       <div class="container">
-        <h1>Add Card</h1>
+        <h1>Edit Card</h1>
         <form>
+          <h2>Add Course</h2>
           <div class="form-group">
-            <label for="name">Lesson Name</label>
-            <input type="text" class="form-control" id="name" required>
+              <label for="course">Course</label>
+              <select class="form-control" id="course" required>
+                <option>1</option> <!--replace with lesson name, ng for, etc...-->
+                <option>2</option> <!--label can be changed accordingly-->
+                <option>3</option>
+                <option>4</option>
+              </select>
           </div>
+          <h2>Start Time</h2>
+          <div class="form-group">
+              <label for="startTime">Hour(s)</label>
+              <input type="range" class="form-control" id="startTime" min="0" max="23">
+          </div>
+          <span>
+              :
+               <div class="form-group">
+                  <label for="startTime">Minute(s)</label>
+                  <input type="range" class="form-control" id="startTime" min="0"max="59"> <!--input type can be changed accordingly-->
+                </div>
+            </span>
 
+          <h2>ِDuration</h2>
           <div class="form-group">
-            <label for="duration">Lesson Duration</label>
-            <input type="text" class="form-control" id="duration">
+            <label for="duration">Hour(s)</label>
+            <input type="range" class="form-control" id="duration" min="0" max="23">
           </div>
+          <span>
+            :
+             <div class="form-group">
+                <label for="duration">Minute(s)</label>
+                <input type="range" class="form-control" id="duration" min="0" max="59"> <!--input type can be changed accordingly-->
+              </div>
+          </span>
+          <h2>ِDescription</h2>
+           <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" id="description">
+            </div>
+
+            <input type="checkbox" name="done" disabled>
+            <input type="checkbox" name="editable" disabled>
+            <input type="checkbox" name="expired" disabled>
+            <input type="checkbox" name="supervisorCreated" disabled>
 
           <button type="submit" class="btn btn-success">Edit Card</button>
           <button type="button" class="btn btn-danger">Cancel</button>
