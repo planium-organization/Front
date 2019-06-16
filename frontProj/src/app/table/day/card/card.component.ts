@@ -10,7 +10,8 @@ import { DataService } from 'src/app/data.service';
 export class CardComponent implements OnInit {
 
   @Input() Card: CardModel;
-
+  @Input() classid: string;
+  @Input() studentId: string;
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -18,6 +19,6 @@ export class CardComponent implements OnInit {
 
   onSelect()//Show detail
   {
-    this.dataService.cardSelected.emit(this.Card);
+    this.dataService.cardSelected.emit({classId: this.classid, studentId: this.studentId, card: this.Card});
   }
 }

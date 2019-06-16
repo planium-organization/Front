@@ -8,7 +8,7 @@
         <ul class = "student-list">
             <li *ngFor = "let Student of Students" class="listItemA">
                 <a [routerLink]="['/Classes', ClassId, Student.ID,'TimeTable']">
-                <app-student-detail [Student] = "Student">
+                <app-student-detail [classId] = 'ClassId' [Student] = "Student" >
                 </app-student-detail>
             </a>
         </ul>

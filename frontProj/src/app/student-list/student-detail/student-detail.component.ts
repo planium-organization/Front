@@ -10,11 +10,15 @@ import { DataService } from 'src/app/data.service';
 export class StudentDetailComponent implements OnInit {
 
   @Input() Student : StudentModel;
-
+  @Input() classId: string;
   constructor(private data : DataService) { }
 
   ngOnInit() {
   }
 
-  onSelect(){}
+  onSelect()
+  {
+    console.log(this.classId);
+    this.data.studentSelected.emit({classId: this.classId, studentId: this.Student.ID});
+  }
 }

@@ -23,7 +23,7 @@ const routs : Routes = [
       ]},
     ]},
   ]},
-  {path: 'Classes/:id/:studentId/:date/make-card', component: AddCardFormComponent},
+  {path: 'Classes/:id/:studentId/TimeTable/:date/make-card', component: AddCardFormComponent},
   {path : "", redirectTo: "/Classes", pathMatch: 'full'}
 ]
 

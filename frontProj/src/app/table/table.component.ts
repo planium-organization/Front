@@ -19,19 +19,27 @@ export class TableComponent implements OnInit {
   constructor(private data: DataService, private rout : ActivatedRoute, private http : httpService) { }
 
   ngOnInit() {
+
     this.rout.paramMap.subscribe(
-      (params: ParamMap) => {
-        if(params.has('studentId'))
+      param=> {
+        if(param.has('studentId'))
         {
-          this.ClassId = params.get('id');
-          this.DayColumns = this.data.initTable(this.studentId = params.get('studentId'));
+          this.studentId = param.get('studentId');
         }
-        // else
-        // {
-        //   this.DayColumns = this.data.initTable(this.studentId = params.get('studentId'));
-        // }
+        if(param.has('id'))
+        {
+          this.ClassId = param.get('id');
+        }
+        this.DayColumns = this.data.initTable(this.studentId);
+    }
+    )
+    this.data.studentSelected.subscribe(
+      (IDs: {classId: string ,studentId: string}) => {
+        this.ClassId = IDs.classId;
+        this.studentId = IDs.studentId;
+        this.DayColumns = this.data.initTable(this.studentId);
       }
-      );
+    );
     }
 
   onNextClick()

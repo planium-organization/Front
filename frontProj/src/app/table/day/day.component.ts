@@ -20,11 +20,17 @@ export class DayComponent implements OnInit {
 
   onClick()//comments
   {
-    this.dataService.daySelected.emit(this.DayColumn);
+    this.dataService.daySelected.emit(this.DayColumn.date);
   }
 
   onAddCard()
   {
-    
+    this.dataService.addCardSelected.emit({classId: this.ClassId, studentId: this.studentId, date: this.DayColumn.date});
+  }
+
+  dateToString()
+  {
+    const date : string = this.DayColumn.date.getFullYear() + '-' + this.DayColumn.date.getMonth() + '-' + this.DayColumn.date.getDate();
+    return date;
   }
 }

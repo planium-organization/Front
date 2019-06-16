@@ -10,8 +10,16 @@ import { httpService } from './http.service';
 
 @Injectable()
 export class DataService {
-    cardSelected = new EventEmitter<CardModel>();
-    daySelected = new EventEmitter<DayModel>();
+    classSelected = new EventEmitter<string>();
+    studentSelected = new EventEmitter<{classId: string ,studentId: string}>(true)
+    addCardSelected = new EventEmitter<{classId: string, studentId: string, date: Date}>();
+    cardAdded =  new EventEmitter<CardModel>();
+    cardEditted = new EventEmitter<CardModel>();
+    cardSelected = new EventEmitter<{classId: string, studentId: string, card: CardModel}>();
+
+
+    daySelected = new EventEmitter<Date>();
+
     private date: Date;
     
     constructor(private http : httpService)
@@ -114,17 +122,19 @@ export class DataService {
     {
         if (id == '1')
         {
+            console.log('1');
             return this.Students1.slice();
         }
         else
         {
+            console.log(id);
             return this.students2.slice();
         }
     }
 
     initTable(id: string) 
     {
-        console.log('init called'+ id);
+        console.log('init called '+ id);
         //this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
         return this.Days.slice();
     }

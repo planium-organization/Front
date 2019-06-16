@@ -12,4 +12,13 @@ export class EditCardFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCansel()
+  {
+
+  }
+
+  onSubmit()
+  {
+    
+  }
 }
