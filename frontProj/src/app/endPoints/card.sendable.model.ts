@@ -3,13 +3,13 @@ import { LessonModel } from '../table/day/card/lesson.model';
 
 export class SendableCard{
     course: LessonModel;
-    duration: TimeSpan;
+    duration: string;
     startTime: Date;
     dueDate: Date;
     description: string;
     constructor(
     course: LessonModel,
-    duration: TimeSpan,
+    duration: string,
     startTime: Date,
     dueDate: Date,
     description: string,
