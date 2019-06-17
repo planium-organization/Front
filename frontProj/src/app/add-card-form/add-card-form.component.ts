@@ -14,13 +14,12 @@ export class AddCardFormComponent implements OnInit {
   date: Date;
   classId : string;
   studentid: string;
-  
+  courses = this.data.courses;
 
   ngOnInit() {
     console.log('oninit1');
     this.classId = this.data.ClassId;
     this.studentid = this.data.StudentId;
-
   }
 
   onCancel()

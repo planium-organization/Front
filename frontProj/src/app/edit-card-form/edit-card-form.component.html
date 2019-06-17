@@ -1,4 +1,4 @@
-<<html>
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,10 +15,7 @@
           <div class="form-group">
               <label for="course">Course</label>
               <select class="form-control" ngModel  name="CourseList" id="course"  required>
-                <option>1</option> <!--replace with lesson name, ng for, etc...-->
-                <option>2</option> <!--label can be changed accordingly-->
-                <option>3</option>
-                <option>4</option>
+                <option *ngFor="let lesson of courses" class="lesson"></option>
               </select>
           </div>
           <h3>ِStart Time</h3>

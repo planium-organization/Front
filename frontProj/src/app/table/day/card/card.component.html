@@ -9,7 +9,7 @@
       <div class = "card" [ngStyle]="{'height': Card.duration.Hours + '50px'}">
           <div class="content">
            <p id = "name">
-             {{Card.lesson.Name}}
+             {{Card.lesson.title}}
            </p>
            <p id = "time">
              {{Card.duration.Hours}}
@@ -19,7 +19,7 @@
              </span>
            </p>
           </div>
-          <div class = "shape" [ngStyle]="{'background-color':'Lesson.Color'}">
+          <div class = "shape" [ngStyle]="{'background-color':'Card.lesson.color'}">
           </div>
         </div>
   </body>

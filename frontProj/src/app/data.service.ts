@@ -20,11 +20,11 @@ export class DataService {
     ClassId : string;
     StudentId: string;
     date: Date;
-    
+
 
     daySelected = new EventEmitter<Date>();
 
-    
+
     constructor(private http : httpService)
     {}
 
@@ -52,6 +52,13 @@ export class DataService {
     [
         new ClassModel('4th grade math', "1"),
         new ClassModel('1st grade', "2")
+    ];
+
+    courses : LessonModel[] = [
+        new LessonModel('#6291E1', 'Math'),
+        new LessonModel('#EB578B', 'physics'),
+        new LessonModel('#FA863D', 'literature'),
+        new LessonModel('#5DC878', 'Bialogy'),
     ];
 
     private Sat = new DayModel(new Date(2019, 6, 1),
@@ -116,7 +123,7 @@ export class DataService {
 
 
 
-    GetClasses() 
+    GetClasses()
     {
         return this.Classes.slice();
     }
@@ -135,13 +142,13 @@ export class DataService {
         }
     }
 
-    initTable(id: string) 
+    initTable(id: string)
     {
         console.log('init called '+ id);
         //this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
         return this.Days.slice();
     }
-    
+
     getWeek(week : number){
         const day =  this.date.getDay();
         const d = Date.now() + ((7  * week - day)* 86400000);
