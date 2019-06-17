@@ -23,7 +23,7 @@ export class EditCardFormComponent implements OnInit {
   defaultDone = 'card.isDone';
   defaultEdit = 'card.editable';
   defaultExpired = 'card.expired';
-  defaultSuper ='supervisorCreated';
+  defaultSuper = 'card.supervisorCreated';
   courses = this.data.courses;
   card : CardModel;
   ngOnInit() {
