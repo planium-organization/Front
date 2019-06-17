@@ -54,12 +54,12 @@ export class DataService {
         new ClassModel('1st grade', "2")
     ];
 
-    courses : LessonModel[] = [
+     courses: LessonModel[] = [
         new LessonModel('#6291E1', 'Math'),
         new LessonModel('#EB578B', 'physics'),
         new LessonModel('#FA863D', 'literature'),
         new LessonModel('#5DC878', 'Bialogy'),
-    ];
+      ];
 
     private Sat = new DayModel(new Date(2019, 6, 1),
     [
