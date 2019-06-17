@@ -3,6 +3,9 @@ import { DataService } from '../data.service';
 import { CardModel } from '../table/day/card/card.model';
 import { NgForm } from '@angular/forms';
 import TimeSpan from 'typescript-dotnet-umd/System/Time/TimeSpan';
+import { LessonModel } from '../table/day/card/lesson.model';
+import { Duration } from '../Duration';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-card-form',
@@ -11,29 +14,26 @@ import TimeSpan from 'typescript-dotnet-umd/System/Time/TimeSpan';
 })
 export class EditCardFormComponent implements OnInit {
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private router: Router) { }
 
   @ViewChild('EditForm') form:NgForm;
   courses = this.data.courses;
   card : CardModel;
-  ngOnInit() {
+  classId: string;
+  studentid: string;
+  date: Date
+  selectedCourse: LessonModel;
+  ngOnInit() 
+  {
     this.card = this.data.selectedCard;
-    this.form.setValue({
-      CourseList: this.card.lesson.title,
-      StartTimeHour: this.card.startTime.getHours(),
-      StartTimeMin: this.card.startTime.getMinutes(),
-      DurationHour: this.card.duration.Hours,
-      DurationMin: this.card.duration.Minutes,
-      Description: this.card.description,
-      done: this.card.isDone,
-      editable: this.card.editable,
-      expired: this.card.expired,
-      supervisorCreated: this.card.supervisorCreated,
-    })
+    this.classId = this.data.ClassId;
+    this.studentid = this.data.StudentId;
+    this.date = this.data.date;
   }
 
   onDelete()
   {
+    this.data.deleteCard(this.card.id);
     
   }
   onCansel()
@@ -41,9 +41,24 @@ export class EditCardFormComponent implements OnInit {
 
   }
 
-  onSubmit()
+  onSubmit(form: NgForm)
   {
-    
+    if(form.valid)
+    {
+      console.log("kjglk")
+      for(let c of this.courses)
+      {
+        if(form.value.CourseList== c.title)
+        {
+          this.selectedCourse = c;
+        }
+      }
+      let duration = new Duration(form.value.DurationHour, form.value.DurationMin);
+      let startTime = new Date(0,0,0,form.value.StartTimeHour,form.value.StartTimeMin );
+      let card = new CardModel('', duration, this.selectedCourse,form.value.Description,false,true,startTime, this.date,false, true);
+      this.data.addCard(card);
+      this.router.navigate(['/Classes', this.classId, this.studentid, 'TimeTable']);
+    }
   }
 
   dateToString()

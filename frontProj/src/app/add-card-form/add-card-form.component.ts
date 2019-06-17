@@ -33,7 +33,7 @@ export class AddCardFormComponent implements OnInit {
   {
     
   }
-  async onSubmit(form: NgForm)
+  onSubmit(form: NgForm)
   {
     if(form.valid)
     {

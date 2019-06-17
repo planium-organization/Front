@@ -10,13 +10,7 @@ import { httpService } from './http.service';
 
 @Injectable()
 export class DataService {
-    classSelected = new EventEmitter<string>();
-    studentSelected = new EventEmitter<{classId: string ,studentId: string}>(true)
-    addCardSelected = new EventEmitter<{classId: string, studentId: string, date: Date}>();
-    cardAdded =  new EventEmitter<CardModel>();
-    cardEditted = new EventEmitter<CardModel>();
-    cardSelected = new EventEmitter<{classId: string, studentId: string, card: CardModel}>();
-
+   
     ClassId : string;
     StudentId: string;
     date: Date;
@@ -59,6 +53,7 @@ export class DataService {
         new LessonModel('#EB578B', 'physics'),
         new LessonModel('#FA863D', 'literature'),
         new LessonModel('#5DC878', 'Bialogy'),
+        new LessonModel('#f44141', 'Theology'),
       ];
 
     private Sat = new DayModel(new Date(2019, 6, 1),
@@ -146,7 +141,7 @@ export class DataService {
     {
         console.log('init called '+ id);
         this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111', new Date(Date.now()));
-        return this.Days.slice();
+        return this.Days;
     }
 
     getWeek(week : number){
@@ -208,5 +203,10 @@ export class DataService {
                 }
             }
         }
+    }
+
+    deleteCard(id: string)
+    {
+        this.http.deleteCard(this.StudentId, id);
     }
 }
