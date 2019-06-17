@@ -20,11 +20,11 @@ export class DataService {
     ClassId : string;
     StudentId: string;
     date: Date;
-    
+
 
     daySelected = new EventEmitter<Date>();
 
-    
+
     constructor(private http : httpService)
     {}
 
@@ -123,7 +123,7 @@ export class DataService {
 
 
 
-    GetClasses() 
+    GetClasses()
     {
         return this.Classes.slice();
     }
@@ -142,13 +142,13 @@ export class DataService {
         }
     }
 
-    initTable(id: string) 
+    initTable(id: string)
     {
         console.log('init called '+ id);
         this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111', new Date(Date.now()));
         return this.Days.slice();
     }
-    
+
     getWeek(week : number){
         let today = new Date(Date.now());
         const day =  today.getDay();
