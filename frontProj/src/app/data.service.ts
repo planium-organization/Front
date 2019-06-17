@@ -145,24 +145,44 @@ export class DataService {
     initTable(id: string) 
     {
         console.log('init called '+ id);
-        //this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
+        this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111', new Date(Date.now()));
         return this.Days.slice();
     }
     
     getWeek(week : number){
-        const day =  this.date.getDay();
+        let today = new Date(Date.now());
+        const day =  today.getDay();
         const d = Date.now() + ((7  * week - day)* 86400000);
-        this.date = new Date(d);
+        let firsofweek = new Date(d);
+        this.http.getCards(this.StudentId, firsofweek);
         return this.Days.slice();
     }
 
-    addCard(card :CardModel, date : Date)
+    addCard(card :CardModel)
     {
         for(let day of this.Days)
         {
-            if(day.date == date)
+            if(day.date == card.dueDate)
             {
                 day.cards.push(card);
+            }
+        }
+    }
+
+    editCard(card: CardModel)
+    {
+        card = this.http.editCard(this.StudentId, card);
+        for(let d of this.Days)
+        {
+            if(card.dueDate == d.date)
+            {
+                for(let c of d.cards)
+                {
+                    if(c.id == card.id)
+                    {
+                        c = card;
+                    }
+                }
             }
         }
     }
