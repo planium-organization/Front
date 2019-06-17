@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="course">Course</label>
             <select class="form-control" id="course" name="CourseList" ngModel required>
-             <option *ngFor="let lesson of courses" class="lesson">
+             <option *ngFor ="let lesson of courses">{{lesson.title}}
              </option>
             </select>
         </div>
