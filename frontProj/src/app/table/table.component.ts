@@ -4,6 +4,8 @@ import { DataService } from '../data.service';
 import { StudentModel } from '../student-list/student.model';
 import { ActivatedRoute, Params, ParamMap } from '@angular/router';
 import { httpService } from '../http.service';
+import { promise } from 'protractor';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -22,6 +24,7 @@ export class TableComponent implements OnInit {
   {
     this.studentId = this.data.StudentId;
     this.ClassId = this.data.ClassId;
+
     this.rout.paramMap.subscribe(
       param=> {
         if(param.has('studentId'))
@@ -34,7 +37,8 @@ export class TableComponent implements OnInit {
           this.ClassId = param.get('id');
           this.data.ClassId = this.ClassId;
         }
-        this.DayColumns = this.data.initTable(this.studentId);
+        this.data.initTable(this.studentId);
+        
     }
     )
     

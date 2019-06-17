@@ -12,11 +12,11 @@ export class httpService{
     constructor(private http: HttpClient){}
 
 
-    private cards : CardModel[];
+    cards : CardModel[] =[];
 
-    getCards(id: string, date: Date): CardModel[]
+    async getCards(id: string, date: Date)
     {
-        
+        console.log('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
         this.http.get<GetableCard[]>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7').subscribe(
             (r) => 
                 {
@@ -31,8 +31,9 @@ export class httpService{
 
     sendCard(id: string, card: CardModel)
     {
-        const SCard = this.cardToSendable(card)
-        this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id +'/' +this.dateToString(card.dueDate), SCard).subscribe(
+        const SCard = this.cardToSendable(card, id)
+        this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard)
+        .subscribe(
             (r) => card = this.getableToCard(r)
         );
         return card;
@@ -63,9 +64,11 @@ export class httpService{
     getableToCard(GCard: GetableCard)
     {
         const s = GCard.duration.split(':');
+        const d = GCard.dueDate.split('-');
+        const date = new Date(parseInt(d[0]),parseInt(d[1]),parseInt(d[2]));
         const card = new CardModel(GCard.id, new Duration(parseInt(s[0]),parseInt(s[1])),
         GCard.course,GCard.description, GCard.done,GCard.supervisorCreated,
-        GCard.startTime,GCard.dueDate,GCard.expired,GCard.editable);
+        GCard.startTime,date,GCard.expired,GCard.editable);
         return card;
     }
 
@@ -74,18 +77,20 @@ export class httpService{
         const cards: CardModel[] = [];
         for(let c of gcards)
         {
+            const d = c.dueDate.split('-');
+            const date = new Date(parseInt(d[0]),parseInt(d[1]),parseInt(d[2]));
             const s = c.duration.split(':');
             cards.push(new CardModel(c.id, new Duration(parseInt(s[0]),parseInt(s[1])),
                 c.course,c.description, c.done,c.supervisorCreated,
-                c.startTime,c.dueDate,c.expired,c.editable));
+                c.startTime,date,c.expired,c.editable));
         }
         return cards;
     }
 
-    cardToSendable(card: CardModel)
+    cardToSendable(card: CardModel , id: string)
     {
         const duration : string = card.duration.Hours + ':' + card.duration.Minutes + ':' + 0;
-        return new SendableCard(card.lesson, duration, card.startTime, card.dueDate, card.description);
+        return new SendableCard(card.lesson, duration, card.startTime, card.dueDate, card.description, id);
     }
 
     dateToString(date: Date)

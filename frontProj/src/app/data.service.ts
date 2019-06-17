@@ -7,6 +7,7 @@ import { CardModel } from './table/day/card/card.model';
 import { Duration } from './Duration';
 import { LessonModel } from './table/day/card/lesson.model';
 import { httpService } from './http.service';
+import { pipe, Observable, Observer } from 'rxjs';
 
 @Injectable()
 export class DataService {
@@ -58,15 +59,15 @@ export class DataService {
 
     private Sat = new DayModel(new Date(2019, 6, 1),
     [
-        new CardModel('1',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
-        new CardModel('2',new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
-        new CardModel('3',new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
-        new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),true,false),
+        //new CardModel('1',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        //new CardModel('2',new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        //new CardModel('3',new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        //new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),true,false),
     ]);
 
     private Sun = new DayModel(new Date(2019, 6, 2),
     [
-        new CardModel('5',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 2,13,30),new Date(2019, 6, 2),false,false),
+        //new CardModel('5',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 2,13,30),new Date(2019, 6, 2),false,false),
         // new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
         // new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
         // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
@@ -114,12 +115,13 @@ export class DataService {
         // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true, true)
     ]);
 
-    private Days = [this.Sat, this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri];
+    Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat,];
 
 
 
     GetClasses()
     {
+        
         return this.Classes.slice();
     }
 
@@ -137,11 +139,70 @@ export class DataService {
         }
     }
 
+    initDays(){
+        let today = new Date(Date.now());
+        const day =  today.getDay();
+        const d = Date.now()  - day * 86400000;
+        let firsofweek = new Date(d);
+        this.Sun.date = firsofweek;
+        this.Mon.date = new Date(d + 86400000);
+        this.Tue.date = new Date(d + 2*86400000 );
+        this.Wed.date = new Date(d + 3*86400000 );
+        this.Thu.date = new Date(d + 4*86400000 );
+        this.Fri.date = new Date(d + 5*86400000 );
+        this.Sat.date = new Date(d + 6*86400000 );
+
+    }
+
     initTable(id: string)
     {
-        console.log('init called '+ id);
-        this.Tue.cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111', new Date(Date.now()));
-        return this.Days;
+        this.initDays();
+           this.http.getCards('bbbb2222-1111-1111-1111-111111111111',new Date(Date.now()));
+        
+            console.log('dj')
+            for(let card of this.http.cards)
+            {
+                let day = card.dueDate.getDay()
+                if(day == 0)
+                {
+                    console.log(day)
+                    this.Sun.cards.push(card);
+                }
+                else if(day == 1)
+                {
+                    console.log(day)
+                    this.Mon.cards.push(card);
+                }
+                else if(day == 2)
+                {
+                    console.log(day)
+                    this.Tue.cards.push(card);
+                }
+                else if(day == 3)
+                {
+                    console.log(day)
+                    this.Wed.cards.push(card);
+                }
+                else if(day == 4)
+                {
+                    console.log(day)
+                    this.Thu.cards.push(card);
+                }
+                else if(day == 5)
+                {
+                    console.log(day)
+                    this.Fri.cards.push(card);
+                }
+                else if(day == 6)
+                {
+                    console.log(day)
+                    this.Sat.cards.push(card);
+                }
+            
+            }
+            console.log('init called '+ id);
+            this.Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat];
+       
     }
 
     getWeek(week : number){
@@ -157,32 +218,40 @@ export class DataService {
     {
         this.http.sendCard(this.StudentId, card);
         let day = card.dueDate.getDay();
-        if(day == 2)
+        console.log(day);
+        if(day == 0)
         {
+            console.log(day)
             this.Sun.cards.push(card);
-        }
-        else if(day == 3)
-        {
-            this.Mon.cards.push(card);
-        }
-        else if(day == 4)
-        {
-            this.Tue.cards.push(card);
-        }
-        else if(day == 5)
-        {
-            this.Wed.cards.push(card);
-        }
-        else if(day == 6)
-        {
-            this.Thu.cards.push(card);
-        }
-        else if(day == 0)
-        {
-            this.Fri.cards.push(card);
         }
         else if(day == 1)
         {
+            console.log(day)
+            this.Mon.cards.push(card);
+        }
+        else if(day == 2)
+        {
+            console.log(day)
+            this.Tue.cards.push(card);
+        }
+        else if(day == 3)
+        {
+            console.log(day)
+            this.Wed.cards.push(card);
+        }
+        else if(day == 4)
+        {
+            console.log(day)
+            this.Thu.cards.push(card);
+        }
+        else if(day == 5)
+        {
+            console.log(day)
+            this.Fri.cards.push(card);
+        }
+        else if(day == 6)
+        {
+            console.log(day)
             this.Sat.cards.push(card);
         }
     }

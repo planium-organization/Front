@@ -6,7 +6,7 @@ export class GetableCard{
     course: LessonModel;
     duration: string;
     startTime: Date;
-    dueDate: Date;
+    dueDate: string;
     description: string;
     done: boolean;
     expired: boolean;
@@ -17,7 +17,7 @@ export class GetableCard{
     course: LessonModel,
     duration: string,
     startTime: Date,
-    dueDate: Date,
+    dueDate: string,
     description: string,
     done: boolean,
     expired: boolean,
