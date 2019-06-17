@@ -13,7 +13,17 @@ export class EditCardFormComponent implements OnInit {
 
   constructor(private data: DataService) { }
 
-  @ViewChild('EditForm') form:NgForm;
+  @ViewChild('EditForm') form: NgForm;
+  defaultCourse = 'lesson.title';
+  defaultSTime = 'card.startTime.getHours' ;
+  defaultSMinute = 'card.startTime.getMinutes';
+  defaultDTime = 'card.duration.Hours';
+  defaultDMinute = 'card.duration.Minutes';
+  defaultDescription  = 'card.description';
+  defaultDone = 'card.isDone';
+  defaultEdit = 'card.editable';
+  defaultExpired = 'card.expired';
+  defaultSuper ='supervisorCreated';
   courses = this.data.courses;
   card : CardModel;
   ngOnInit() {
@@ -34,7 +44,7 @@ export class EditCardFormComponent implements OnInit {
 
   onDelete()
   {
-    
+
   }
   onCansel()
   {
@@ -43,7 +53,7 @@ export class EditCardFormComponent implements OnInit {
 
   onSubmit()
   {
-    
+
   }
 
   dateToString()
