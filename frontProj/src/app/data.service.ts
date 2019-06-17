@@ -69,7 +69,7 @@ export class DataService {
         new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2018,11,11,13,30),new Date(2018,11,11),true,false),
     ]);
 
-    private Mon = new DayModel(new Date(2019, 6, 2),
+    private Sun = new DayModel(new Date(2019, 6, 2),
     [
         new CardModel('5',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
         // new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
@@ -78,7 +78,7 @@ export class DataService {
         // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false)
     ]);
 
-    private Sun = new DayModel(new Date(2019, 6, 3),
+    private Mon = new DayModel(new Date(2019, 6, 3),
     [
         // new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
         // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
@@ -160,12 +160,34 @@ export class DataService {
 
     addCard(card :CardModel)
     {
-        for(let day of this.Days)
+        let day = card.dueDate.getDay();
+        if(day == 2)
         {
-            if(day.date == card.dueDate)
-            {
-                day.cards.push(card);
-            }
+            this.Sun.cards.push(card);
+        }
+        else if(day == 3)
+        {
+            this.Mon.cards.push(card);
+        }
+        else if(day == 4)
+        {
+            this.Tue.cards.push(card);
+        }
+        else if(day == 5)
+        {
+            this.Wed.cards.push(card);
+        }
+        else if(day == 6)
+        {
+            this.Thu.cards.push(card);
+        }
+        else if(day == 0)
+        {
+            this.Fri.cards.push(card);
+        }
+        else if(day == 1)
+        {
+            this.Sat.cards.push(card);
         }
     }
 

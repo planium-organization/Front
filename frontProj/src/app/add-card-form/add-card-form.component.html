@@ -12,7 +12,7 @@
     <div class="container" style="display: grid">
       <h1 style="text-align:inherit">Add Card</h1>
       <!--(ngSubmit)="onSubmit(AddForm),(ngCancel)="onCancel(AddForm)" -->
-      <form style ="width:50%; display:grid;"  #AddForm="ngForm">
+      <form style ="width:50%; display:grid;" #AddForm="ngForm" (ngSubmit)="onSubmit(AddForm)">
         <div class="form-group">
             <label for="course">Course</label>
             <select class="form-control" id="course" name="CourseList" ngModel required>
@@ -44,7 +44,7 @@
         </div>
 
           <div class="form-group">
-            <label for="dueDate">ِDueDate</label>
+            <label for="dueDate">DueDate</label>
             <input type="date" ngModel class="form-control" name="DueDate" id="dueDate" disabled>
           </div>
 
@@ -54,8 +54,7 @@
             <input type="text" ngModel class="form-control" name="Description" id="description" >
           </div>
         <button type="submit" class="btn btn-success">Add Card</button>
-        <button type="button" class="btn btn-danger">Cancel</button>
-
+        <button type="button" class="btn btn-danger" [routerLink] = "['/Classes', classId, studentid, 'TimeTable']">Cancel</button>
       </form>
   </div>
   </body>
