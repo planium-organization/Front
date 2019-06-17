@@ -13,7 +13,13 @@ import { TextInputComponent } from './post-page/text-input/text-input.component'
 import { DialogueBoxComponent } from './post-page/dialogue-box/dialogue-box.component';
 import { CardComponent } from './table/day/card/card.component';
 import { DataService } from './data.service';
-
+import { AppRoutingModule } from './app-routing.module';
+import { AddCardFormComponent } from './add-card-form/add-card-form.component';
+import { httpService } from './http.service';
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { TableNavComponent } from './table-nav/table-nav.component';
+import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +32,21 @@ import { DataService } from './data.service';
     DayComponent,
     TextInputComponent,
     DialogueBoxComponent,
-    CardComponent
+    CardComponent,
+    AddCardFormComponent,
+    TableNavComponent,
+    EditCardFormComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
-    DataService
+    DataService,
+    httpService,
+    HttpClient,
   ],
   bootstrap: [AppComponent]
 })

@@ -5,17 +5,15 @@
 </head>
 <body>
     <div class="sidebar">
-        <ul>
-            <li class="listItemA"><a href="#">Class1</a></li>
-
-            <li class="listItemA"><a href="#">Class2</a></li>
-
-            <li class="listItemA"><a href="#">Class3</a></li>
-
-            <li class="listItemA"><a href="#">Class4</a></li>
-
-            <li class="listItemA"><a href="#">Class5</a></li>
+        <ul class = "class-list">
+            <li *ngFor = "let ClassItem of Classes" class="listItemA">
+                <a [routerLink]="['/Classes', ClassItem.ID]">
+                    <app-class-detail [ClassItem] = "ClassItem">
+                    </app-class-detail>
+                </a>
+            </li>
         </ul>
     </div>
+    <router-outlet></router-outlet>
 </body>
 </html>

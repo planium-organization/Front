@@ -10,7 +10,9 @@ import { DataService } from 'src/app/data.service';
 export class DayComponent implements OnInit {
 
   @Input() DayColumn: DayModel;
-
+  @Input() studentId: string;
+  @Input() ClassId: string;
+  
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -18,11 +20,18 @@ export class DayComponent implements OnInit {
 
   onClick()//comments
   {
-    this.dataService.daySelected.emit(this.DayColumn);
+    this.dataService.daySelected.emit(this.DayColumn.date);
   }
 
   onAddCard()
   {
-    
+    console.log('onaddcard');
+    this.dataService.date = this.DayColumn.date;
+  }
+
+  dateToString()
+  {
+    const date : string = this.DayColumn.date.getFullYear() + '-' + this.DayColumn.date.getMonth() + '-' + this.DayColumn.date.getDate();
+    return date;
   }
 }

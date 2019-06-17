@@ -18,6 +18,6 @@ export class ClassDetailComponent implements OnInit {
 
   onSelectedAnalisys()//show student list
   {
-	this.dataService.classSelected.emit(this.ClassItem);
+    this.dataService.ClassId = this.ClassItem.ID;
   }
 }

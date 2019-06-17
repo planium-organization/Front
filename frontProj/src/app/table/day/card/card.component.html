@@ -1,24 +1,26 @@
 
 <html>
   <head>
-    <link href="card.component.css" rel="StyleSheet" type="text/css">
+    <link href ="card.component.css" rel="StyleSheet" type="text/css">
   </head>
 
 
   <body>
-
-    <div class = "card">
-      <div class="content">
-       <p id = "name">
-         History
-       </p>
-       <p id = "time">
-         1:30 hrs
-       </p>
-      </div>
-      <div class = "shape">
-      </div>
-    </div>
-
+      <div class = "card" [ngStyle]="{'height': Card.duration.Hours +'10px'}">
+          <div class="content">
+           <p id = "name" (click) = 'onSelect()'>
+             {{Card.lesson.title}}
+           </p>
+           <p id = "time">
+             {{Card.duration.Hours}}
+             <span>
+               :
+             {{Card.duration.Minutes}}
+             </span>
+           </p>
+          </div>
+          <div class = "shape" [ngStyle]="{'background-color': Card.lesson.color }">
+          </div>
+        </div>
   </body>
 </html>

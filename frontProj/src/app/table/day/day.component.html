@@ -1,3 +1,37 @@
-<p>
-  day works!
-</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href= "day.component.css" rel="StyleSheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" style="padding-right:0px; padding-left:0px;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Days</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ul *ngFor= "let card of DayColumn.cards" style ="padding-left: 20px;">
+         <tr>
+          <td data-column="Days" >
+            <app-card [Card]="card" [classid] = 'ClassId' [studentId] = 'studentId'>
+
+            </app-card>
+          </td>
+         </tr>
+
+    </ul>
+    <body>
+        <button class="btn btn-primary" (click) = 'onAddCard()' [routerLink]="[ dateToString(), 'make-card']">+</button>
+    </body>
+    </tbody>
+  </table>
+  </div>
+</body>
+</html>
