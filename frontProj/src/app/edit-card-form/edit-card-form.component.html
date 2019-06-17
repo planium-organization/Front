@@ -11,11 +11,11 @@
     <body>
       <div class="container" style="display: grid">
         <h1>Edit Card</h1>
-        <form style="width:50%;display: grid" #AddForm="ngForm">
+        <form style="width:50%;display: grid" #EditForm="ngForm" (ngSubmit) = 'onSubmit()'>
           <div class="form-group">
               <label for="course">Course</label>
-              <select class="form-control" ngModel  name="CourseList" id="course"  required>
-                <option *ngFor="let lesson of courses" class="lesson"></option>
+              <select class="form-control" ngModel aria-selected="card.lesson.title" name="CourseList" id="course"  required>
+                <option *ngFor="let lesson of courses" value="lesson.title">{{lesson.title}}</option>
               </select>
           </div>
           <h3>ِStart Time</h3>
@@ -34,11 +34,11 @@
         <div class="row">
           <div class="col">
              <label for="duration">Hour(s) </label>
-             <input type="number" ngModel class="form-control"  name="DurationHour" id="duration" min="0" max="23">
+             <input type="number" ngModel class="form-control"  name="DurationHour" id="duration" min="0" max="23" required>
           </div>
           <div class="col">
               <label for="duration">Minute(s) </label>
-              <input type="number" ngModel class="form-control" name="DurationHour" id="duration"min="0" max="59"><!--input type can be changed accordingly-->
+              <input type="number" ngModel class="form-control" name="DurationMin" id="duration"min="0" max="59" required><!--input type can be changed accordingly-->
           </div>
         </div>
 
@@ -84,8 +84,8 @@
 
 
           <button type="submit" class="btn btn-success">Edit Card</button>
-          <button type="button" class="btn btn-danger">Cancel</button>
-
+          <button type="button" class="btn btn-danger" (click) = 'onDelete()'>Delete</button>
+          <button type="button" class="btn btn-warning" (click) = 'onCancel()'>Cancel</button>
         </form>
     </div>
     </body>

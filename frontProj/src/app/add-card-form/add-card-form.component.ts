@@ -33,7 +33,7 @@ export class AddCardFormComponent implements OnInit {
   {
     
   }
-  onSubmit(form: NgForm)
+  async onSubmit(form: NgForm)
   {
     if(form.valid)
     {
@@ -49,6 +49,7 @@ export class AddCardFormComponent implements OnInit {
       let startTime = new Date(0,0,0,form.value.StartTimeHour,form.value.StartTimeMin );
       let card = new CardModel('', duration, this.selectedCourse,form.value.Description,false,true,startTime, this.date,false, true);
       this.data.addCard(card);
+      this.router.navigate(['/Classes', this.classId, this.studentid, 'TimeTable']);
     }
   }
 

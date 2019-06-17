@@ -20,7 +20,7 @@ export class DataService {
     ClassId : string;
     StudentId: string;
     date: Date;
-
+    selectedCard: CardModel;
 
     daySelected = new EventEmitter<Date>();
 
@@ -54,24 +54,24 @@ export class DataService {
         new ClassModel('1st grade', "2")
     ];
 
-    courses : LessonModel[] = [
+     courses: LessonModel[] = [
         new LessonModel('#6291E1', 'Math'),
         new LessonModel('#EB578B', 'physics'),
         new LessonModel('#FA863D', 'literature'),
         new LessonModel('#5DC878', 'Bialogy'),
-    ];
+      ];
 
     private Sat = new DayModel(new Date(2019, 6, 1),
     [
-        new CardModel('1',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
-        new CardModel('2',new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
-        new CardModel('3',new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
-        new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2018,11,11,13,30),new Date(2018,11,11),true,false),
+        new CardModel('1',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        new CardModel('2',new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        new CardModel('3',new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),true,false),
     ]);
 
     private Sun = new DayModel(new Date(2019, 6, 2),
     [
-        new CardModel('5',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
+        new CardModel('5',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 2,13,30),new Date(2019, 6, 2),false,false),
         // new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
         // new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
         // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
@@ -160,6 +160,7 @@ export class DataService {
 
     addCard(card :CardModel)
     {
+        this.http.sendCard(this.StudentId, card);
         let day = card.dueDate.getDay();
         if(day == 2)
         {

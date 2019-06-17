@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
+import { CardModel } from '../table/day/card/card.model';
+import { NgForm } from '@angular/forms';
+import TimeSpan from 'typescript-dotnet-umd/System/Time/TimeSpan';
 
 @Component({
   selector: 'app-edit-card-form',
@@ -9,12 +12,30 @@ import { DataService } from '../data.service';
 export class EditCardFormComponent implements OnInit {
 
   constructor(private data: DataService) { }
-  Date : Date;
-  courses = this.data.courses;
 
+  @ViewChild('EditForm') form:NgForm;
+  courses = this.data.courses;
+  card : CardModel;
   ngOnInit() {
+    this.card = this.data.selectedCard;
+    this.form.setValue({
+      CourseList: this.card.lesson.title,
+      StartTimeHour: this.card.startTime.getHours(),
+      StartTimeMin: this.card.startTime.getMinutes(),
+      DurationHour: this.card.duration.Hours,
+      DurationMin: this.card.duration.Minutes,
+      Description: this.card.description,
+      done: this.card.isDone,
+      editable: this.card.editable,
+      expired: this.card.expired,
+      supervisorCreated: this.card.supervisorCreated,
+    })
   }
 
+  onDelete()
+  {
+    
+  }
   onCansel()
   {
 
@@ -27,7 +48,7 @@ export class EditCardFormComponent implements OnInit {
 
   dateToString()
   {
-    const date : string = this.Date.getFullYear() + '-' + this.Date.getMonth() + '-' + this.Date.getDate();
+    const date : string = this.card.dueDate.getFullYear() + '-' + this.card.dueDate.getMonth() + '-' + this.card.dueDate.getDate();
     return date;
   }
 }

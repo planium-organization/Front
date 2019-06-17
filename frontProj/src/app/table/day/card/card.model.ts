@@ -22,7 +22,7 @@ export class CardModel {
         startTime: Date,
         dueDate: Date,
         expired: boolean,
-        editable: boolean,) 
+        editable: boolean,)
     {
         this.id = id;
         this.description = description;

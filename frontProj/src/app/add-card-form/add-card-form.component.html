@@ -35,24 +35,19 @@
         <div class="row">
           <div class="col">
              <label for="duration">Hour(s) </label>
-             <input type="number" ngModel class="form-control" name="DurationHour" id="duration" min="0" max="23">
+             <input type="number" ngModel class="form-control" name="DurationHour" id="duration" min="0" max="23" required>
           </div>
           <div class="col">
               <label for="duration">Minute(s) </label>
-              <input type="number" ngModel class="form-control" name="DurationMin" id="duration"min="0" max="59"><!--input type can be changed accordingly-->
+              <input type="number" ngModel class="form-control" name="DurationMin" id="duration"min="0" max="59" required><!--input type can be changed accordingly-->
           </div>
         </div>
-
-          <div class="form-group">
-            <label for="dueDate">DueDate</label>
-            <input type="date" ngModel class="form-control" name="DueDate" id="dueDate" disabled>
-          </div>
-
-
+        
          <div class="form-group">
             <label for="description">Description</label>
             <input type="text" ngModel class="form-control" name="Description" id="description" >
           </div>
+
         <button type="submit" class="btn btn-success">Add Card</button>
         <button type="button" class="btn btn-danger" [routerLink] = "['/Classes', classId, studentid, 'TimeTable']">Cancel</button>
       </form>

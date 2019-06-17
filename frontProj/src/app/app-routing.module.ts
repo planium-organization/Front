@@ -9,6 +9,7 @@ import { DataService } from './data.service';
 import { httpService } from './http.service';
 import { TableNavComponent } from './table-nav/table-nav.component';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
+import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 
 const routs : Routes = [
   {path: "Classes", component: ClassListComponent, children : [
@@ -23,6 +24,7 @@ const routs : Routes = [
       ]},
     ]},
   ]},
+  {path: 'Classes/:id/:studentId/TimeTable/:date/edit-card', component: EditCardFormComponent},
   {path: 'Classes/:id/:studentId/TimeTable/:date/make-card', component: AddCardFormComponent},
   {path : "", redirectTo: "/Classes", pathMatch: 'full'}
 ]
