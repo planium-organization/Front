@@ -26,7 +26,7 @@
          </div>
             <div class="col">
                 <label for="startTime">Minute(s) </label>
-                <input type="number" [ngModel]= "defaultSMinute" class="form-control" name="StartTimeMin" value="card.startTime.getMinutes" id="startTime" min="0"max="59"> <!--input type can be changed accordingly-->
+                <input type="number" [ngModel]= "defaultSMinute" class="form-control" name="StartTimeMin" value="card.startTime.getMinutes" id="startTime" min="0"max="59"><!--input type can be changed accordingly-->
           </div>
         </div>
 
@@ -68,7 +68,7 @@
             <div class ="col">
                 <label for="expired">IsExpired</label>
                 <div>
-                    <!-- [(ngModel)]="checkedStatus" --> <!--check the status box-->
+checkedStatus" --> <!--check the status box-->
                 <input type="checkbox" [ngModel]="defaultExpired " id="expired" value="card.expired" name="expired" disabled>
                 </div>
             </div>
@@ -86,7 +86,7 @@
           <button type="submit" class="btn btn-success">Edit Card</button>
           <button type="button" class="btn btn-danger" (click) = 'onDelete()'>Delete</button>
           <button type="button" class="btn btn-warning">Cancel</button>
-          <!-- (click) = 'onCancel() -->
+-- (click) = 'onCancel() -->
         </form>
     </div>
     </body>

@@ -29,11 +29,16 @@ export class EditCardFormComponent implements OnInit {
   defaultSuper = 'card.supervisorCreated';
   courses = this.data.courses;
   card : CardModel;
+
+
+
+  ngOnInit() {
+
   classId: string;
   studentid: string;
   date: Date
   selectedCourse: LessonModel;
-  ngOnInit() 
+  ngOnInit()
   {
     this.card = this.data.selectedCard;
     this.classId = this.data.ClassId;
@@ -44,7 +49,7 @@ export class EditCardFormComponent implements OnInit {
   onDelete()
   {
     this.data.deleteCard(this.card.id);
-    
+
 
   }
   onCansel()
