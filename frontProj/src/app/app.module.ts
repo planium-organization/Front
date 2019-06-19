@@ -21,6 +21,7 @@ import { TableNavComponent } from './table-nav/table-nav.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import {FormsModule} from '@angular/forms';
 import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
     TableNavComponent,
     EditCardFormComponent,
     AnalysisBarComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
