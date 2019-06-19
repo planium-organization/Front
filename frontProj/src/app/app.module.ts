@@ -20,7 +20,6 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
 import { TableNavComponent } from './table-nav/table-nav.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import {FormsModule} from '@angular/forms';
-import { AnalysisComponent } from './Table/analysis/analysis.component';
 import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
     AddCardFormComponent,
     TableNavComponent,
     EditCardFormComponent,
-    AnalysisComponent,
     AnalysisBarComponent,
   ],
   imports: [

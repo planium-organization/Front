@@ -29,11 +29,6 @@ export class EditCardFormComponent implements OnInit {
   defaultSuper = 'card.supervisorCreated';
   courses = this.data.courses;
   card : CardModel;
-
-
-
-  ngOnInit() {
-
   classId: string;
   studentid: string;
   date: Date
