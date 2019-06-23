@@ -11,6 +11,8 @@ import { pipe, Observable, Observer } from 'rxjs';
 
 @Injectable()
 export class DataService {
+
+    classSelected = new EventEmitter<StudentModel[]>();
    
     ClassId : string;
     StudentId: string;

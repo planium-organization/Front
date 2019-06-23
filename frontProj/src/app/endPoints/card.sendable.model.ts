@@ -4,7 +4,7 @@ import { LessonModel } from '../table/day/card/lesson.model';
 export class SendableCard{
     course: LessonModel;
     duration: string;
-    //startTime: Date;
+    startTime: Date;
     dueDate: string;
     description: string;
     studentId: string;
@@ -19,8 +19,14 @@ export class SendableCard{
     {
         this.course = course;
         this.duration = duration;
-        //this.startTime = startTime;
-        this.dueDate = dueDate.getFullYear() + '-' + dueDate.getMonth() + '-' + dueDate.getDate(); 
+        this.startTime = startTime;
+        this.dueDate = dueDate.getFullYear() + '-' + dueDate.getMonth() + '-' + dueDate.getDate();
+        if(description == undefined || description == null)
+        {
+            console.log(description);
+            description = " ";
+            console.log(description);
+        }
         this.description = description;
         this.studentId = studentid;
     }
