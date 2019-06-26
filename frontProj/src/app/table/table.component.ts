@@ -22,13 +22,13 @@ export class TableComponent implements OnInit {
 
   ngOnInit() 
   {
-    //this.studentId = this.data.StudentId;
-    //this.ClassId = this.data.ClassId;
+    this.studentId = this.data.StudentId;
+    this.ClassId = this.data.ClassId;
 
-    this.studentId = this.rout.snapshot.params['studentId'];
-    console.log(this.studentId);
-    this.studentId = this.rout.snapshot.params['id'];
-    console.log(this.ClassId);
+    // this.studentId = this.rout.snapshot.params['studentId'];
+    // console.log(this.studentId);
+    // this.studentId = this.rout.snapshot.params['id'];
+    // console.log(this.ClassId);
     // this.rout.paramMap.subscribe(
     //   param=> {
     //     if(param.has('studentId'))
@@ -41,7 +41,7 @@ export class TableComponent implements OnInit {
     //       this.ClassId = param.get('id');
     //       this.data.ClassId = this.ClassId;
     //     }
-    //     this.data.initTable(this.studentId);
+        this.data.initTable(this.studentId);
         
     // }
     // )

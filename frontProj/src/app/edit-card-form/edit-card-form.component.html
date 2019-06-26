@@ -14,7 +14,7 @@
         <form style="width:50%;display: grid" #EditForm="ngForm" (ngSubmit) = 'onSubmit()'>
           <div class="form-group">
               <label for="course">Course</label>
-              <select class="form-control" [ngModel]="defaultCourse" aria-selected="card.lesson.title" name="CourseList" id="course"  required>
+              <select class="form-control" [ngModel]="card.lesson.title" aria-selected="card.lesson.title" name="CourseList" id="course"  required>
                 <option *ngFor="let lesson of courses" value="lesson.title">{{lesson.title}}</option>
               </select>
           </div>
@@ -69,7 +69,7 @@
                 <label for="expired">IsExpired</label>
                 <div>
                     <!-- [(ngModel)]="checkedStatus" --> <!--check the status box-->
-                <input type="checkbox" [ngModel]="defaultExpired " id="expired" value="card.expired" name="expired" disabled>
+                <input type="checkbox" [ngModel]="defaultExpired" id="expired" value="card.expired" name="expired" disabled>
                 </div>
             </div>
 
@@ -85,8 +85,7 @@
 
           <button type="submit" class="btn btn-success">Edit Card</button>
           <button type="button" class="btn btn-danger" (click) = 'onDelete()'>Delete</button>
-          <button type="button" class="btn btn-warning">Cancel</button>
-          <!-- (click) = 'onCancel() -->
+          <button type="button" class="btn btn-warning" [routerLink]= "['/Classes',classId,studentid,'TimeTable']">Cancel</button>
         </form>
     </div>
     </body>

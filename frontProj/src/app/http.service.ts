@@ -14,7 +14,7 @@ export class httpService{
 
     cards : CardModel[] =[];
 
-    async getCards(id: string, date: Date)
+    getCards(id: string, date: Date)
     {
         console.log('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
         this.http.get<GetableCard[]>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7').subscribe(

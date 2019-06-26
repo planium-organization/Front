@@ -8,6 +8,7 @@ import { Duration } from './Duration';
 import { LessonModel } from './table/day/card/lesson.model';
 import { httpService } from './http.service';
 import { pipe, Observable, Observer } from 'rxjs';
+import { findSafariExecutable } from 'selenium-webdriver/safari';
 
 @Injectable()
 export class DataService {
@@ -159,51 +160,49 @@ export class DataService {
     initTable(id: string)
     {
         this.initDays();
-           this.http.getCards('bbbb2222-1111-1111-1111-111111111111',new Date(Date.now()));
-        
-            console.log('dj')
-            for(let card of this.http.cards)
+        let cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111',new Date(Date.now()));
+        for(let card of cards)
+        {
+            let day = card.dueDate.getDay()
+            if(day == 0)
             {
-                let day = card.dueDate.getDay()
-                if(day == 0)
-                {
-                    console.log(day)
-                    this.Sun.cards.push(card);
-                }
-                else if(day == 1)
-                {
-                    console.log(day)
-                    this.Mon.cards.push(card);
-                }
-                else if(day == 2)
-                {
-                    console.log(day)
-                    this.Tue.cards.push(card);
-                }
-                else if(day == 3)
-                {
-                    console.log(day)
-                    this.Wed.cards.push(card);
-                }
-                else if(day == 4)
-                {
-                    console.log(day)
-                    this.Thu.cards.push(card);
-                }
-                else if(day == 5)
-                {
-                    console.log(day)
-                    this.Fri.cards.push(card);
-                }
-                else if(day == 6)
-                {
-                    console.log(day)
-                    this.Sat.cards.push(card);
-                }
-            
+                console.log(this.Sun.date)
+                this.Sun.cards.push(card);
             }
-            console.log('init called '+ id);
-            this.Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat];
+            else if(day == 1)
+            {
+                console.log(this.Mon.date)
+                this.Mon.cards.push(card);
+            }
+            else if(day == 2)
+            {
+                console.log(day)
+                this.Tue.cards.push(card);
+            }
+            else if(day == 3)
+            {
+                console.log(day)
+                this.Wed.cards.push(card);
+            }
+            else if(day == 4)
+            {
+                console.log(day)
+                this.Thu.cards.push(card);
+            }
+            else if(day == 5)
+            {
+                console.log(day)
+                this.Fri.cards.push(card);
+            }
+            else if(day == 6)
+            {
+                console.log(day)
+                this.Sat.cards.push(card);
+            }
+        
+        }
+        console.log('init called '+ id);
+        this.Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat];
        
     }
 
