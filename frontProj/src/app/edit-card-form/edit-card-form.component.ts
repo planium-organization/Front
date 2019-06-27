@@ -45,18 +45,12 @@ export class EditCardFormComponent implements OnInit {
   {
     this.data.deleteCard(this.card.id);
 
-
   }
-  onCansel()
-  {
-
-  }
-
+  
   onSubmit(form: NgForm)
   {
     if(form.valid)
     {
-      console.log("kjglk")
       for(let c of this.courses)
       {
         if(form.value.CourseList== c.title)

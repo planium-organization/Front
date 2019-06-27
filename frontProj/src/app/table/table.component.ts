@@ -25,22 +25,26 @@ export class TableComponent implements OnInit {
     this.studentId = this.data.StudentId;
     this.ClassId = this.data.ClassId;
 
-    this.rout.paramMap.subscribe(
-      param=> {
-        if(param.has('studentId'))
-        {
-          this.studentId = param.get('studentId');
-          this.data.StudentId = this.studentId;
-        }
-        if(param.has('id'))
-        {
-          this.ClassId = param.get('id');
-          this.data.ClassId = this.ClassId;
-        }
+    // this.studentId = this.rout.snapshot.params['studentId'];
+    // console.log(this.studentId);
+    // this.studentId = this.rout.snapshot.params['id'];
+    // console.log(this.ClassId);
+    // this.rout.paramMap.subscribe(
+    //   param=> {
+    //     if(param.has('studentId'))
+    //     {
+    //       this.studentId = param.get('studentId');
+    //       this.data.StudentId = this.studentId;
+    //     }
+    //     if(param.has('id'))
+    //     {
+    //       this.ClassId = param.get('id');
+    //       this.data.ClassId = this.ClassId;
+    //     }
         this.data.initTable(this.studentId);
         
-    }
-    )
+    // }
+    // )
     
     }
 

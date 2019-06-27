@@ -14,7 +14,7 @@ export class httpService{
 
     cards : CardModel[] =[];
 
-    async getCards(id: string, date: Date)
+    getCards(id: string, date: Date) : CardModel[]
     {
         console.log('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
         this.http.get<GetableCard[]>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7').subscribe(
@@ -32,6 +32,7 @@ export class httpService{
     sendCard(id: string, card: CardModel)
     {
         const SCard = this.cardToSendable(card, id)
+        console.log(SCard);
         this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard)
         .subscribe(
             (r) => card = this.getableToCard(r)
@@ -42,7 +43,7 @@ export class httpService{
     editCard(id: string, card: CardModel)
     {
         const ECard = this.cardToEditable(card);
-        this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + this.dateToString(card.dueDate), ECard).subscribe(
+        this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard).subscribe(
             (r) => card = this.getableToCard(r)
         );
         return card;
