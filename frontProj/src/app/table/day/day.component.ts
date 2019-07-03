@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DayModel } from './day.model';
-import { DataService } from 'src/app/data.service';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-day',

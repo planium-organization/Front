@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -53,6 +54,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     DataService,
     httpService,
     HttpClient,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
