@@ -24,7 +24,7 @@
     "core-js": "^2.6.9",
     "jquery": "^3.4.1",
     "rxjs": "~6.5.2",
-    "tslib": "^1.9.0",
+    "tslib": "^1.10.0",
     "typescript-dotnet-umd": "^4.11.2",
     "zone.js": "~0.9.1"
   },
