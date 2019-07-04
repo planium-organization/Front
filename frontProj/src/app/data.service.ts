@@ -9,6 +9,8 @@ import { LessonModel } from './table/day/card/lesson.model';
 import { httpService } from './http.service';
 import { pipe, Observable, Observer } from 'rxjs';
 import { findSafariExecutable } from 'selenium-webdriver/safari';
+import { GetableCard } from './endPoints/card.getable.model';
+import { error } from '@angular/compiler/src/util';
 
 @Injectable()
 export class DataService {
@@ -148,61 +150,97 @@ export class DataService {
         const d = Date.now()  - day * 86400000;
         let firsofweek = new Date(d);
         this.Sun.date = firsofweek;
+        this.Sun.cards = [];
         this.Mon.date = new Date(d + 86400000);
+        this.Mon.cards = [];
         this.Tue.date = new Date(d + 2*86400000 );
+        this.Tue.cards = [];
         this.Wed.date = new Date(d + 3*86400000 );
+        this.Wed.cards = [];
         this.Thu.date = new Date(d + 4*86400000 );
+        this.Thu.cards = [];
         this.Fri.date = new Date(d + 5*86400000 );
+        this.Fri.cards = [];
         this.Sat.date = new Date(d + 6*86400000 );
+        this.Sat.cards = [];
 
     }
 
+
+    getableToCard(GCard: GetableCard)
+    {
+        const s = GCard.duration.split(':');
+        const d = GCard.dueDate.split('-');
+        const date = new Date(parseInt(d[0]),parseInt(d[1]) - 1,parseInt(d[2]));
+        console.log(date);
+        const card = new CardModel(GCard.id, new Duration(parseInt(s[0]),parseInt(s[1])),
+        GCard.course,GCard.description, GCard.done,GCard.supervisorCreated,
+        GCard.startTime,date,GCard.expired,GCard.editable);
+        return card;
+    }
+
+    
     initTable(id: string)
     {
         this.initDays();
-        let cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111',new Date(Date.now()));
-        for(let card of cards)
-        {
-            let day = card.dueDate.getDay()
-            if(day == 0)
+        let today = new Date(Date.now());
+        const day =  today.getDay();
+        const d = Date.now()  - day * 86400000;
+        let cards = this.http.getCards('bbbb2222-1111-1111-1111-111111111111',new Date(d));
+        cards.subscribe(
+            (Gcards : GetableCard[]) =>
             {
-                console.log(card.dueDate)
-                this.Sun.cards.push(card);
+                console.log(Gcards);
+                for(let Gcard of Gcards)
+                {
+                    let card = this.getableToCard(Gcard);
+                    let day = card.dueDate.getDay()
+                    if(day == 0)
+                    {
+                        console.log(card.dueDate)
+                        this.Sun.cards.push(card);
+                    }
+                    else if(day == 1)
+                    {
+                        console.log(this.Mon.date)
+                        this.Mon.cards.push(card);
+                    }
+                    else if(day == 2)
+                    {
+                        console.log(day)
+                        this.Tue.cards.push(card);
+                    }
+                    else if(day == 3)
+                    {
+                        console.log(day)
+                        this.Wed.cards.push(card);
+                    }
+                    else if(day == 4)
+                    {
+                        console.log(day)
+                        this.Thu.cards.push(card);
+                    }
+                    else if(day == 5)
+                    {
+                        console.log(day)
+                        this.Fri.cards.push(card);
+                    }
+                    else if(day == 6)
+                    {
+                        console.log(day)
+                        this.Sat.cards.push(card);
+                    }
+                
+                }
+                console.log('init called '+ id);
+                this.Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat];
+                console.log(this.Days);
+            },
+            (error) => {
+                console.log(error);
             }
-            else if(day == 1)
-            {
-                console.log(this.Mon.date)
-                this.Mon.cards.push(card);
-            }
-            else if(day == 2)
-            {
-                console.log(day)
-                this.Tue.cards.push(card);
-            }
-            else if(day == 3)
-            {
-                console.log(day)
-                this.Wed.cards.push(card);
-            }
-            else if(day == 4)
-            {
-                console.log(day)
-                this.Thu.cards.push(card);
-            }
-            else if(day == 5)
-            {
-                console.log(day)
-                this.Fri.cards.push(card);
-            }
-            else if(day == 6)
-            {
-                console.log(day)
-                this.Sat.cards.push(card);
-            }
+        );
         
-        }
-        console.log('init called '+ id);
-        this.Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat];
        
     }
 

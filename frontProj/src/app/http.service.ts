@@ -14,17 +14,10 @@ export class httpService{
 
     cards : CardModel[] =[];
 
-    getCards(id: string, date: Date) : CardModel[]
+    getCards(id: string, date: Date)
     {
         console.log('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
-        this.http.get<GetableCard[]>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7').subscribe(
-            (r) => 
-                {
-                    console.log(r);
-                    this.cards =  this.getablesToCards(r);
-                }
-        );
-        return this.cards;
+        return this.http.get<GetableCard[]>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
     }
 
     
