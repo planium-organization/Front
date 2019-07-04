@@ -20,13 +20,13 @@ export class SendableCard{
         this.course = course;
         this.duration = duration;
         this.startTime = startTime;
-        this.dueDate = dueDate.getFullYear() + '-' + dueDate.getMonth() + '-' + dueDate.getDate();
-        if(description == undefined || description == null)
-        {
-            console.log(description);
-            description = " ";
-            console.log(description);
-        }
+        this.dueDate = dueDate.getFullYear() + '-' + (dueDate.getMonth() + 1) + '-' + dueDate.getDate();
+        // if(description == undefined || description == null)
+        // {
+        //     console.log(description);
+        //     description = " ";
+        //     console.log(description);
+        // }
         this.description = description;
         this.studentId = studentid;
     }

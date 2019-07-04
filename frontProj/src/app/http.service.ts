@@ -35,7 +35,9 @@ export class httpService{
         console.log(SCard);
         this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard)
         .subscribe(
-            (r) => card = this.getableToCard(r)
+            (r) =>{ card = this.getableToCard(r);
+            console.log(r);
+            }
         );
         return card;
     }
@@ -66,7 +68,8 @@ export class httpService{
     {
         const s = GCard.duration.split(':');
         const d = GCard.dueDate.split('-');
-        const date = new Date(parseInt(d[0]),parseInt(d[1]),parseInt(d[2]));
+        const date = new Date(parseInt(d[0]),parseInt(d[1]) - 1,parseInt(d[2]));
+        console.log(date);
         const card = new CardModel(GCard.id, new Duration(parseInt(s[0]),parseInt(s[1])),
         GCard.course,GCard.description, GCard.done,GCard.supervisorCreated,
         GCard.startTime,date,GCard.expired,GCard.editable);
@@ -79,7 +82,7 @@ export class httpService{
         for(let c of gcards)
         {
             const d = c.dueDate.split('-');
-            const date = new Date(parseInt(d[0]),parseInt(d[1]),parseInt(d[2]));
+            const date = new Date(parseInt(d[0]),parseInt(d[1]) - 1,parseInt(d[2]));
             const s = c.duration.split(':');
             cards.push(new CardModel(c.id, new Duration(parseInt(s[0]),parseInt(s[1])),
                 c.course,c.description, c.done,c.supervisorCreated,
@@ -96,7 +99,7 @@ export class httpService{
 
     dateToString(date: Date)
     {
-      const dateString : string = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
-      return dateString;
+        const dateString : string = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        return dateString;
     }
 }

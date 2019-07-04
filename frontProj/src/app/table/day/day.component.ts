@@ -31,7 +31,7 @@ export class DayComponent implements OnInit {
 
   dateToString()
   {
-    const date : string = this.DayColumn.date.getFullYear() + '-' + this.DayColumn.date.getMonth() + '-' + this.DayColumn.date.getDate();
+    const date : string = this.DayColumn.date.getFullYear() + '-' + (this.DayColumn.date.getMonth() + 1) + '-' + this.DayColumn.date.getDate();
     return date;
   }
 }

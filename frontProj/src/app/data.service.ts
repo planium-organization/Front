@@ -166,7 +166,7 @@ export class DataService {
             let day = card.dueDate.getDay()
             if(day == 0)
             {
-                console.log(this.Sun.date)
+                console.log(card.dueDate)
                 this.Sun.cards.push(card);
             }
             else if(day == 1)
