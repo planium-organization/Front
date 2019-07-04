@@ -23,6 +23,7 @@ import {FormsModule} from '@angular/forms';
 import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AnalysisPageComponent } from './analysis-page/analysis-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     AnalysisBarComponent,
     PieChartComponent,
     LoginPageComponent,
+    AnalysisPageComponent,
   ],
   imports: [
     BrowserModule,
