@@ -1,0 +1,11 @@
+
+img {
+    display: block;
+    width: 50%;
+}
+
+.btn-group.dropup{
+    position:fixed;
+    left:0px;
+    bottom:0;
+}
