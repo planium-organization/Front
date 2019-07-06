@@ -1,0 +1,41 @@
+body
+{
+    background-color: #FAF6FE;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.card
+{
+  width : 490px;
+  height: 754px;
+  background :#FFFFFF;
+  border: 1px solid #666666;
+  border-radius : 10px;
+  position: relative;
+
+}
+
+#name
+{
+  position: relative;
+  text-align:center;
+  font-size:15px;
+  top:30px;
+}
+#email
+{
+  position: relative;
+  text-align:center;
+  font-size:15px;
+  top:50px;
+}
+#number
+{
+  position: relative;
+  text-align:center;
+  font-size:15px;
+  top:30px;
+}
