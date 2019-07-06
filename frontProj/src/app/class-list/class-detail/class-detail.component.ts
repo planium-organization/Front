@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ClassModel } from '../class.model';
-import { DataService } from 'src/app/data.service';
+import { DataService } from '../../data.service';
 // class item
 @Component({
   selector: 'app-class-detail',
