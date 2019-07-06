@@ -1,11 +1,10 @@
-
-img {
-    display: block;
-    width: 50%;
+.panel-footer
+{
+  width: 50%;
+  padding: 20px;
+  position: relative;
+  left:300px;
+  top: 385px;
+  border:0px;
 }
 
-.btn-group.dropup{
-    position:fixed;
-    left:0px;
-    bottom:0;
-}
