@@ -17,13 +17,17 @@ import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { httpService } from './http.service';
-import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TableNavComponent } from './table-nav/table-nav.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import {FormsModule} from '@angular/forms';
 import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { UserService } from './login-page/login-services/user.service';
+import { WithCredentialsInterceptorService } from './login-page/login-services/with-credentials-interceptor.service';
+import { AccountService } from './login-page/login-services/account.service';
+import { AddCsrfHeaderInterceptorService } from './login-page/login-services/add-csrf-header-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +58,11 @@ import { LoginPageComponent } from './login-page/login-page.component';
     DataService,
     httpService,
     HttpClient,
-    CookieService
+    CookieService,
+    AccountService,
+    UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: WithCredentialsInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AddCsrfHeaderInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })
