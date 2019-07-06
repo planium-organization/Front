@@ -20,8 +20,8 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
 import { TableNavComponent } from './table-nav/table-nav.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import {FormsModule} from '@angular/forms';
-import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
-import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { AnalysisBarComponent } from './analysis-page/analysis-bar/analysis-bar.component';
+import { PieChartComponent } from './analysis-page/pie-chart/pie-chart.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 @NgModule({
   declarations: [
