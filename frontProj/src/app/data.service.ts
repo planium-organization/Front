@@ -12,6 +12,7 @@ import { findSafariExecutable } from 'selenium-webdriver/safari';
 import { GetableCard } from './endPoints/card.getable.model';
 import { error } from '@angular/compiler/src/util';
 import { PostModel } from './post-page/post.model';
+import { CommentModel } from './add-comment-form/comment.model';
 
 @Injectable()
 export class DataService {
@@ -90,6 +91,12 @@ export class DataService {
         new PostModel('1',new Date(2019,6,7), 'this is a test for the posts1',null),
         new PostModel('1',new Date(2019,6,6), 'this is a test for the posts2',null),
         new PostModel('1',new Date(2019,6,5), 'this is a test for the posts3',null),
+    ];
+
+    Comments = [
+        new CommentModel('1',new Date(2019, 6, 7), new Date(2019,6,7,13,43),"it is a test comment"),
+        new CommentModel('1',new Date(2019, 6, 5), new Date(2019,6,7,13,47),"it is a test comment"),
+        new CommentModel('1',new Date(2019, 6, 5), new Date(2019,6,7,14,10),"it is a test comment"),
     ];
 
     GetClasses()
@@ -293,6 +300,11 @@ export class DataService {
                 console.log(r);
             }
         );
+    }
+
+
+    getComments()
+    {
         
     }
 }

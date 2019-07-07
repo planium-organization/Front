@@ -56,6 +56,17 @@ export class httpService{
         return this.http.get('http://178.63.162.108:8080/api/supervisor/channelPost/classId/0/10')
     }
 
+    getComments()
+    {
+        return this.http.get('http://178.63.162.108:8080/api/supervisor/comment/2019-12-02/0/10')
+    }
+
+
+
+
+
+
+
     cardToEditable(card: CardModel)
     {
         const duration : string = card.duration.Hours + ':' + card.duration.Minutes + ':' + 0;

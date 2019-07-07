@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'app/data.service';
 
 @Component({
   selector: 'app-show-comment',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowCommentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }//comments at data.Comments
 
   ngOnInit() {
   }
