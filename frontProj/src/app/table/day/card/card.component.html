@@ -1,4 +1,3 @@
-
 <html>
   <head>
     <link href ="card.component.css" rel="StyleSheet" type="text/css">
@@ -6,10 +5,10 @@
 
 
   <body>
-      <div class = "card" [ngStyle]="{'height': Card.duration.Hours + '50px'}">
+      <div class = "card" [ngStyle]="{'height': Card.duration.Hours +'10px'}">
           <div class="content">
-           <p id = "name">
-             {{Card.lesson.Name}}
+           <p id = "name" (click) = 'onSelect()'>
+             {{Card.lesson.title}}
            </p>
            <p id = "time">
              {{Card.duration.Hours}}
@@ -19,7 +18,7 @@
              </span>
            </p>
           </div>
-          <div class = "shape">
+          <div class = "shape" [ngStyle]="{'background-color': Card.lesson.color }">
           </div>
         </div>
   </body>

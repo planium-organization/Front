@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ClassModel } from '../class.model';
-import { DataService } from 'src/app/data.service';
+import { DataService } from '../../data.service';
 // class item
 @Component({
   selector: 'app-class-detail',
@@ -18,5 +18,7 @@ export class ClassDetailComponent implements OnInit {
 
   onSelectedAnalisys()//show student list
   {
+    this.dataService.classSelected.emit(this.dataService.GetStudents(this.ClassItem.ID));
+    this.dataService.ClassId = this.ClassItem.ID;
   }
 }

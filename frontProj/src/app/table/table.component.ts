@@ -4,6 +4,8 @@ import { DataService } from '../data.service';
 import { StudentModel } from '../student-list/student.model';
 import { ActivatedRoute, Params, ParamMap } from '@angular/router';
 import { httpService } from '../http.service';
+import { promise } from 'protractor';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -13,24 +15,38 @@ import { httpService } from '../http.service';
 export class TableComponent implements OnInit {
 
   DayColumns: DayModel[];
-
+  studentId: string;
+  ClassId: string;
   private reletiveWeekNumber : number = 0;
   constructor(private data: DataService, private rout : ActivatedRoute, private http : httpService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    //this.studentId = this.data.StudentId;
+    //this.ClassId = this.data.ClassId;
+
+    // this.studentId = this.rout.snapshot.params['studentId'];
+    // console.log(this.studentId);
+    // this.studentId = this.rout.snapshot.params['id'];
+    // console.log(this.ClassId);
     this.rout.paramMap.subscribe(
-      (params: ParamMap) => {
-        if(params.has('studentId'))
+      param=> {
+        if(param.has('studentId'))
         {
-          this.DayColumns = this.data.initTable(params.get('studentId'));
+          this.studentId = param.get('studentId');
+          console.log(this.studentId);
+          this.data.StudentId = this.studentId;
         }
-        else
+        if(param.has('id'))
         {
-          this.DayColumns = this.data.initTable(params.get('studentId'));
+          this.ClassId = param.get('id');
+          console.log(this.ClassId);
+          this.data.ClassId = this.ClassId;
         }
-      }
-      );
-      //this.http.getCards('bbbb2222-1111-1111-1111-111111111111');
+        this.data.initTable(this.studentId);
+    }
+    )
+    
     }
 
   onNextClick()
