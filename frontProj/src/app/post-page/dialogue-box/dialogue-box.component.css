@@ -1,0 +1,30 @@
+/* Chat containers */
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  margin-left: 300px;
+  width: 50%;
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.text
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+/* Style time text */
+.time-right {
+  font-size: 14px;
+  float: right;
+  color: #aaa;
+}

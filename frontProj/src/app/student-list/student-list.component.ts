@@ -1,27 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { StudentModel } from './student.model';
 import { DataService } from '../data.service';
-import { ClassModel } from '../class-list/class.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.css']
 })
-export class StudentListComponent implements OnInit {
-
+export class StudentListComponent implements OnInit{
+  
   Students : StudentModel[]; 
-
-  constructor( private data : DataService) {}
+  ClassId : string;
+  constructor( private data : DataService, private router: ActivatedRoute) {}
 
   ngOnInit() 
   {
-    this.data.classSelected.subscribe
-    (
-      (classItem : ClassModel) => 
-      {
-        this.Students = this.data.GetStudents(classItem.ID);
-      }
-    );
+    this.ClassId = this.data.ClassId;
+    this.ClassId = this.router.snapshot.params['id'];
+    
+    this.Students = this.data.GetStudents(this.ClassId);
+    // this.router.paramMap.subscribe(
+    //   (param) => {
+    //     if(param.has('id'))
+    //     {
+    //       this.ClassId = param.get('id');
+    //       console.log(this.ClassId);
+    //     }
+    //     this.Students = this.data.GetStudents(this.ClassId);
+    //   }
+    // );
+
   }
 }

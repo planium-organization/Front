@@ -1,0 +1,88 @@
+table {
+  width: 150px;
+	border-collapse: collapse;
+  position: relative;
+  background: #FEFCFF;
+	}
+
+tr:nth-of-type(odd) {
+	background: #FEFCFF;
+	}
+
+th {
+    background: #FEFCFF;
+    width:150px;
+    color: #12005E;
+    text-align: center;
+  	font-weight: bold;
+	}
+
+td, th {
+  width:200px;
+	padding: 10px;
+	/* border: 2px solid #EEE2FA; */
+	text-align: center;
+	font-size: 18px;
+	}
+  .btn
+  {
+   position: relative;
+   width:95px;
+   height:50px;
+   left:30px;
+   background-color:#12005E;
+   border: none;
+   color: white;
+   text-align: center;
+   font-size: 30px;
+  }
+
+  .btn:hover {
+   background-color:#7C42BD;
+  }
+
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table {
+	  	width: 100%;
+	}
+
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr { border: 2px solid #EEE2FA; }
+
+	td {
+
+		border: none;
+		border-bottom: 2px solid #EEE2FA;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+
+		position: absolute;
+
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}
