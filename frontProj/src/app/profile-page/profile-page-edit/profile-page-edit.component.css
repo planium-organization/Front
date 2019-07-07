@@ -1,0 +1,66 @@
+body
+{
+   background-color: #FAF6FE;
+}
+
+img {
+  border-radius: 50%;
+  position: relative;
+  left: 210px;
+  top:50px;
+}
+
+.card
+{
+  width : 490px;
+  height: 700px;
+  background :#FFFFFF;
+  border: 1px solid #666666;
+  border-radius : 10px;
+  position: relative;
+  left: 500px;
+  top:50px;
+
+}
+
+input[type=text], select {
+  width: 100%;
+  top:150px;
+  position: relative;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=email], select {
+  width: 100%;
+  top:200px;
+  position: relative;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=tel], select {
+  width: 100%;
+  position: relative;
+  top: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+ .btn
+  {
+      background-color:#7C42BD;
+      position: relative;
+      top:300px;
+      width:50%;
+      left: 120px;
+  }

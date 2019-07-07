@@ -24,6 +24,7 @@ import { AnalysisBarComponent } from './analysis-page/analysis-bar/analysis-bar.
 import { PieChartComponent } from './analysis-page/pie-chart/pie-chart.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ProfilePageEditComponent } from './profile-page/profile-page-edit/profile-page-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     PieChartComponent,
     LoginPageComponent,
     ProfilePageComponent,
+    ProfilePageEditComponent,
   ],
   imports: [
     BrowserModule,

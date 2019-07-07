@@ -1,20 +1,31 @@
 body
 {
-    background-color: #FAF6FE;
+   background-color: #FAF6FE;
 }
-
+p
+{
+   text-decoration: underline;
+   text-decoration-color: purple;
+   text-underline-position: below under;
+   text-decoration-style: solid;
+}
 img {
   border-radius: 50%;
+  position: relative;
+  left: 210px;
+  top:50px;
 }
 
 .card
 {
   width : 490px;
-  height: 754px;
+  height: 600px;
   background :#FFFFFF;
   border: 1px solid #666666;
   border-radius : 10px;
   position: relative;
+  left: 500px;
+  top:50px;
 
 }
 
@@ -22,20 +33,31 @@ img {
 {
   position: relative;
   text-align:center;
-  font-size:15px;
-  top:30px;
+  font-size:25px;
+  font-family: Arial, Helvetica, sans-serif;
+  top:200px;
 }
 #email
 {
   position: relative;
   text-align:center;
-  font-size:15px;
-  top:50px;
+  font-size:20px;
+  font-family: Arial, Helvetica, sans-serif;
+  top:250px;
 }
 #number
 {
   position: relative;
   text-align:center;
-  font-size:15px;
-  top:30px;
+  font-size:20px;
+  font-family: Arial, Helvetica, sans-serif;
+  top:300px;
 }
+ .btn
+  {
+      background-color:#7C42BD;
+      position: relative;
+      top:330px;
+      width:50%;
+      left: 120px;
+  }
