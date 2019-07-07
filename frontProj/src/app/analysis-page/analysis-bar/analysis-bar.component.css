@@ -1,6 +1,8 @@
 .TabBar {
   background-color: #F6EDFF;
   overflow: hidden;
+  width: 100;
+  display:initial;
 }
 
 

@@ -1,0 +1,6 @@
+.rectangle
+{
+ height:200px;
+ width: 200px;
+ background: linear-gradient(blue 50%, red 50%);
+}
