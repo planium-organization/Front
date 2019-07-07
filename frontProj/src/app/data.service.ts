@@ -16,7 +16,13 @@ import { error } from '@angular/compiler/src/util';
 export class DataService {
 
     classSelected = new EventEmitter<StudentModel[]>();
-   
+    
+    user = {
+        email: "",
+        password:"",
+        loggedin:false,
+    }
+
     ClassId : string;
     StudentId: string;
     date: Date;
