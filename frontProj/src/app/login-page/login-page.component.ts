@@ -19,7 +19,6 @@ export class LoginPageComponent implements OnInit {
   constructor( private accountService: AccountService, private userService: UserService) { }
 
   ngOnInit() {
-
   }
 
   onSubmit() {
@@ -33,11 +32,15 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
+
+
   getLoggedInUserEmail() {
     this.userService.getEmail().subscribe(email => {
       this.loggedInUserEmail = `${email}`;
+      console.log(email)
     }, (errorResponse: HttpErrorResponse) => {
       this.loggedInUserEmail = `${errorResponse.status} ${errorResponse.statusText}`;
+      console.log(this.loggedInUserEmail)
     });
   }
 
