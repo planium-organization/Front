@@ -13,8 +13,8 @@ export class LoginPageComponent implements OnInit {
   registerFeedback: string = '';
   loginFeedback: string = '';
   loggedInUserEmail: string = '';
-  @Input() email: string;
-  @Input() password: string;
+  @Input() email: string = 'student@gmail.com';
+  @Input() password: string = "student123";
 
   constructor( private accountService: AccountService, private userService: UserService) { }
 

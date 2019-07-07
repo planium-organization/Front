@@ -11,6 +11,7 @@ import { pipe, Observable, Observer } from 'rxjs';
 import { findSafariExecutable } from 'selenium-webdriver/safari';
 import { GetableCard } from './endPoints/card.getable.model';
 import { error } from '@angular/compiler/src/util';
+import { PostModel } from './post-page/post.model';
 
 @Injectable()
 export class DataService {
@@ -63,66 +64,33 @@ export class DataService {
       ];
 
     private Sat = new DayModel(new Date(2019, 6, 1),
-    [
-        //new CardModel('1',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
-        //new CardModel('2',new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
-        //new CardModel('3',new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
-        //new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),true,false),
-    ]);
+    []);
 
     private Sun = new DayModel(new Date(2019, 6, 2),
-    [
-        //new CardModel('5',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 2,13,30),new Date(2019, 6, 2),false,false),
-        // new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
-        // new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
-        // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false),
-        // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true,true,new Date(2018,11,11,13,30),new Date(2018,11,11),false,false)
-    ]);
+    []);
 
     private Mon = new DayModel(new Date(2019, 6, 3),
-    [
-        // new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
-        // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
-        // new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', false,true),
-        // new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false),
-    ]);
+    []);
 
     private Tue = new DayModel(new Date(2019, 6, 4),
-    [
-        // new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
-        // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
-        // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true),
-        // new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true),
-    ]);
+    []);
 
     private Wed = new DayModel(new Date(2019, 6, 5),
-    [
-        // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
-        // new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true,true),
-        // new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false, true),
-    ]);
+    []);
 
     private Thu = new DayModel(new Date(2019, 6, 6),
-    [
-        // new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true),
-        // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
-        // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true),
-        // new CardModel(new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false),
-    ]);
+    []);
 
     private Fri = new DayModel(new Date(2019, 6, 7),
-    [
-        // new CardModel(new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true),
-        // new CardModel(new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true),
-        // new CardModel(new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true),
-        // new CardModel(new Duration(3, 0), new LessonModel('#9E52BF', 'geology'), 'just the first part', true, true)
-    ]);
+    []);
 
     Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat,];
 
-
+    Posts = [
+        new PostModel('1',new Date(2019,6,7), 'this is a test for the posts1',null),
+        new PostModel('1',new Date(2019,6,6), 'this is a test for the posts2',null),
+        new PostModel('1',new Date(2019,6,5), 'this is a test for the posts3',null),
+    ];
 
     GetClasses()
     {
@@ -316,5 +284,15 @@ export class DataService {
     deleteCard(id: string)
     {
         this.http.deleteCard(this.StudentId, id);
+    }
+
+    getPosts()
+    {
+        this.http.getPosts(this.ClassId).subscribe(
+            (r: PostModel[]) => {this.Posts = r;
+                console.log(r);
+            }
+        );
+        
     }
 }
