@@ -10,6 +10,8 @@ import { httpService } from './http.service';
 import { TableNavComponent } from './table-nav/table-nav.component';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ProfilePageEditComponent } from './profile-page/profile-page-edit/profile-page-edit.component';
 
 const routs : Routes = [
   {path: "Classes", component: ClassListComponent, children : [
@@ -26,6 +28,8 @@ const routs : Routes = [
   ]},
   {path: 'Classes/:id/:studentId/TimeTable/:date/edit-card', component: EditCardFormComponent},
   {path: 'Classes/:id/:studentId/TimeTable/:date/make-card', component: AddCardFormComponent},
+  {path: 'Profile', component: ProfilePageComponent, pathMatch: 'full'},
+  {path: 'Profile/edit', component: ProfilePageEditComponent},
   {path : "", redirectTo: "/Classes", pathMatch: 'full'}
 ]
 
