@@ -87,9 +87,9 @@ export class DataService {
     Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat,];
 
     Posts = [
-        new PostModel('1',new Date(2019,6,7), 'this is a test for the posts1',null),
-        new PostModel('1',new Date(2019,6,6), 'this is a test for the posts2',null),
-        new PostModel('1',new Date(2019,6,5), 'this is a test for the posts3',null),
+        new PostModel('1',new Date(2019,6,7,14,23), 'this is a test for the posts1',null),
+        new PostModel('1',new Date(2019,6,6,16,20), 'this is a test for the posts2',null),
+        new PostModel('1',new Date(2019,6,5,13,3), 'this is a test for the posts3',null),
     ];
 
     GetClasses()
