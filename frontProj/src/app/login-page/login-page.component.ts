@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from './login-services/user.service';
 import { AccountService } from './login-services/account.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { DataService } from 'app/data.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-login-page',

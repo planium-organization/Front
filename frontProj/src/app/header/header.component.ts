@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AccountService } from 'app/login-page/login-services/account.service';
+import { AccountService } from '../login-page/login-services/account.service';
 
 @Component({
   selector: 'app-header',
