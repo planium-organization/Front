@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'app/data.service';
 
 @Component({
   selector: 'app-dialogue-box',
@@ -8,10 +7,9 @@ import { DataService } from 'app/data.service';
 })
 export class DialogueBoxComponent implements OnInit {
 
-  constructor(private data: DataService) { }//posts in data.posts
+  constructor() { }
 
   ngOnInit() {
-    this.data.getPosts();
   }
 
 }

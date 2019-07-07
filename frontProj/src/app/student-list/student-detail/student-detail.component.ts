@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StudentModel } from '../student.model';
-import { DataService } from '../../../app/data.service';
-
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-student-detail',
@@ -11,16 +10,14 @@ import { DataService } from '../../../app/data.service';
 export class StudentDetailComponent implements OnInit {
 
   @Input() Student : StudentModel;
-  @Input() classId: string;
+
   constructor(private data : DataService) { }
 
   ngOnInit() {
   }
 
-  onSelect()
+  onSelect()//show table
   {
-    console.log(this.classId);
-    this.data.StudentId = this.Student.ID;
-    this.data.ClassId = this.classId;
+    this.data.studentSelected.emit(this.Student);
   }
 }

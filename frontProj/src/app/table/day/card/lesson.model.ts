@@ -1,10 +1,10 @@
 
 export class LessonModel {
-    public color: string;
-    public title: string;
+    public Color: string;
+    public Name: string;
 
-    constructor(color: string, title: string) {
-        this.color = color;
-        this.title = title;
+    constructor(color: string, name: string) {
+        this.Color = color;
+        this.Name = name;
     }
 }

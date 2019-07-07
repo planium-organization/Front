@@ -1,18 +1,11 @@
 <html>
 
 <head>
-    <link href="student-list.component.css" rel="StyleSheet" type="text/css">
+
 </head>
+
 <body>
-    <div class="sidebar">
-        <ul class = "student-list">
-            <li *ngFor = "let Student of Students" class="listItemA">
-                <a [routerLink]="['/Classes', ClassId, Student.ID,'TimeTable']">
-                <app-student-detail [classId] = 'ClassId' [Student] = "Student" >
-                </app-student-detail>
-            </a>
-        </ul>
-    </div>
-    <router-outlet></router-outlet>
+
 </body>
+
 </html>

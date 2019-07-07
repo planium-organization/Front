@@ -1,44 +1,49 @@
+
 body {
   margin: 0;
 }
 
 .sidebar {
   float: right;
-  background-color: #FAF6FE;
-  /* Sidebar Background */
+  background-color: #F4ECFC;
+/* Sidebar Background */
   width: 200px;
-  /* Width of side bar */
+/* Width of side bar */
   height: 900px;
   padding-top: 0px;
-  /* Padding above the header */
+/* Padding above the header */
   font-family: helvetica;
-  /* Font for the sidebar */
+/* Font for the sidebar */
 }
 
 .sidebar a {
-  display: block;
   text-decoration: none;
-  /* Removes the underline from links. */
-  color: #0B0036;
-  /* Text color of the menu items */
-}
+  /* padding: 14px 16px; testing */
+/* Removes the underline from links. */
 
+}
 .sidebar ul {
   line-height: 40px;
   overflow: hidden;
   margin-left: 0;
   padding-left: 0;
 }
-
-.sidebar ul .listItemA {
-  /* list-style-type: none; */
-  background-color: #FAF6FE;
-  /* Background colour of the menu items. */
+.sidebar ul li.listItemA a
+{
+  color: #0B0036;
 }
-
-.sidebar ul .listItemA:hover a {
+.sidebar ul li.listItemA {
+  background-color: #F4ECFC;
+/* Background colour of the menu items. */
+}
+.sidebar ul li.listItemA:hover
+{
   background-color: #7C42BD;
-  color: white
+  color: white;
+}
+.sidebar ul li.listItemA a:hover
+{
+  color: white;
 }
 
 .listItemA {

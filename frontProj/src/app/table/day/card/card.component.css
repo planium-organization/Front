@@ -2,38 +2,22 @@
 .card
 {
   width : 100px;
-  /* height: 150px; */
-  background :#FFFFFF;
-  border: 1px solid #EEE2FA;
+  height : 150px;
+  background :#FAF7FC;
+  border: 2px solid #EEE2FA;
+  border-left: 6px solid red;
   border-radius : 10px;
-  position: relative;
+  text-align:center;
+  font-size:20px;
+  /* padding:50% 0; */
+  position: middle;
 
 }
 
-#name
+/* .oval
 {
-  position: relative;
-  text-align:center;
-  font-size:15px;
-  top:30px;
-}
-#time
-{
-  position: relative;
-  text-align:center;
-  font-size:15px;
-  top:50px;
-}
-.shape
-{
-  position: absolute;
-  display: block;
-  height:85%;
-  width: 3px;
-  padding-top: 0px;
-  top: 10px;
-  border-radius: 4px;
-  right: auto;
-  left: 8px;
-  padding-left: 8px;
-}
+  width : 3px;
+  height : 200 px;
+  background: red;
+  border-radius: 50%
+} */

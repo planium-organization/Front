@@ -5,9 +5,19 @@ export class Duration
 
     public Hours: number;
     public Minutes: number;
+    constructor(timespan: TimeSpan)
     constructor(hours: number, minutes : number)
+    constructor(hours?: number | TimeSpan, minutes? : number)
     {
-        this.Hours = hours;
-        this.Minutes = minutes;
+        if(typeof hours == 'number')
+        {
+            this.Hours = hours;
+            this.Minutes = minutes;
+        }
+        else
+        {
+            this.Hours = hours.hours;
+            this.Minutes = hours.minutes;
+        }
     }
 }
