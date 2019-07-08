@@ -17,7 +17,7 @@ import { PostModel } from './post-page/post.model';
 export class DataService {
 
     classSelected = new EventEmitter<StudentModel[]>();
-   
+
     ClassId : string;
     StudentId: string;
     date: Date;
@@ -94,7 +94,7 @@ export class DataService {
 
     GetClasses()
     {
-        
+
         return this.Classes.slice();
     }
 
@@ -147,7 +147,7 @@ export class DataService {
         return card;
     }
 
-    
+
     initTable(id: string)
     {
         this.initDays();
@@ -198,7 +198,7 @@ export class DataService {
                         console.log(day)
                         this.Sat.cards.push(card);
                     }
-                
+
                 }
                 console.log('init called '+ id);
                 this.Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat];
@@ -208,8 +208,8 @@ export class DataService {
                 console.log(error);
             }
         );
-        
-       
+
+
     }
 
     getWeek(week : number){
@@ -293,6 +293,6 @@ export class DataService {
                 console.log(r);
             }
         );
-        
+
     }
 }
