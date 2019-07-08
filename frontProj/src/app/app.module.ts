@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service'
+// import { CookieService } from 'ngx-cookie-service'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -58,7 +58,7 @@ import { AddCsrfHeaderInterceptorService } from './login-page/login-services/add
     DataService,
     httpService,
     HttpClient,
-    CookieService,
+    // CookieService,
     AccountService,
     UserService,
     { provide: HTTP_INTERCEPTORS, useClass: WithCredentialsInterceptorService, multi: true },
