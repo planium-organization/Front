@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CardModel } from './card.model';
-import { DataService } from 'src/app/data.service';
+import { DataService } from '../../../data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

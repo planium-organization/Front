@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,6 +23,7 @@ import { EditCardFormComponent } from './edit-card-form/edit-card-form.component
 import {FormsModule} from '@angular/forms';
 import { AnalysisBarComponent } from './analysis-bar/analysis-bar.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     EditCardFormComponent,
     AnalysisBarComponent,
     PieChartComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     DataService,
     httpService,
     HttpClient,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
