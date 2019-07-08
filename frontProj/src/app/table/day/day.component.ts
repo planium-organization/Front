@@ -18,9 +18,9 @@ export class DayComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick()//comments
+  dateSelected()//comments
   {
-    this.dataService.daySelected.emit(this.DayColumn.date);
+    this.dataService.date = this.DayColumn.date;
   }
 
   onAddCard()
