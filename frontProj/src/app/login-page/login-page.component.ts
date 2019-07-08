@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service'
+// import { CookieService } from 'ngx-cookie-service'
 
 @Component({
   selector: 'app-login-page',
@@ -8,15 +8,15 @@ import { CookieService } from 'ngx-cookie-service'
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private cookie : CookieService) { }
+  // constructor(private cookie : CookieService) { }
 
   ngOnInit() {
 
   }
 
-  onSubmit()
-  {
-    this.cookie.set('id', 'supervisor1');
-    console.log(this.cookie.get('id'));
-  }
+  // onSubmit()
+  // {
+  //   this.cookie.set('id', 'supervisor1');
+  //   console.log(this.cookie.get('id'));
+  // }
 }
