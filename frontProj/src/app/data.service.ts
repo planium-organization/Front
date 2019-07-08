@@ -13,6 +13,7 @@ import { GetableCard } from './endPoints/card.getable.model';
 import { error } from '@angular/compiler/src/util';
 import { PostModel } from './post-page/post.model';
 import { CommentModel } from './add-comment-form/comment.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
@@ -309,6 +310,14 @@ export class DataService {
             (r : CommentModel[]) => {
                 this.Comments = r;
             }
+        )
+    }
+
+    postCommemt(comment : CommentModel)
+    {
+        this.http.postComment(comment, this.StudentId).subscribe(
+            (r: CommentModel) => this.Comments.push(r),
+            (error: HttpErrorResponse) => console.log(error)
         )
     }
 }
