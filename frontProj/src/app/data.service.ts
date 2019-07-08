@@ -305,6 +305,10 @@ export class DataService {
 
     getComments()
     {
-        
+        this.http.getComments(this.StudentId, this.date).subscribe(
+            (r : CommentModel[]) => {
+                this.Comments = r;
+            }
+        )
     }
 }

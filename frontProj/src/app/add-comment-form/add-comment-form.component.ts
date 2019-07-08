@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-add-comment-form',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCommentFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data : DataService) { }
 
   ngOnInit() {
+    //this.data.getComments();
   }
+
+
 
 }

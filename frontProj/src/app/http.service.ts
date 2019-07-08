@@ -56,14 +56,10 @@ export class httpService{
         return this.http.get('http://178.63.162.108:8080/api/supervisor/channelPost/classId/0/10')
     }
 
-    getComments()
+    getComments(id: string, date: Date)
     {
-        return this.http.get('http://178.63.162.108:8080/api/supervisor/comment/2019-12-02/0/10')
+        return this.http.get('http://178.63.162.108:8080/api/supervisor/comment/'+ id + '/' + this.dateToString(date)+'/0/10')
     }
-
-
-
-
 
 
 
