@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'app/data.service';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-dialogue-box',
