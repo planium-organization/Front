@@ -50,8 +50,8 @@ export class DataService {
 
     private Classes: ClassModel[] =
     [
-        new ClassModel('4th grade math', "1"),
-        new ClassModel('1st grade', "2")
+        new ClassModel('4th grade math', "1", '89459', 'helli'),
+        new ClassModel('1st grade', "2", '837489', 'farzanegan')
     ];
 
      courses: LessonModel[] = [

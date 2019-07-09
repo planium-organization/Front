@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassModel } from '../class.model';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-add-class-form',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddClassFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
   }
 
+  onSubmit()
+  {
+    let classitem: ClassModel = new ClassModel('new class', '1', '1', 'farzanegan');
+
+  }
 }

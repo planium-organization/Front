@@ -10,9 +10,11 @@ import { httpService } from './http.service';
 import { TableNavComponent } from './table-nav/table-nav.component';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
+import { AddClassFormComponent } from './class-list/add-class-form/add-class-form.component';
 
 const routs : Routes = [
   {path: "Classes", component: ClassListComponent, children : [
+    {path: 'addClass', component: AddClassFormComponent},
     {path: ":id",
     children:[
       {path: '', component: StudentListComponent, pathMatch: 'prefix',
