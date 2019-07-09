@@ -7,17 +7,17 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <form  #AddPost="ngForm" #Attach="ngForm" (ngSubmit)="onSubmit(AddPost)" (ngSubmit)="onAttach(Attach)">
+    <form  #AddPost="ngForm" (ngSubmit)="onSubmit(AddPost)">
       <div class="panel-footer" style="top:300px; left:300px;">
           <div class="input-group">
-              <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." required style ="height:40px;" />
+              <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." required style ="height:40px;" [ngModel]= 'postText' name = "PostText"/>
               <span class="input-group-btn">
-                <a href="#" type="Submit" class="btn btn-info btn-md">
+                <button type="submit" class="btn btn-info btn-md">
                   <span class="glyphicon glyphicon-send"></span>
-                </a>
+                </button>
               </span>
               <span class="input-group-btn">
-                <a href="#" type="Attach" class="btn btn-success btn-md">
+                <a type="Attach" class="btn btn-success btn-md">
                   <span class="glyphicon glyphicon-paperclip"></span>
                 </a>
               </span>
