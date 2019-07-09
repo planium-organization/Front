@@ -14,7 +14,7 @@
         <article class="timeline-entry">
             
             <div class="timeline-entry-inner">
-                <time class="timeline-time" *ngFor="let comment of data.Comments" ><span>{{comment.creationTime}}</span> <span>{{comment.date}}</span></time>
+                <time class="timeline-time" *ngFor="let comment of data.Comments" ><span>{{TimeToString(comment.creationTime)}}</span> <span>{{comment.date}}</span></time>
                 
                 <div class="timeline-icon bg-success" style="position:relative; top:10px;">
                     <i class="entypo-feather"></i>
@@ -32,7 +32,7 @@
         <article class="timeline-entry left-aligned">
             
             <div class="timeline-entry-inner">
-                <time class="timeline-time" *ngFor="let comment of data.Comments"  ><span>{{comment.creationTime}}</span> <span>{{comment.date}}</span></time>
+                <time class="timeline-time" *ngFor="let comment of data.Comments"  ><span>{{TimeToString(comment.creationTime)}}</span> <span>{{comment.date}}</span></time>
                 
                 <div class="timeline-icon bg-warning">
                     <i class="entypo-suitcase"></i>

@@ -13,4 +13,12 @@ export class ShowCommentComponent implements OnInit {
   ngOnInit() {
   }
 
+  TimeToString(time: Date)
+  {
+    let sTime : string = time.getHours() + ':' + time.getMinutes() + '-' 
+    + time.getMonth() + '/' + time.getDate() + '/' + time.getFullYear();
+    console.log(sTime);
+     return sTime;
+  }
+
 }
