@@ -12,8 +12,10 @@ import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProfilePageEditComponent } from './profile-page/profile-page-edit/profile-page-edit.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const routs : Routes = [
+  {path: "login" , component: LoginPageComponent},
   {path: "Classes", component: ClassListComponent, children : [
     {path: ":id",
     children:[
@@ -30,7 +32,7 @@ const routs : Routes = [
   {path: 'Classes/:id/:studentId/TimeTable/:date/make-card', component: AddCardFormComponent},
   {path: 'Profile', component: ProfilePageComponent, pathMatch: 'full'},
   {path: 'Profile/edit', component: ProfilePageEditComponent},
-  {path : "", redirectTo: "/Classes", pathMatch: 'full'}
+  {path : "", redirectTo: "/login", pathMatch: 'full'}
 ]
 
 @NgModule({

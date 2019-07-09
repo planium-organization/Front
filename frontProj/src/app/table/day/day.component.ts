@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DayModel } from './day.model';
-import { DataService } from '../../../app/data.service';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-day',
@@ -31,7 +31,7 @@ export class DayComponent implements OnInit {
 
   dateToString()
   {
-    const date : string = this.DayColumn.date.getFullYear() + '-' + this.DayColumn.date.getMonth() + '-' + this.DayColumn.date.getDate();
+    const date : string = this.DayColumn.date.getFullYear() + '-' + (this.DayColumn.date.getMonth() + 1) + '-' + this.DayColumn.date.getDate();
     return date;
   }
 }

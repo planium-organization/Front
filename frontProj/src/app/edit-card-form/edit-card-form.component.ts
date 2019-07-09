@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { CardModel } from '../table/day/card/card.model';
 import { NgForm } from '@angular/forms';
-import TimeSpan from 'typescript-dotnet-umd/System/Time/TimeSpan';
 import { LessonModel } from '../table/day/card/lesson.model';
 import { Duration } from '../Duration';
 import { Router } from '@angular/router';
