@@ -17,6 +17,6 @@ export class AddClassFormComponent implements OnInit {
   onSubmit()
   {
     let classitem: ClassModel = new ClassModel('new class', '1', '1', 'farzanegan');
-
+    this.data.addClass(classitem);
   }
 }

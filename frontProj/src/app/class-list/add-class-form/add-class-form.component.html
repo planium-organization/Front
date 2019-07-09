@@ -30,7 +30,7 @@
               <input type="text" ngModel class="form-control" name="token" id="token" disabled >
             </div>
 
-        <button type="submit" class="btn btn-success">Add Class</button>
+        <button type="submit" class="btn btn-success" (click) = "onSubmit()" [routerLink] = "['/Classes']">Add Class</button>
         <button type="button" class="btn btn-danger" [routerLink] = "['/Classes']">Cancel</button>
       </form>
   </div>

@@ -126,8 +126,17 @@ export class DataService {
 
     GetClasses()
     {
-        
+        // this.http.getClasses().subscribe(
+        //     (r: ClassModel[]) => this.Classes = r
+        // );
         return this.Classes.slice();
+    }
+
+    addClass(classitem: ClassModel)
+    {
+        this.http.addClass(classitem).subscribe(
+            (r: ClassModel) => this.Classes.push(r)
+        )
     }
 
     GetStudents(id: string): StudentModel[]

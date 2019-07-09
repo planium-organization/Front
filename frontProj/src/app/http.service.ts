@@ -5,6 +5,7 @@ import { EditableCard } from './endPoints/card.editable.model';
 import { GetableCard } from './endPoints/card.getable.model';
 import { Duration } from './Duration';
 import { SendableCard } from './endPoints/card.sendable.model';
+import { ClassModel } from './class-list/class.model';
 
 @Injectable()
 export class httpService{
@@ -49,6 +50,19 @@ export class httpService{
         this.http.delete('http://178.63.162.108:8080/api/supervisor/card/'+ id +'/'+ cardId).subscribe(
             (r : Response) => console.log(r)
         );
+    }
+
+    getClasses()
+    {
+        return this.http.get('http://178.63.162.108:8080/api/supervisor/schoolClass');
+    }
+
+    addClass(classitem: ClassModel)
+    {
+        return this.http.post('http://178.63.162.108:8080/api/supervisor/schoolClass', {
+            name: classitem.name,
+            schoolName: classitem.schoolName
+        });
     }
 
     cardToEditable(card: CardModel)
