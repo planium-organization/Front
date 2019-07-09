@@ -5,6 +5,7 @@ import { EditableCard } from './endPoints/card.editable.model';
 import { GetableCard } from './endPoints/card.getable.model';
 import { Duration } from './Duration';
 import { SendableCard } from './endPoints/card.sendable.model';
+import { PostModel } from './post-page/post.model';
 
 @Injectable()
 export class httpService{
@@ -54,6 +55,15 @@ export class httpService{
     getPosts(id:string)
     {
         return this.http.get('http://178.63.162.108:8080/api/supervisor/channelPost/classId/0/10')
+    }
+
+    sendPost(post: PostModel, id: string)
+    {
+        return this.http.post('http://178.63.162.108:8080/api/supervisor/channelPost', {
+            image: post.image,
+            text: post.text,
+            classId: id,
+        })
     }
 
     cardToEditable(card: CardModel)

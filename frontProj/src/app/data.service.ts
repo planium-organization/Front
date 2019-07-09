@@ -295,4 +295,11 @@ export class DataService {
         );
 
     }
+
+    sendPost(post: PostModel)
+    {
+        this.http.sendPost(post, this.StudentId).subscribe(
+            (r: PostModel) => this.Posts.push(r)
+        )
+    }
 }
