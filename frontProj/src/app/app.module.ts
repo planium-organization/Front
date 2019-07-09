@@ -22,6 +22,7 @@ import { EditCardFormComponent } from './edit-card-form/edit-card-form.component
 import {FormsModule} from '@angular/forms';
 import { AnalysisBarComponent } from './analysis-page/analysis-bar/analysis-bar.component';
 import { PieChartComponent } from './analysis-page/pie-chart/pie-chart.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { PieChartComponent } from './analysis-page/pie-chart/pie-chart.component
     EditCardFormComponent,
     AnalysisBarComponent,
     PieChartComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,

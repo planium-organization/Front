@@ -6,20 +6,11 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container" *ngFor="let post of data.Posts">
         <div class ="text">
-            <p>Hello. How are you today?</p>      <!--insert Desired message via backend-->
+            <p>{{post.text}}</p>      <!--insert Desired message via backend-->
         </div>
-      <span class="time-right">11:00</span> <!--insert Desired time via backend-->
+       <div class="time-right">{{post.creationTime}}</div>
     </div>
-
-
-    <div class="container">
-        <div class ="text">
-            <p>Hello. How are you today?</p>      <!--insert Desired message via backend-->
-        </div>
-      <span class="time-right">11:02</span> <!--insert Desired time via backend-->
-    </div>
-
   </body>
 </html>
