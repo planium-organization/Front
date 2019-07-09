@@ -21,7 +21,7 @@ import { TableNavComponent } from './table-nav/table-nav.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import {FormsModule} from '@angular/forms';
 import { AnalysisBarComponent } from './analysis-page/analysis-bar/analysis-bar.component';
-import { PieChartComponent } from './analysis-page/pie-chart/pie-chart.component';
+import {PieChartComponent} from './analysis-page/pie-chart/pie-chart.component';
 import { ColumnChartComponent } from './analysis-page/column-chart/column-chart.component';
 @NgModule({
   declarations: [

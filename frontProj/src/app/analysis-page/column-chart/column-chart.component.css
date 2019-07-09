@@ -2,5 +2,8 @@
 {
  height:200px;
  width: 200px;
+ margin: 0px;
+ position: relative;
+ top:500px;
  background: linear-gradient(blue 50%, red 50%);
 }

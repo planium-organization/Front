@@ -1,14 +1,12 @@
-<html>
+<html style="height: 0px;">
   <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="pie-chart.component.css" rel="StyleSheet" type="text/css">
-  </head>
- <body style="display: contents">
 
-<div class="wrapper">
-    <div class="pie start-0 end-25"></div>
-    <div class="pie big start-25 end-75"></div>
-    <div class="pie over"><span>25%</span></div>
-     </div>
+  </head>
+ <body>
+  <div [hidden]="!chart">
+    <canvas id="canvas"></canvas>
+  </div>
   </body>
 </html>

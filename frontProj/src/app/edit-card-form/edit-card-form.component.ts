@@ -16,7 +16,7 @@ export class EditCardFormComponent implements OnInit {
 
   constructor(private data: DataService, private router: Router) { }
 
-  @ViewChild('EditForm') form: NgForm;
+  // @ViewChild('EditForm') form: NgForm;
   defaultCourse = 'lesson.title';
   defaultSTime = 'card.startTime.getHours' ;
   defaultSMinute = 'card.startTime.getMinutes';
