@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <link href ="add-comment-form.component.css" rel="StyleSheet" type="text/css">
+  </head>
+  <body>
+    <div class="container pb-cmnt-container">
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="panel panel-info">
+                  <div class="panel-body">
+                    <form class="form-inline" #AddComment="ngForm" (ngSubmit)="onSubmit(AddComment)">
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea" required [ngModel] = 'text' name = 'text'></textarea>
+                        <button class="btn btn-primary pull-right" type="submit">Submit</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <app-show-comment></app-show-comment>
+  </body>
+</html>

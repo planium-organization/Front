@@ -1,0 +1,38 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container" style="display: grid">
+      <h1 style="text-align:inherit">Add Class</h1>
+      <!--(ngSubmit)="onSubmit(AddForm),(ngCancel)="onCancel(AddForm)" -->
+      <form style ="width:50%; display:grid;" #AddForm="ngForm" (ngSubmit)="onSubmit(AddForm)">
+        <div class="form-group">
+            <label for="className">Class Name :</label>
+            <input type="text" class="form-control" id="class" name="className" ngModel required>
+             <!-- <option *ngFor ="let lesson of courses">{{lesson.title}}
+             </option> -->
+        </div>
+
+         <div class="form-group">
+            <label for="SchoolName">School Name : </label>
+            <input type="text" ngModel class="form-control" name="SchoolName" id="SchoolName" >
+          </div>
+
+            <div class="form-group">
+              <label for="token">Token : </label>
+              <input type="text" ngModel class="form-control" name="token" id="token" disabled >
+            </div>
+
+        <button type="submit" class="btn btn-success" (click) = "onSubmit()" [routerLink] = "['/Classes']">Add Class</button>
+        <button type="button" class="btn btn-danger" [routerLink] = "['/Classes']">Cancel</button>
+      </form>
+  </div>
+  </body>
+</html>

@@ -1,3 +1,17 @@
-<p>
-  dialogue-box works!
-</p>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="dialogue-box.component.css" rel="StyleSheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div class="container" *ngFor="let post of data.Posts">
+      <img alt={{post.image}}>
+        <div class ="text">
+            <p>{{post.text}}</p>      <!--insert Desired message via backend-->
+        </div>
+       <div class="time-right">{{post.creationTime}}</div>
+    </div>
+  </body>
+</html>

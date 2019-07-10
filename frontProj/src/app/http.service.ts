@@ -5,6 +5,9 @@ import { EditableCard } from './endPoints/card.editable.model';
 import { GetableCard } from './endPoints/card.getable.model';
 import { Duration } from './Duration';
 import { SendableCard } from './endPoints/card.sendable.model';
+import { PostModel } from './post-page/post.model';
+import { ClassModel } from './class-list/class.model';
+import { CommentModel } from './add-comment-form/comment.model';
 
 @Injectable()
 export class httpService{
@@ -25,23 +28,13 @@ export class httpService{
     sendCard(id: string, card: CardModel)
     {
         const SCard = this.cardToSendable(card, id)
-        console.log(SCard);
-        this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard)
-        .subscribe(
-            (r) =>{ card = this.getableToCard(r);
-            console.log(r);
-            }
-        );
-        return card;
+        return this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard);
     }
 
     editCard(id: string, card: CardModel)
     {
         const ECard = this.cardToEditable(card);
-        this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard).subscribe(
-            (r) => card = this.getableToCard(r)
-        );
-        return card;
+        return this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard)
     }
 
     deleteCard(id: string, cardId: string)
@@ -49,6 +42,51 @@ export class httpService{
         this.http.delete('http://178.63.162.108:8080/api/supervisor/card/'+ id +'/'+ cardId).subscribe(
             (r : Response) => console.log(r)
         );
+    }
+
+    getPosts(id:string)
+    {
+        return this.http.get('http://178.63.162.108:8090/api/supervisor/channelPost/' + id + '/0/10')
+    }
+
+    sendPost(post: PostModel, id: string)
+    {
+        return this.http.post('http://178.63.162.108:8090/api/supervisor/channelPost/' + id, {
+            image: post.image,
+            text: post.text,
+        })
+    }
+
+
+    getComments(id: string, date: Date)
+    {
+        return this.http.get('http://178.63.162.108:8090/api/supervisor/comment/'+ id + '/' + this.dateToString(date)+'/0/10')
+    }
+
+    postComment(comment: CommentModel, id: string)
+    {
+        return this.http.post('http://178.63.162.108:8090/api/supervisor/comment', 
+        {
+            date: this.dateToString(comment.date),
+            text: comment.text,
+            studentId: id,
+        }
+        )
+    }
+
+
+
+    getClasses()
+    {
+        return this.http.get('http://178.63.162.108:8090/api/supervisor/schoolClass');
+    }
+
+    addClass(classitem: ClassModel)
+    {
+        return this.http.post('http://178.63.162.108:8080/api/supervisor/schoolClass', {
+            name: classitem.name,
+            schoolName: classitem.schoolName
+        });
     }
 
     cardToEditable(card: CardModel)

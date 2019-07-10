@@ -13,7 +13,7 @@ export class ClassListComponent implements OnInit {
   constructor(private data : DataService ) { }
 
   ngOnInit() {
-    this.Classes = this.data.GetClasses();
+    this.data.GetClasses();
   }
 
 }
