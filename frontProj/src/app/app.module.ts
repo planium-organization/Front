@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ClassListComponent } from './class-list/class-list.component';
@@ -24,6 +23,7 @@ import { AnalysisBarComponent } from './analysis-page/analysis-bar/analysis-bar.
 import { PieChartComponent } from './analysis-page/pie-chart/pie-chart.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
+import { AddClassFormComponent } from './class-list/add-class-form/add-class-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +44,7 @@ import { PostPageComponent } from './post-page/post-page.component';
     PieChartComponent,
     LoginPageComponent,
     PostPageComponent,
+    AddClassFormComponent,
   ],
   imports: [
     BrowserModule,

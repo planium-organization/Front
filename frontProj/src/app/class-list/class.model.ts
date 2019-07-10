@@ -1,11 +1,16 @@
 import { StudentModel } from '../student-list/student.model';
 
 export class ClassModel {
-    public Name: string;
-    public ID: string;
+    id: string;
+    name: string;
+    schoolName: string;
+    token: string;
 
-    constructor(name: string, id: string) {
-        this.Name = name;
-        this.ID = id;
+    constructor(name: string, id: string, token: string, schoolName: string)
+    {
+        this.name = name;
+        this.id = id;
+        this.token = token;
+        this.schoolName = schoolName;
     }
 }

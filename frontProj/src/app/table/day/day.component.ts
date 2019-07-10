@@ -12,7 +12,7 @@ export class DayComponent implements OnInit {
   @Input() DayColumn: DayModel;
   @Input() studentId: string;
   @Input() ClassId: string;
-  
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {

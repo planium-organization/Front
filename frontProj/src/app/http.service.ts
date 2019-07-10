@@ -6,6 +6,7 @@ import { GetableCard } from './endPoints/card.getable.model';
 import { Duration } from './Duration';
 import { SendableCard } from './endPoints/card.sendable.model';
 import { PostModel } from './post-page/post.model';
+import { ClassModel } from './class-list/class.model';
 
 @Injectable()
 export class httpService{
@@ -26,23 +27,13 @@ export class httpService{
     sendCard(id: string, card: CardModel)
     {
         const SCard = this.cardToSendable(card, id)
-        console.log(SCard);
-        this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard)
-        .subscribe(
-            (r) =>{ card = this.getableToCard(r);
-            console.log(r);
-            }
-        );
-        return card;
+        return this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard);
     }
 
     editCard(id: string, card: CardModel)
     {
         const ECard = this.cardToEditable(card);
-        this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard).subscribe(
-            (r) => card = this.getableToCard(r)
-        );
-        return card;
+        return this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard)
     }
 
     deleteCard(id: string, cardId: string)
@@ -64,6 +55,19 @@ export class httpService{
             text: post.text,
             classId: id,
         })
+    }
+
+    getClasses()
+    {
+        return this.http.get('http://178.63.162.108:8080/api/supervisor/schoolClass');
+    }
+
+    addClass(classitem: ClassModel)
+    {
+        return this.http.post('http://178.63.162.108:8080/api/supervisor/schoolClass', {
+            name: classitem.name,
+            schoolName: classitem.schoolName
+        });
     }
 
     cardToEditable(card: CardModel)

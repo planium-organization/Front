@@ -7,11 +7,9 @@ import { CardModel } from './table/day/card/card.model';
 import { Duration } from './Duration';
 import { LessonModel } from './table/day/card/lesson.model';
 import { httpService } from './http.service';
-import { pipe, Observable, Observer } from 'rxjs';
-import { findSafariExecutable } from 'selenium-webdriver/safari';
 import { GetableCard } from './endPoints/card.getable.model';
-import { error } from '@angular/compiler/src/util';
 import { PostModel } from './post-page/post.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class DataService {
@@ -26,7 +24,7 @@ export class DataService {
     daySelected = new EventEmitter<Date>();
 
 
-    constructor(private http : httpService)
+    constructor(private http : httpService, private router: Router, private rout: ActivatedRoute)
     {}
 
     private Students1: StudentModel[] =
@@ -51,8 +49,8 @@ export class DataService {
 
     private Classes: ClassModel[] =
     [
-        new ClassModel('4th grade math', "1"),
-        new ClassModel('1st grade', "2")
+        new ClassModel('4th grade math', "1", '89459', 'helli'),
+        new ClassModel('1st grade', "2", '837489', 'farzanegan')
     ];
 
      courses: LessonModel[] = [
@@ -94,8 +92,17 @@ export class DataService {
 
     GetClasses()
     {
-
+        // this.http.getClasses().subscribe(
+        //     (r: ClassModel[]) => this.Classes = r
+        // );
         return this.Classes.slice();
+    }
+
+    addClass(classitem: ClassModel)
+    {
+        this.http.addClass(classitem).subscribe(
+            (r: ClassModel) => this.Classes.push(r)
+        )
     }
 
     GetStudents(id: string): StudentModel[]
@@ -223,62 +230,73 @@ export class DataService {
 
     addCard(card :CardModel)
     {
-        this.http.sendCard(this.StudentId, card);
-        let day = card.dueDate.getDay();
-        console.log(day);
-        if(day == 0)
-        {
-            console.log(day)
-            this.Sun.cards.push(card);
-        }
-        else if(day == 1)
-        {
-            console.log(day)
-            this.Mon.cards.push(card);
-        }
-        else if(day == 2)
-        {
-            console.log(day)
-            this.Tue.cards.push(card);
-        }
-        else if(day == 3)
-        {
-            console.log(day)
-            this.Wed.cards.push(card);
-        }
-        else if(day == 4)
-        {
-            console.log(day)
-            this.Thu.cards.push(card);
-        }
-        else if(day == 5)
-        {
-            console.log(day)
-            this.Fri.cards.push(card);
-        }
-        else if(day == 6)
-        {
-            console.log(day)
-            this.Sat.cards.push(card);
-        }
+        this.http.sendCard(this.StudentId, card)
+        // .subscribe(
+        //     (r: GetableCard) => {
+        //         card = this.getableToCard(r);
+        //         let day = card.dueDate.getDay();
+        //         console.log(day);
+        //         if(day == 0)
+        //         {
+        //             console.log(day)
+        //             this.Sun.cards.push(card);
+        //         }
+        //         else if(day == 1)
+        //         {
+        //             console.log(day)
+        //             this.Mon.cards.push(card);
+        //         }
+        //         else if(day == 2)
+        //         {
+        //             console.log(day)
+        //             this.Tue.cards.push(card);
+        //         }
+        //         else if(day == 3)
+        //         {
+        //             console.log(day)
+        //             this.Wed.cards.push(card);
+        //         }
+        //         else if(day == 4)
+        //         {
+        //             console.log(day)
+        //             this.Thu.cards.push(card);
+        //         }
+        //         else if(day == 5)
+        //         {
+        //             console.log(day)
+        //             this.Fri.cards.push(card);
+        //         }
+        //         else if(day == 6)
+        //         {
+        //             console.log(day)
+        //             this.Sat.cards.push(card);
+        //         }
+        //     }
+        // )
     }
 
     editCard(card: CardModel)
     {
-        card = this.http.editCard(this.StudentId, card);
-        for(let d of this.Days)
-        {
-            if(card.dueDate == d.date)
+        this.http.editCard(this.StudentId, card).subscribe(
+            (r: GetableCard) => 
             {
-                for(let c of d.cards)
+                card = this.getableToCard(r);
+
+                for(let i = 0; i < 7; i++)
                 {
-                    if(c.id == card.id)
+                    if(card.dueDate == this.Days[i].date)
                     {
-                        c = card;
+                        for(let j = 0; j < this.Days[i].cards.length; j++)
+                        {
+                            if(card.id == this.Days[i].cards[j].id)
+                            {
+                                this.Days[i].cards[j] = card;
+                            }
+                        }
                     }
                 }
             }
-        }
+        )
     }
 
     deleteCard(id: string)
