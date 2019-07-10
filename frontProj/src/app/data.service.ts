@@ -9,8 +9,9 @@ import { LessonModel } from './table/day/card/lesson.model';
 import { httpService } from './http.service';
 import { GetableCard } from './endPoints/card.getable.model';
 import { PostModel } from './post-page/post.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { CommentModel } from './add-comment-form/comment.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class DataService {
@@ -89,6 +90,12 @@ export class DataService {
         new PostModel('1',new Date(2019,6,7,14,23), 'this is a test for the posts1',null),
         new PostModel('1',new Date(2019,6,6,16,20), 'this is a test for the posts2',null),
         new PostModel('1',new Date(2019,6,5,13,3), 'this is a test for the posts3',null),
+    ];
+
+    Comments = [
+        new CommentModel('1',new Date(2019, 6, 7), new Date(2019,6,7,13,43),"it is a test comment"),
+        new CommentModel('1',new Date(2019, 6, 5), new Date(2019,6,7,13,47),"it is a test comment"),
+        new CommentModel('1',new Date(2019, 6, 5), new Date(2019,6,7,14,10),"it is a test comment"),
     ];
 
     GetClasses()
@@ -320,6 +327,27 @@ export class DataService {
         this.http.sendPost(post, this.ClassId).subscribe(
             (r: PostModel) => this.getPosts(),
             (error: HttpErrorResponse) => {}
+    }
+
+
+    getComments()
+    {
+        this.http.getComments(this.StudentId, this.date).subscribe(
+            (r : CommentModel[]) => {
+                this.Comments = r;
+                console.log(r);
+            }
+        )
+    }
+
+    postCommemt(comment : CommentModel)
+    {
+        this.http.postComment(comment, this.StudentId).subscribe(
+            (r: CommentModel) => {this.getComments();
+                console.log(r);
+            }
+            ,
+            (error: HttpErrorResponse) => console.log(error)
         )
     }
 }

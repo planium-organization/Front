@@ -13,7 +13,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>{{dateToString()}}</th>
+        <th (click) = "dateSelected()" [routerLink] = "['dateToString()','comments']">{{dateToString()}}</th>
       </tr>
     </thead>
     <tbody>

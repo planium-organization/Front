@@ -1,5 +1,4 @@
 import { LessonModel } from '../table/day/card/lesson.model';
-import TimeSpan from 'typescript-dotnet-umd/System/Time/TimeSpan';
 
 export class EditableCard{
     course: LessonModel;

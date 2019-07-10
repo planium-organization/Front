@@ -13,6 +13,7 @@ import { EditCardFormComponent } from './edit-card-form/edit-card-form.component
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { AddClassFormComponent } from './class-list/add-class-form/add-class-form.component';
+import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
 
 const routs : Routes = [
   {path: "login" , component: LoginPageComponent},
@@ -25,7 +26,6 @@ const routs : Routes = [
     children:[
       {path: '', component: StudentListComponent, pathMatch: 'prefix',
       children : [
-        //{path: '', component: TableComponent, pathMatch: 'full'},
         {path: ':studentId/TimeTable', component: TableNavComponent, children:[
           {path:'', component: TableComponent},
         ]},
@@ -34,6 +34,7 @@ const routs : Routes = [
   ]},
   {path: 'Classes/:id/:studentId/TimeTable/:date/edit-card', component: EditCardFormComponent},
   {path: 'Classes/:id/:studentId/TimeTable/:date/make-card', component: AddCardFormComponent},
+  {path: 'Classes/:id/:studentId/TimeTable/:date/comments', component: AddCommentFormComponent},
   {path : "", redirectTo: "/login", pathMatch: 'full'}
 ]
 

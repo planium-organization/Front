@@ -7,6 +7,7 @@ import { Duration } from './Duration';
 import { SendableCard } from './endPoints/card.sendable.model';
 import { PostModel } from './post-page/post.model';
 import { ClassModel } from './class-list/class.model';
+import { CommentModel } from './add-comment-form/comment.model';
 
 @Injectable()
 export class httpService{
@@ -55,6 +56,25 @@ export class httpService{
             text: post.text,
         })
     }
+
+
+    getComments(id: string, date: Date)
+    {
+        return this.http.get('http://178.63.162.108:8090/api/supervisor/comment/'+ id + '/' + this.dateToString(date)+'/0/10')
+    }
+
+    postComment(comment: CommentModel, id: string)
+    {
+        return this.http.post('http://178.63.162.108:8090/api/supervisor/comment', 
+        {
+            date: this.dateToString(comment.date),
+            text: comment.text,
+            studentId: id,
+        }
+        )
+    }
+
+
 
     getClasses()
     {
