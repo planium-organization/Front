@@ -11,10 +11,11 @@ import { TableNavComponent } from './table-nav/table-nav.component';
 import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SignupPageComponent } from './login-page/signup-page/signup-page.component';
 
 const routs : Routes = [
   {path: "login" , component: LoginPageComponent},
-  {path: 'signup', component: LoginPageComponent},
+  {path: 'signup', component: SignupPageComponent},
   {path: "Classes", component: ClassListComponent, children : [
     {path: ":id",
     children:[
@@ -35,7 +36,7 @@ const routs : Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routs)],
   exports: [ RouterModule ],
-  
+
   providers: [
     DataService,
     httpService

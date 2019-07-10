@@ -5,52 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="login-page.component.css" rel="StyleSheet" type="text/css">
     <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script>
-        $('.form').find('input, textarea').on('keyup blur focus', function (e) {
-
-          var $this = $(this),
-              label = $this.prev('label');
-
-            if (e.type === 'keyup') {
-              if ($this.val() === '') {
-                  label.removeClass('active highlight');
-                } else {
-                  label.addClass('active highlight');
-                }
-            } else if (e.type === 'blur') {
-              if( $this.val() === '' ) {
-                label.removeClass('active highlight');
-              } else {
-                label.removeClass('highlight');
-              }
-            } else if (e.type === 'focus') {
-
-              if( $this.val() === '' ) {
-                label.removeClass('highlight');
-              }
-              else if( $this.val() !== '' ) {
-                label.addClass('highlight');
-              }
-            }
-
-        });
-
-        $('.tab a').on('click', function (e) {
-
-          e.preventDefault();
-
-          $(this).parent().addClass('active');
-          $(this).parent().siblings().removeClass('active');
-
-          target = $(this).attr('href');
-
-          $('.tab-content > div').not(target).hide();
-
-          $(target).fadeIn(600);
-
-        });
-
-      </script>
   </head>
 
   <body>
@@ -61,36 +15,7 @@
             <li class="tab" routerLinkActive="active" routerLink="/login"><a [routerLink] = "['login']">Log In</a></li>
           </ul>
 
-          <div class="tab-content">
-            <div id="signup">
-              <h1>Sign Up for Free</h1>
-
-            <form action="/" method="post">
-
-              <div class="top-row">
-                <div class="field-wrap">
-                  <input type="text" placeholder="First Name" required autocomplete="off" />
-                </div>
-
-                <div class="field-wrap">
-                  <input type="text" placeHolder="Last Name" required autocomplete="off"/>
-                </div>
-              </div>
-
-              <div class="field-wrap">
-                <input type="email"required placeholder="Email Address" autocomplete="off"/>
-              </div>
-
-              <div class="field-wrap">
-                <input type="password"required  placeholder="Set a Password "  autocomplete="off"/>
-              </div>
-
-                 <button type="submit" class="button button-block">Get Started</button>
-
-              </form>
-
-            </div>
-
+          <div>
             <div id="login">
               <h1>Welcome Back!</h1>
 
@@ -106,7 +31,7 @@
 
               <p class="forgot"><a>Forgot Password?</a></p>
                <!-- ng if notif alert -->
-              <button type="submit" class="button button-block">Log In</button> 
+              <button type="submit" class="button button-block">Log In</button>
 
               </form>
 

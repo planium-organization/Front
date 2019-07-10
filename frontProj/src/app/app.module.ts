@@ -28,6 +28,7 @@ import { UserService } from './login-page/login-services/user.service';
 import { WithCredentialsInterceptorService } from './login-page/login-services/with-credentials-interceptor.service';
 import { AccountService } from './login-page/login-services/account.service';
 import { AddCsrfHeaderInterceptorService } from './login-page/login-services/add-csrf-header-interceptor.service';
+import { SignupPageComponent } from './login-page/signup-page/signup-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { AddCsrfHeaderInterceptorService } from './login-page/login-services/add
     AnalysisBarComponent,
     PieChartComponent,
     LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,
