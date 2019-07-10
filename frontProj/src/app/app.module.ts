@@ -31,6 +31,7 @@ import { WithCredentialsInterceptorService } from './login-page/login-services/w
 import { AccountService } from './login-page/login-services/account.service';
 import { AddCsrfHeaderInterceptorService } from './login-page/login-services/add-csrf-header-interceptor.service';
 import { PostPageComponent } from './post-page/post-page.component';
+import { AddClassFormComponent } from './class-list/add-class-form/add-class-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { PostPageComponent } from './post-page/post-page.component';
     PieChartComponent,
     LoginPageComponent,
     PostPageComponent,
+    AddClassFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,6 @@ import { PostPageComponent } from './post-page/post-page.component';
     DataService,
     httpService,
     HttpClient,
-    // CookieService,
     AccountService,
     UserService,
     { provide: HTTP_INTERCEPTORS, useClass: WithCredentialsInterceptorService, multi: true },

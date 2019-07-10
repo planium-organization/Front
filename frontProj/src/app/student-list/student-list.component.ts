@@ -16,20 +16,20 @@ export class StudentListComponent implements OnInit{
 
   ngOnInit() 
   {
-    this.ClassId = this.data.ClassId;
-    this.ClassId = this.router.snapshot.params['id'];
+    // this.ClassId = this.data.ClassId;
+    // this.ClassId = this.router.snapshot.params['id'];
     
-    this.Students = this.data.GetStudents(this.ClassId);
-    // this.router.paramMap.subscribe(
-    //   (param) => {
-    //     if(param.has('id'))
-    //     {
-    //       this.ClassId = param.get('id');
-    //       console.log(this.ClassId);
-    //     }
-    //     this.Students = this.data.GetStudents(this.ClassId);
-    //   }
-    // );
+    // this.Students = this.data.GetStudents(this.ClassId);
+    this.router.paramMap.subscribe(
+      (param) => {
+        if(param.has('id'))
+        {
+          this.ClassId = param.get('id');
+          console.log(this.ClassId);
+        }
+        this.Students = this.data.GetStudents(this.ClassId);
+      }
+    );
 
   }
 }

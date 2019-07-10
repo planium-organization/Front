@@ -13,6 +13,7 @@ import { EditCardFormComponent } from './edit-card-form/edit-card-form.component
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
+import { AddClassFormComponent } from './class-list/add-class-form/add-class-form.component';
 
 const routs : Routes = [
   {path: "login" , component: LoginPageComponent},
@@ -20,6 +21,7 @@ const routs : Routes = [
     {path: ':classId', component: PostPageComponent}
   ]},
   {path: "Classes", component: ClassListComponent, children : [
+    {path: 'addClass', component: AddClassFormComponent},
     {path: ":id",
     children:[
       {path: '', component: StudentListComponent, pathMatch: 'prefix',
