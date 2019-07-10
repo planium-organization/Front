@@ -1,3 +1,8 @@
+.body
+{
+ background-color:  #252827;
+}
+
 .pb-cmnt-container {
   font-family: Lato;
   margin-top: 100px;
@@ -8,5 +13,10 @@
   padding: 20px;
   height: 130px;
   width: 100%;
-  border: 1px solid #EEE2FA;
+  border: 3px solid #EEE2FA;
+}
+
+.panel panel-info
+{
+  border: 2px solid grey;
 }

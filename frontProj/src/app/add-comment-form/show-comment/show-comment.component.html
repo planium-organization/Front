@@ -6,64 +6,15 @@
             <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
     <body>
-   
-<div class="container">
-        <div class="row">
-     <div class="timeline-centered">
-        
-        <article class="timeline-entry">
-            
-            <div class="timeline-entry-inner">
-                <time class="timeline-time" *ngFor="let comment of data.Comments" ><span>{{TimeToString(comment.creationTime)}}</span> <span>{{comment.date}}</span></time>
-                
-                <div class="timeline-icon bg-success" style="position:relative; top:10px;">
-                    <i class="entypo-feather"></i>
-                </div>
-                
-                <div class="timeline-label" *ngFor="let comment of data.Comments" style="position:relative; top:10px;">
-                    <h2><a href="#">Supervisor</a> </h2>
-                    <p>{{comment.text}}</p>
-                </div>
-            </div>
-            
-        </article>
-        
-        
-        <article class="timeline-entry left-aligned">
-            
-            <div class="timeline-entry-inner">
-                <time class="timeline-time" *ngFor="let comment of data.Comments"  ><span>{{TimeToString(comment.creationTime)}}</span> <span>{{comment.date}}</span></time>
-                
-                <div class="timeline-icon bg-warning">
-                    <i class="entypo-suitcase"></i>
-                </div>
-                
-                <div class="timeline-label"  *ngFor="let comment of data.Comments">
-                    <h2><a href="#">Supervisor</a></h2>
-                    <p>{{comment.text}}</p>
-                </div>
-            </div>
-            
-        </article>
-
-        
-       
-        
-        <article class="timeline-entry begin">
-        
-            <div class="timeline-entry-inner">
-                
-                <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
-                    <i class="entypo-flight"></i>
-                </div>
-                
-            </div>
-            
-        </article>
-        
-    </div>
-        </div>
-    </div>
+      <div id="content">
+        <ul *ngFor="let comment of data.Comments" class="timeline">
+          <li class="event">
+            {{TimeToString(comment.creationTime)}}
+            <h3>Supervisor</h3>
+            <p>{{comment.text}} </p>
+          </li>
+        </ul>
+      </div>
 
     </body>
 </html>
