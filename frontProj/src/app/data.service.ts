@@ -327,6 +327,7 @@ export class DataService {
         this.http.sendPost(post, this.ClassId).subscribe(
             (r: PostModel) => this.getPosts(),
             (error: HttpErrorResponse) => {}
+        )
     }
 
 
