@@ -3,6 +3,8 @@ import { UserService } from './login-services/user.service';
 import { AccountService } from './login-services/account.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DataService } from '../data.service';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -11,40 +13,40 @@ import { DataService } from '../data.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  registerFeedback: string = '';
-  loginFeedback: string = '';
-  loggedInUserEmail: string = '';
-  @Input() email: string = "student@gmail.com";
-  @Input() password: string = "student123";
+  email: string = "student@gmail.com";
+  password: string = "student123";
+  validEmail : boolean = true;
 
-  constructor( private accountService: AccountService, private userService: UserService, private data : DataService) { }
+  constructor( private accountService: AccountService, private rout: ActivatedRoute, private router: Router, private data : DataService) { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    this.loginFeedback = '';
-    this.accountService.login(this.email, this.password).subscribe(_ => {
-      this.loginFeedback = 'Login successful. Try the requests that requires user to be logged in.';
-      this.data.user.email = this.email;
-      this.data.user.password = this.password;
-      this.data.user.loggedin = true;
-    }, (errorResponse: HttpErrorResponse) => {
-      this.loginFeedback = errorResponse.message;
-      console.log(this.loginFeedback)
-    });
+  onSubmit(form : NgForm) {
+    if(form.valid)
+    {
+      this.accountService.login(form.value.email, form.value.password).subscribe(_ => {
+        this.data.user.email = form.value.email;
+        this.data.user.password = form.value.password;
+        this.data.user.loggedin = true;
+        this.router.navigate(['/Classes', this.rout]);
+
+      }, (errorResponse: HttpErrorResponse) => {
+        this.validEmail = false;
+      });
+    }
   }
 
 
 
-  getLoggedInUserEmail() {
-    this.userService.getEmail().subscribe(email => {
-      this.loggedInUserEmail = `${email}`;
-      console.log(email)
-    }, (errorResponse: HttpErrorResponse) => {
-      this.loggedInUserEmail = `${errorResponse.status} ${errorResponse.statusText}`;
-      console.log(this.loggedInUserEmail)
-    });
-  }
+  // getLoggedInUserEmail() {
+  //   this.userService.getEmail().subscribe(email => {
+  //     this.loggedInUserEmail = `${email}`;
+  //     console.log(email)
+  //   }, (errorResponse: HttpErrorResponse) => {
+  //     this.loggedInUserEmail = `${errorResponse.status} ${errorResponse.statusText}`;
+  //     console.log(this.loggedInUserEmail)
+  //   });
+  // }
 
 }

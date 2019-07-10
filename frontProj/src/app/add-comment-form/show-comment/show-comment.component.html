@@ -1,0 +1,21 @@
+<html>
+    <head>
+            <link href ="show-comment.component.css" rel="StyleSheet" type="text/css">
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+      <div id="content">
+        <ul *ngFor="let comment of data.Comments" class="timeline">
+          <li class="event">
+            <a>{{comment.creationTime}}</a>
+            <h3>Supervisor</h3>
+            <p>{{comment.text}} </p>
+          </li>
+        </ul>
+      </div>
+
+    </body>
+</html>
+
