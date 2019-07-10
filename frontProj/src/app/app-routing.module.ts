@@ -14,6 +14,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 
 const routs : Routes = [
   {path: "login" , component: LoginPageComponent},
+  {path: 'signup', component: LoginPageComponent},
   {path: "Classes", component: ClassListComponent, children : [
     {path: ":id",
     children:[

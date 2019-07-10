@@ -57,8 +57,8 @@
       <div class="form">
 
           <ul class="tab-group">
-            <li class="tab active"><a href="#signup">Sign Up</a></li>
-            <li class="tab"><a href="#login">Log In</a></li>
+            <li class="tab" routerLinkActive="active" routerLink="/signup"><a [routerLink] = "['signup']">Sign Up</a></li>
+            <li class="tab" routerLinkActive="active" routerLink="/login"><a [routerLink] = "['login']">Log In</a></li>
           </ul>
 
           <div class="tab-content">
@@ -94,19 +94,19 @@
             <div id="login">
               <h1>Welcome Back!</h1>
 
-              <form action="/" method="post">
+              <form  #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm)">
 
                 <div class="field-wrap">
-                <input type="email"required placeholder="Email Address" autocomplete="off"/>
+                <input type="email"required placeholder="Email Address" autocomplete="off" ngModel name = 'email'/>
               </div>
 
               <div class="field-wrap">
-                <input type="password"required placeholder="Password" autocomplete="off"/>
+                <input type="password"required placeholder="Password" autocomplete="off" ngModel name = 'password'/>
               </div>
 
-              <p class="forgot"><a href="#">Forgot Password?</a></p>
-
-              <button class="button button-block">Log In</button>
+              <p class="forgot"><a>Forgot Password?</a></p>
+               <!-- ng if notif alert -->
+              <button type="submit" class="button button-block">Log In</button> 
 
               </form>
 
