@@ -309,6 +309,7 @@ export class DataService {
         this.http.getComments(this.StudentId, this.date).subscribe(
             (r : CommentModel[]) => {
                 this.Comments = r;
+                console.log(r);
             }
         )
     }
@@ -316,7 +317,10 @@ export class DataService {
     postCommemt(comment : CommentModel)
     {
         this.http.postComment(comment, this.StudentId).subscribe(
-            (r: CommentModel) => this.Comments.push(r),
+            (r: CommentModel) => {this.getComments();
+                console.log(r);
+            }
+            ,
             (error: HttpErrorResponse) => console.log(error)
         )
     }

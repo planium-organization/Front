@@ -9,7 +9,7 @@
       <div id="content">
         <ul *ngFor="let comment of data.Comments" class="timeline">
           <li class="event">
-            {{TimeToString(comment.creationTime)}}
+            <a>{{comment.creationTime}}</a>
             <h3>Supervisor</h3>
             <p>{{comment.text}} </p>
           </li>

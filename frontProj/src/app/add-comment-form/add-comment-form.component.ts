@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { CommentModel } from './comment.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-comment-form',
@@ -13,13 +14,18 @@ export class AddCommentFormComponent implements OnInit {
   constructor(private data : DataService) { }
 
   ngOnInit() {
-    //this.data.getComments();
+    this.data.getComments();
   }
 
-  onSubmit()
+  onSubmit(form: NgForm)
   {
-    let comment : CommentModel = new CommentModel('',this.data.date, null, 'a test text for comment')
-    this.data.postCommemt(comment);
+    console.log(form)
+    if(form.valid)
+    {
+      let comment : CommentModel = new CommentModel('',this.data.date, null, this.text)
+      this.data.postCommemt(comment);
+      this.text = '';
+    }
   }
 
 }

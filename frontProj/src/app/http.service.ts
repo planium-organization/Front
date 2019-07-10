@@ -59,14 +59,14 @@ export class httpService{
 
     getComments(id: string, date: Date)
     {
-        return this.http.get('http://178.63.162.108:8080/api/supervisor/comment/'+ id + '/' + this.dateToString(date)+'/0/10')
+        return this.http.get('http://178.63.162.108:8090/api/supervisor/comment/'+ id + '/' + this.dateToString(date)+'/0/10')
     }
 
     postComment(comment: CommentModel, id: string)
     {
-        return this.http.post('http://178.63.162.108:8080/api/supervisor/comment', 
+        return this.http.post('http://178.63.162.108:8090/api/supervisor/comment', 
         {
-            date: comment.date,
+            date: this.dateToString(comment.date),
             text: comment.text,
             studentId: id,
         }
