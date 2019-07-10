@@ -19,7 +19,7 @@ export class httpService{
 
     getCards(id: string, date: Date)
     {
-        console.log('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
+        console.log('http://178.63.162.108:8090/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
         return this.http.get<GetableCard[]>('http://178.63.162.108:8090/api/supervisor/card/'+ id+'/'  + this.dateToString(date) + '/7')
     }
 
@@ -28,18 +28,18 @@ export class httpService{
     sendCard(id: string, card: CardModel)
     {
         const SCard = this.cardToSendable(card, id)
-        return this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard);
+        return this.http.post<GetableCard>('http://178.63.162.108:8090/api/supervisor/card', SCard);
     }
 
     editCard(id: string, card: CardModel)
     {
         const ECard = this.cardToEditable(card);
-        return this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard)
+        return this.http.put<GetableCard>('http://178.63.162.108:8090/api/supervisor/card/'+ id+'/' + card.id, ECard)
     }
 
     deleteCard(id: string, cardId: string)
     {
-        this.http.delete('http://178.63.162.108:8080/api/supervisor/card/'+ id +'/'+ cardId).subscribe(
+        this.http.delete('http://178.63.162.108:8090/api/supervisor/card/'+ id +'/'+ cardId).subscribe(
             (r : Response) => console.log(r)
         );
     }
