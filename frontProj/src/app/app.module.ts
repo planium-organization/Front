@@ -24,6 +24,8 @@ import {FormsModule} from '@angular/forms';
 import { AnalysisBarComponent } from './analysis-page/analysis-bar/analysis-bar.component';
 import { PieChartComponent } from './analysis-page/pie-chart/pie-chart.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ProfilePageEditComponent } from './profile-page/profile-page-edit/profile-page-edit.component';
 import { UserService } from './login-page/login-services/user.service';
 import { WithCredentialsInterceptorService } from './login-page/login-services/with-credentials-interceptor.service';
 import { AccountService } from './login-page/login-services/account.service';
@@ -52,6 +54,8 @@ import { AddClassFormComponent } from './class-list/add-class-form/add-class-for
     AnalysisBarComponent,
     PieChartComponent,
     LoginPageComponent,
+    ProfilePageComponent,
+    ProfilePageEditComponent,
     SignupPageComponent,
     PostPageComponent,
     AddClassFormComponent,
