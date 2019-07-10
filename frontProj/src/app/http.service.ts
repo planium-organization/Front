@@ -32,10 +32,7 @@ export class httpService{
     editCard(id: string, card: CardModel)
     {
         const ECard = this.cardToEditable(card);
-        this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard).subscribe(
-            (r) => card = this.getableToCard(r)
-        );
-        return card;
+        return this.http.put<GetableCard>('http://178.63.162.108:8080/api/supervisor/card/'+ id+'/' + card.id, ECard)
     }
 
     deleteCard(id: string, cardId: string)

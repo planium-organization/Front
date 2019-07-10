@@ -312,20 +312,26 @@ export class DataService {
 
     editCard(card: CardModel)
     {
-        card = this.http.editCard(this.StudentId, card);
-        for(let d of this.Days)
-        {
-            if(card.dueDate == d.date)
+        this.http.editCard(this.StudentId, card).subscribe(
+            (r: GetableCard) => 
             {
-                for(let c of d.cards)
+                card = this.getableToCard(r);
+
+                for(let i = 0; i < 7; i++)
                 {
-                    if(c.id == card.id)
+                    if(card.dueDate == this.Days[i].date)
                     {
-                        c = card;
+                        for(let j = 0; j < this.Days[i].cards.length; j++)
+                        {
+                            if(card.id == this.Days[i].cards[j].id)
+                            {
+                                this.Days[i].cards[j] = card;
+                            }
+                        }
                     }
                 }
             }
-        }
+        )
     }
 
     deleteCard(id: string)

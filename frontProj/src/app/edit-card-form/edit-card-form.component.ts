@@ -17,16 +17,6 @@ export class EditCardFormComponent implements OnInit {
   constructor(private data: DataService, private router: Router) { }
 
   @ViewChild('EditForm', { static: true }) form: NgForm;
-  defaultCourse = 'lesson.title';
-  defaultSTime = 'card.startTime.getHours' ;
-  defaultSMinute = 'card.startTime.getMinutes';
-  defaultDTime = 'card.duration.Hours';
-  defaultDMinute = 'card.duration.Minutes';
-  defaultDescription  = 'card.description';
-  defaultDone = 'card.isDone';
-  defaultEdit = 'card.editable';
-  defaultExpired = 'card.expired';
-  defaultSuper = 'card.supervisorCreated';
   courses = this.data.courses;
   card : CardModel;
   classId: string;
@@ -61,7 +51,7 @@ export class EditCardFormComponent implements OnInit {
       let duration = new Duration(form.value.DurationHour, form.value.DurationMin);
       let startTime = new Date(0,0,0,form.value.StartTimeHour,form.value.StartTimeMin );
       let card = new CardModel('', duration, this.selectedCourse,form.value.Description,false,true,startTime, this.date,false, true);
-      this.data.addCard(card);
+      this.data.editCard(card);
       this.router.navigate(['/Classes', this.classId, this.studentid, 'TimeTable']);
     }
 

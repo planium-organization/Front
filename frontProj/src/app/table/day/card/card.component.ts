@@ -14,7 +14,7 @@ export class CardComponent implements OnInit {
   @Input() Card: CardModel;
   @Input() classid: string;
   @Input() studentId: string;
-  constructor(private dataService: DataService,private router: Router) { }
+  constructor(private dataService: DataService,private router: Router, private rout: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -24,7 +24,7 @@ export class CardComponent implements OnInit {
     this.dataService.selectedCard = this.Card;
     this.dataService.ClassId = this.classid;
     this.dataService.StudentId = this.studentId;
-    this.router.navigate([ '/Classes', this.classid, this.studentId, 'TimeTable', this.dateToString(), 'edit-card'])
+    // this.router.navigate([ '/Classes', this.dataService.ClassId, this.dataService.StudentId, 'TimeTable', this.dateToString(), 'edit-card'])
   }
   dateToString()
   {
