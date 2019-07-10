@@ -6,8 +6,8 @@
 <body>
     <div class="sidebar">
         <ul class = "class-list">
-            <li *ngFor = "let ClassItem of Classes" class="listItemA">
-                <a [routerLink]="['/Classes', ClassItem.id]">
+            <li *ngFor = "let ClassItem of data.Classes" class="listItemA">
+                <a [routerLink]="[ClassItem.id]">
                     <app-class-detail [ClassItem] = "ClassItem">
                     </app-class-detail>
                 </a>

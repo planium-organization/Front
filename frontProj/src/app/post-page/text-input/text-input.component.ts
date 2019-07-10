@@ -22,7 +22,7 @@ export class TextInputComponent implements OnInit {
     {
       let post: PostModel = new PostModel('',null,AddPost.value.PostText,null);
       console.log(AddPost.value.PostText)
-      //this.data.sendPost(post);
+      this.data.sendPost(post);
       AddPost.value.PostText = '';
       this.postText = '';
     }

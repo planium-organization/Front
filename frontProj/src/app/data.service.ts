@@ -10,6 +10,7 @@ import { httpService } from './http.service';
 import { GetableCard } from './endPoints/card.getable.model';
 import { PostModel } from './post-page/post.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
@@ -92,10 +93,10 @@ export class DataService {
 
     GetClasses()
     {
-        // this.http.getClasses().subscribe(
-        //     (r: ClassModel[]) => this.Classes = r
-        // );
-        return this.Classes.slice();
+        this.http.getClasses().subscribe(
+            (r: ClassModel[]) => this.Classes = r
+        );
+        //return this.Classes.slice();
     }
 
     addClass(classitem: ClassModel)
@@ -316,8 +317,9 @@ export class DataService {
 
     sendPost(post: PostModel)
     {
-        this.http.sendPost(post, this.StudentId).subscribe(
-            (r: PostModel) => this.Posts.push(r)
+        this.http.sendPost(post, this.ClassId).subscribe(
+            (r: PostModel) => this.getPosts(),
+            (error: HttpErrorResponse) => {}
         )
     }
 }

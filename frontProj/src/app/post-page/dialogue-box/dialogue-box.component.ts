@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-dialogue-box',
@@ -8,10 +9,14 @@ import { DataService } from '../../data.service';
 })
 export class DialogueBoxComponent implements OnInit {
 
-  constructor(private data: DataService) { }//posts in data.Posts
+  constructor(private data: DataService, private rout: ActivatedRoute) { }//posts in data.Posts
 
   ngOnInit() {
-    //this.data.getPosts();
+    this.rout.params.subscribe(
+      (param: Params)=> {
+        this.data.getPosts();
+      }
+    )
   }
 
 }
