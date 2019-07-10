@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DayModel } from './day.model';
-import { DataService } from '../../data.service';
+import { DataService } from '../../../app/data.service';
 
 @Component({
   selector: 'app-day',
@@ -18,9 +18,9 @@ export class DayComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick()//comments
+  dateSelected()//comments
   {
-    this.dataService.daySelected.emit(this.DayColumn.date);
+    this.dataService.date = this.DayColumn.date;
   }
 
   onAddCard()

@@ -1,4 +1,3 @@
-
 <html>
   <head>
     <link href ="card.component.css" rel="StyleSheet" type="text/css">
@@ -8,7 +7,7 @@
   <body>
       <div class = "card" [ngStyle]="{'height.px': CalculateHeight()}" (click) = 'onSelect()'>
           <div class="content">
-           <p id = "name" >
+           <p id = "name" (click) = 'onSelect()'>
              {{Card.lesson.title}}
            </p>
            <p id = "time">
