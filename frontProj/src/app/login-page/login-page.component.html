@@ -19,10 +19,10 @@
             <div id="login">
               <h1>Welcome Back!</h1>
 
-              <form  #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm)">
-
+              <form  #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm)"  >
                 <div class="field-wrap">
-                <input type="email" required placeholder="Email Address" autocomplete="off" ngModel name = 'email'/>
+                    <!-- *ngIf="validEmail = false" -->
+                <input type="email" required placeholder="Email Address" autocomplete="off"  ngModel name = 'email'/>
               </div>
 
               <div class="field-wrap">
