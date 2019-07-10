@@ -4,34 +4,43 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="login-page.component.css" rel="StyleSheet" type="text/css">
+    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
 
   <body>
-    <div class="wrapper fadeInDown">
-      <div id="formContent">
+      <div class="form">
 
-        <h2 class="active"> Sign In </h2>
-        <h2 class="inactive underlineHover">Sign Up </h2>
+          <ul class="tab-group">
+            <li class="tab" routerLinkActive="active" routerLink="/signup"><a [routerLink] = "['signup']">Sign Up</a></li>
+            <li class="tab" routerLinkActive="active" routerLink="/login"><a [routerLink] = "['login']">Log In</a></li>
+          </ul>
 
+          <div>
+            <div id="login">
+              <h1>Welcome Back!</h1>
 
-        <div class="fadeIn first">
-          <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-        </div>
+              <form  #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm)"  >
+                <div class="field-wrap">
+                    <!-- *ngIf="validEmail = false" -->
+                <input type="email" required placeholder="Email Address" autocomplete="off"  ngModel name = 'email'/>
+              </div>
 
+              <div class="field-wrap">
+                <input type="password" required placeholder="Password" autocomplete="off" ngModel name = 'password'/>
+              </div>
 
-        <form>
-          <input type="text" id="login" class="fadeIn second" placeholder="login">
-          <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-          <input type="submit" class="fadeIn fourth" value="Log In" (click) = 'onSubmit()'>
-        </form>
+              <p class="forgot"><a>Forgot Password?</a></p>
+               <!-- ng if notif alert -->
+              <button type="submit" class="button button-block">Log In</button>
 
+              </form>
 
-        <div id="formFooter">
-          <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>
+            </div>
 
-      </div>
+          </div>
+
     </div>
+
   </body>
 </html>
 

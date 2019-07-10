@@ -33,7 +33,7 @@ export class AccountService{
     }
 
     logout(){
-        return this.httpClient.post(`${environment.apiBaseUrl}/api/account/logout`, {}, {
+        return this.httpClient.post(`${environment.apiBaseUrl}/api/shared/account/logout`, {}, {
             responseType: 'text'
         });
     }

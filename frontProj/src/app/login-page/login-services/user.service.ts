@@ -8,7 +8,7 @@ export class UserService{
 
     getEmail(){
         //the with-credentails-interceptor is adding withCredentials to this call
-        return this.httpClient.get(`${environment.apiBaseUrl}/api/user/name`, {
+        return this.httpClient.get(`${environment.apiBaseUrl}/api/shared/user/name`, {
             responseType: 'text'            
         });        
     }

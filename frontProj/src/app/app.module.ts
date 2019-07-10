@@ -28,6 +28,7 @@ import { UserService } from './login-page/login-services/user.service';
 import { WithCredentialsInterceptorService } from './login-page/login-services/with-credentials-interceptor.service';
 import { AccountService } from './login-page/login-services/account.service';
 import { AddCsrfHeaderInterceptorService } from './login-page/login-services/add-csrf-header-interceptor.service';
+import { SignupPageComponent } from './login-page/signup-page/signup-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { AddClassFormComponent } from './class-list/add-class-form/add-class-form.component';
 @NgModule({
@@ -51,6 +52,7 @@ import { AddClassFormComponent } from './class-list/add-class-form/add-class-for
     AnalysisBarComponent,
     PieChartComponent,
     LoginPageComponent,
+    SignupPageComponent,
     PostPageComponent,
     AddClassFormComponent,
   ],
