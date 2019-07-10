@@ -19,6 +19,7 @@ export class StudentListComponent implements OnInit{
     // this.ClassId = this.data.ClassId;
     // this.ClassId = this.router.snapshot.params['id'];
     
+    this.Students = this.data.GetStudents(this.ClassId);
     // this.Students = this.data.GetStudents(this.ClassId);
     this.router.paramMap.subscribe(
       (param) => {

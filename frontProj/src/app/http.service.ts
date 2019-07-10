@@ -5,8 +5,9 @@ import { EditableCard } from './endPoints/card.editable.model';
 import { GetableCard } from './endPoints/card.getable.model';
 import { Duration } from './Duration';
 import { SendableCard } from './endPoints/card.sendable.model';
-import { CommentModel } from './add-comment-form/comment.model';
+import { PostModel } from './post-page/post.model';
 import { ClassModel } from './class-list/class.model';
+import { CommentModel } from './add-comment-form/comment.model';
 
 @Injectable()
 export class httpService{
@@ -45,8 +46,17 @@ export class httpService{
 
     getPosts(id:string)
     {
-        return this.http.get('http://178.63.162.108:8080/api/supervisor/channelPost/classId/0/10')
+        return this.http.get('http://178.63.162.108:8090/api/supervisor/channelPost/' + id + '/0/10')
     }
+
+    sendPost(post: PostModel, id: string)
+    {
+        return this.http.post('http://178.63.162.108:8090/api/supervisor/channelPost/' + id, {
+            image: post.image,
+            text: post.text,
+        })
+    }
+
 
     getComments(id: string, date: Date)
     {
@@ -68,7 +78,7 @@ export class httpService{
 
     getClasses()
     {
-        return this.http.get('http://178.63.162.108:8080/api/supervisor/schoolClass');
+        return this.http.get('http://178.63.162.108:8090/api/supervisor/schoolClass');
     }
 
     addClass(classitem: ClassModel)

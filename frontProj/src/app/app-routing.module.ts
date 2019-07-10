@@ -12,8 +12,8 @@ import { AddCardFormComponent } from './add-card-form/add-card-form.component';
 import { EditCardFormComponent } from './edit-card-form/edit-card-form.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
-import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
 import { AddClassFormComponent } from './class-list/add-class-form/add-class-form.component';
+import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
 
 const routs : Routes = [
   {path: "login" , component: LoginPageComponent},
@@ -41,7 +41,7 @@ const routs : Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routs)],
   exports: [ RouterModule ],
-  
+
   providers: [
     DataService,
     httpService

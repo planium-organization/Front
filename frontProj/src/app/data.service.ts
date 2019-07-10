@@ -7,8 +7,6 @@ import { CardModel } from './table/day/card/card.model';
 import { Duration } from './Duration';
 import { LessonModel } from './table/day/card/lesson.model';
 import { httpService } from './http.service';
-import { pipe, Observable, Observer } from 'rxjs';
-import { findSafariExecutable } from 'selenium-webdriver/safari';
 import { GetableCard } from './endPoints/card.getable.model';
 import { PostModel } from './post-page/post.model';
 import { CommentModel } from './add-comment-form/comment.model';
@@ -89,9 +87,9 @@ export class DataService {
     Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat,];
 
     Posts = [
-        new PostModel('1',new Date(2019,6,7), 'this is a test for the posts1',null),
-        new PostModel('1',new Date(2019,6,6), 'this is a test for the posts2',null),
-        new PostModel('1',new Date(2019,6,5), 'this is a test for the posts3',null),
+        new PostModel('1',new Date(2019,6,7,14,23), 'this is a test for the posts1',null),
+        new PostModel('1',new Date(2019,6,6,16,20), 'this is a test for the posts2',null),
+        new PostModel('1',new Date(2019,6,5,13,3), 'this is a test for the posts3',null),
     ];
 
     Comments = [
@@ -102,10 +100,10 @@ export class DataService {
 
     GetClasses()
     {
-        // this.http.getClasses().subscribe(
-        //     (r: ClassModel[]) => this.Classes = r
-        // );
-        return this.Classes.slice();
+        this.http.getClasses().subscribe(
+            (r: ClassModel[]) => this.Classes = r
+        );
+        //return this.Classes.slice();
     }
 
     addClass(classitem: ClassModel)
@@ -321,6 +319,15 @@ export class DataService {
                 console.log(r);
             }
         );
+
+    }
+
+    sendPost(post: PostModel)
+    {
+        this.http.sendPost(post, this.ClassId).subscribe(
+            (r: PostModel) => this.getPosts(),
+            (error: HttpErrorResponse) => {}
+        )
     }
 
 
