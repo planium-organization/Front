@@ -124,12 +124,13 @@ export class DataService {
         if (id == '1')
         {
             console.log('1');
-            return this.Students1.slice();
+            return this.students2.slice();
+            
         }
         else
         {
             console.log(id);
-            return this.students2.slice();
+            return this.Students1.slice();
         }
     }
 
@@ -244,7 +245,13 @@ export class DataService {
 
     addCard(card :CardModel)
     {
-        this.http.sendCard(this.StudentId, card)
+        this.http.sendCard(this.StudentId, card).subscribe(
+            (r: GetableCard) =>
+            {
+                console.log(r)
+                this.initTable('1')
+            }
+        )
         // .subscribe(
         //     (r: GetableCard) => {
         //         card = this.getableToCard(r);
