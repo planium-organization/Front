@@ -16,7 +16,7 @@ import { error } from '@angular/compiler/src/util';
 export class DataService {
 
     classSelected = new EventEmitter<StudentModel[]>();
-   
+
     ClassId : string;
     StudentId: string;
     date: Date;
@@ -64,7 +64,7 @@ export class DataService {
 
     private Sat = new DayModel(new Date(2019, 6, 1),
     [
-        //new CardModel('1',new Duration(1, 0), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        new CardModel('1',new Duration(1, 40), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
         //new CardModel('2',new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
         //new CardModel('3',new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
         //new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),true,false),
@@ -171,7 +171,7 @@ export class DataService {
         this.Fri.date = new Date(d + 5*86400000 );
         this.Fri.cards = [];
         this.Sat.date = new Date(d + 6*86400000 );
-        this.Sat.cards = [];
+        // this.Sat.cards = [];
 
     }
 
@@ -188,7 +188,7 @@ export class DataService {
         return card;
     }
 
-    
+
     initTable(id: string)
     {
         this.initDays();
@@ -239,7 +239,7 @@ export class DataService {
                         console.log(day)
                         this.Sat.cards.push(card);
                     }
-                
+
                 }
                 console.log('init called '+ id);
                 this.Days = [ this.Sun, this.Mon, this.Tue, this.Wed, this.Thu, this.Fri,this.Sat];
@@ -249,8 +249,8 @@ export class DataService {
                 console.log(error);
             }
         );
-        
-       
+
+
     }
 
     getWeek(week : number){

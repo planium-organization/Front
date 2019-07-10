@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CardModel } from './card.model';
 import { DataService } from '../../../data.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Duration } from '../../../Duration';
 
 @Component({
   selector: 'app-card',
@@ -29,5 +30,19 @@ export class CardComponent implements OnInit {
   {
     const date : string = this.Card.dueDate.getFullYear() + '-' + this.Card.dueDate.getMonth() + '-' + this.Card.dueDate.getDate();
     return date;
+  }
+
+  CalculateHeight() : number
+  {
+    let CardHeight = ((this.Card.duration.Hours * 60) + (this.Card.duration.Minutes)) * 2 ;
+
+    if (CardHeight <= 60 )
+    {
+      CardHeight = 60;
+    }
+
+    console.log(CardHeight);
+
+    return CardHeight;
   }
 }
