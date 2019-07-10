@@ -36,13 +36,14 @@ export class CardComponent implements OnInit {
   {
     let CardHeight = ((this.Card.duration.Hours * 60) + (this.Card.duration.Minutes)) * 2 ;
 
-    if (CardHeight <= 60 )
+    if (CardHeight <= 120 )
     {
-      CardHeight = 60;
+      CardHeight = 120;
     }
-
     console.log(CardHeight);
 
     return CardHeight;
   }
+
+
 }

@@ -64,7 +64,7 @@ export class DataService {
 
     private Sat = new DayModel(new Date(2019, 6, 1),
     [
-        new CardModel('1',new Duration(1, 40), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
+        new CardModel('1',new Duration(0, 40), new LessonModel('#6291E1', 'Math'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
         //new CardModel('2',new Duration(1, 20), new LessonModel('#EB578B', 'physics'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
         //new CardModel('3',new Duration(1, 30), new LessonModel('#FA863D', 'literature'), 'just the first part', true,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),false,false),
         //new CardModel('4',new Duration(2, 0), new LessonModel('#5DC878', 'Bialogy'), 'just the first part', false,true,new Date(2019, 6, 1,13,30),new Date(2019, 6, 1),true,false),

@@ -6,7 +6,7 @@
 
 
   <body>
-      <div class = "card" [ngStyle]="{'height': CalculateHeight()}" (click) = 'onSelect()'>
+      <div class = "card" [ngStyle]="{'height.px': CalculateHeight()}" (click) = 'onSelect()'>
           <div class="content">
            <p id = "name" >
              {{Card.lesson.title}}
