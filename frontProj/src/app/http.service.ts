@@ -26,14 +26,7 @@ export class httpService{
     sendCard(id: string, card: CardModel)
     {
         const SCard = this.cardToSendable(card, id)
-        console.log(SCard);
-        this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard)
-        .subscribe(
-            (r) =>{ card = this.getableToCard(r);
-            console.log(r);
-            }
-        );
-        return card;
+        return this.http.post<GetableCard>('http://178.63.162.108:8080/api/supervisor/card', SCard);
     }
 
     editCard(id: string, card: CardModel)
