@@ -14,7 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
 
   email: string = "student@gmail.com";
-  @Input() password: string = "student123";
+  password: string = "student123";
+  validEmail : boolean = true;
 
   constructor( private accountService: AccountService, private rout: ActivatedRoute, private router: Router, private data : DataService) { }
 
@@ -22,14 +23,18 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(form : NgForm) {
-    this.accountService.login(this.email, this.password).subscribe(_ => {
-      this.data.user.email = form.value.email;
-      this.data.user.password = form.value.password;
-      this.data.user.loggedin = true;
+    if(form.valid)
+    {
+      this.accountService.login(form.value.email, form.value.password).subscribe(_ => {
+        this.data.user.email = form.value.email;
+        this.data.user.password = form.value.password;
+        this.data.user.loggedin = true;
+        this.router.navigate(['/Classes', this.rout]);
 
-    }, (errorResponse: HttpErrorResponse) => {
-      
-    });
+      }, (errorResponse: HttpErrorResponse) => {
+        this.validEmail = false;
+      });
+    }
   }
 
 

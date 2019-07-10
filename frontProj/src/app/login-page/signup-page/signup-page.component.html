@@ -16,24 +16,24 @@
         <div id="signup">
           <h1>Sign Up for Free</h1>
 
-        <form action="/" method="post">
+        <form #SignupForm="ngForm" (ngSubmit)="onSubmit(SignupForm)">
 
           <div class="top-row">
             <div class="field-wrap">
-              <input type="text" placeholder="First Name" required autocomplete="off" />
+              <input type="text" placeholder="First Name" required autocomplete="off" ngModel name = 'firstName'/>
             </div>
 
             <div class="field-wrap">
-              <input type="text" placeHolder="Last Name" required autocomplete="off"/>
+              <input type="text" placeHolder="Last Name" required autocomplete="off" ngModel name = 'lastName'/>
             </div>
           </div>
 
           <div class="field-wrap">
-            <input type="email"required placeholder="Email Address" autocomplete="off"/>
+            <input type="email"required placeholder="Email Address" autocomplete="off" ngModel name = 'email'/>
           </div>
 
           <div class="field-wrap">
-            <input type="password"required  placeholder="Set a Password "  autocomplete="off"/>
+            <input type="password"required  placeholder="Set a Password "  autocomplete="off" ngModel name = 'password'/>
           </div>
 
              <button type="submit" class="button button-block">Get Started</button>
